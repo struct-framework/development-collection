@@ -1,10 +1,10 @@
 <?php
-
 declare(strict_types=1);
 
-namespace Struct\Struct\Contracts;
+namespace Struct\DataType\Contracts;
 
-interface DataTypeInterface
+
+interface DataTypeInterface extends \Stringable
 {
     public function serializeToString(): string;
 

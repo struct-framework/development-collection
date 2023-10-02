@@ -67,6 +67,11 @@
         }
     ],
     "dataType": {
-        "month": "2023-08"
+        "month": "2023-08",
+        "amount": "134.78 EUR"
+    },
+    "amount": {
+        "value": 200,
+        "currency": "EUR"
     }
 }

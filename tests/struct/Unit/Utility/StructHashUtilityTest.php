@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Struct\Struct\Tests\Unit\Utility;
 
 use PHPUnit\Framework\TestCase;
+use Struct\DataType\Month;
 use Struct\Struct\Tests\Fixtures\Struct\Company;
 use Struct\Struct\Tests\Fixtures\Struct\HashStruct01;
 use Struct\Struct\Tests\Fixtures\Struct\HashStruct02;
@@ -27,7 +28,7 @@ class StructHashUtilityTest extends TestCase
     public function testBuildHash(): void
     {
         $companyHash = $this->subject->buildHash($this->company);
-        self::assertSame('6dd6d40fd71bd0b7fa6e522a0bca31ac13bd406307b1abc30f48f02754f6d4d5bee0bd911c3fa1f5090c0d76b0767073ca70be44f67f5babdc9fae02c5c35bb0', bin2hex($companyHash));
+        self::assertSame('d06c2baa29c57e6d1e5d5e906e754e1d01a9be53889c5dc7603b602cfb9771c37b0dc3cb822f4b1607624148526d73591847ef3c63c3a9ef61edcb779c7aee01', bin2hex($companyHash));
     }
 
     public function testBuildHashStruct01(): void

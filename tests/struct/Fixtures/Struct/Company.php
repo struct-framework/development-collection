@@ -57,4 +57,6 @@ class Company implements StructInterface
     public array $references = [];
 
     public DataType $dataType;
+
+    public Amount $amount;
 }

@@ -6,21 +6,12 @@ namespace Struct\DataType;
 
 use Struct\DataType\Exception\DeserializeException;
 use Struct\DataType\Exception\InvalidArgumentException;
-use Struct\Struct\Contracts\DataTypeInterface;
 
-class Month implements DataTypeInterface, \Stringable
+final class Month extends AbstractDataType
 {
     protected int $year;
 
     protected int $month;
-
-    public function __construct(?string $serializedMonth = null)
-    {
-        if($serializedMonth === null) {
-            return;
-        }
-        $this->_deserializeToString($serializedMonth);
-    }
 
 
     public function setMonth(int $month): void
@@ -50,7 +41,7 @@ class Month implements DataTypeInterface, \Stringable
     }
 
 
-    public function serializeToString(): string
+    protected function _serializeToString(): string
     {
         $monthString = (string) $this->month;
         if(strlen($monthString) === 1) {
@@ -60,15 +51,7 @@ class Month implements DataTypeInterface, \Stringable
         return $serializedData;
     }
 
-
-    public static function deserializeToString(string $serializedData): self
-    {
-        $monthModel = new Month();
-        $monthModel->_deserializeToString($serializedData);
-        return $monthModel;
-    }
-
-    private function _deserializeToString(string $serializedData)
+    protected function _deserializeToString(string $serializedData): void
     {
         if(\strlen($serializedData) !== 7) {
             throw new DeserializeException('The value serialized data string must have 7 characters', 1696227826);
@@ -93,9 +76,27 @@ class Month implements DataTypeInterface, \Stringable
         }
     }
 
-    public function __toString(): string
+    public function increment(): void
     {
-        return $this->serializeToString();
+        $this->month++;
+        if($this->month > 12) {
+            $this->month = 1;
+            $this->year++;
+        }
+    }
+
+    public function compare(ComparableInterface $comparable): int
+    {
+        if($comparable instanceof Month === false) {
+            throw new \Exception('sdhfdafgh');
+        }
+
+        if($this->month === $comparable->month && $this->year === $comparable->year) {
+            return 0;
+        }
+
+
+        return 9000;
     }
 
 

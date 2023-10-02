@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Struct\Struct\Tests\Preparer;
 
+use Struct\DataType\Amount;
 use Struct\DataType\Month;
+use Struct\Struct\Factory\StructFactory;
 use Struct\Struct\Tests\Fixtures\Struct\Address;
 use Struct\Struct\Tests\Fixtures\Struct\Company;
 use Struct\Struct\Tests\Fixtures\Struct\Contact;
@@ -19,7 +21,7 @@ class CompanyPreparer
 {
     public function buildCompany(): Company
     {
-        $company = new Company();
+        $company = StructFactory::create(Company::class);
         $company->name = 'Musterfirma';
         $company->foundingDate = new \DateTime('2000-02-05 14:35:12', new \DateTimeZone('Europe/Berlin'));
 
@@ -115,6 +117,11 @@ class CompanyPreparer
         // Data type month
         $month = new Month('2023-08');
         $dataType->month = $month;
+
+        // Data type amount
+        $amount = new Amount();
+        $amount->setValue(13478);
+        $dataType->amount = $amount;
 
         return $dataType;
     }
