@@ -28,12 +28,15 @@
     "psr-4": {
       "Struct\\Struct\\": "packages/struct/src",
       "Struct\\Struct\\Private\\": "packages/struct/src-private",
-      "Struct\\Struct\\Contracts\\": "packages/struct-contracts/src"
+      "Struct\\Struct\\Contracts\\": "packages/struct-contracts/src",
+
+      "Struct\\DataType\\": "packages/struct-data-type/src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Struct\\Struct\\Tests\\": "tests"
+      "Struct\\Struct\\Tests\\": "tests/struct",
+      "Struct\\DataType\\Tests\\": "tests/struct-data-type"
     }
   }
 }

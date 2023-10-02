@@ -12,6 +12,7 @@ use Struct\Struct\Tests\Fixtures\Struct\Wrong;
 use Struct\Struct\Tests\Preparer\CompanyPreparer;
 use Struct\Struct\Tests\Proxy\Utility\StructSerializeUtilityProxy;
 
+
 class StructSerializeUtilityTest extends TestCase
 {
     protected StructSerializeUtilityProxy $subject;

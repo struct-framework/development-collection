@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Struct\Struct\Tests\Preparer;
 
+use Struct\DataType\Month;
 use Struct\Struct\Tests\Fixtures\Struct\Address;
 use Struct\Struct\Tests\Fixtures\Struct\Company;
 use Struct\Struct\Tests\Fixtures\Struct\Contact;
+use Struct\Struct\Tests\Fixtures\Struct\DataType;
 use Struct\Struct\Tests\Fixtures\Struct\Enum\Category;
 use Struct\Struct\Tests\Fixtures\Struct\Person;
 use Struct\Struct\Tests\Fixtures\Struct\Reference;
@@ -102,6 +104,18 @@ class CompanyPreparer
             $reference02
         ];
 
+        $company->dataType = $this->buildDataType();
         return $company;
+    }
+
+    protected function buildDataType(): DataType
+    {
+        $dataType = new DataType();
+
+        // Data type month
+        $month = new Month('2023-08');
+        $dataType->month = $month;
+
+        return $dataType;
     }
 }

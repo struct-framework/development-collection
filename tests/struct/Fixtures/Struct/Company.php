@@ -55,4 +55,6 @@ class Company implements StructInterface
      */
     #[ArrayKeyList(Reference::class)]
     public array $references = [];
+
+    public DataType $dataType;
 }

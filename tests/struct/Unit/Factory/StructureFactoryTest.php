@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Tests\Unit\Factory;
+namespace Struct\Struct\Tests\struct\Unit\Factory;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\Factory\StructFactory;
