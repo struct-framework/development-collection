@@ -32,4 +32,20 @@ class CalculateTest extends TestCase
         $amountResult = Calculate::sum([$amount01, $amount02]);
         self::assertSame('1498.42 EUR', $amountResult->serializeToString());
     }
+
+    public function testAdd(): void
+    {
+        $amount01 = new Amount('1256.95 EUR');
+        $amount02 = new Amount('241.47 EUR');
+        $amountResult = Calculate::add($amount01, $amount02);
+        self::assertSame('1498.42 EUR', $amountResult->serializeToString());
+    }
+
+    public function testSub(): void
+    {
+        $amount01 = new Amount('1256.95 EUR');
+        $amount02 = new Amount('241.47 EUR');
+        $amountResult = Calculate::sub($amount01, $amount02);
+        self::assertSame('1015.48 EUR', $amountResult->serializeToString());
+    }
 }

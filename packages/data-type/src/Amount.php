@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Struct\DataType;
 
+use Struct\Contracts\Operator\SubInterface;
 use Struct\Contracts\Operator\SumInterface;
 use Struct\DataType\Enum\AmountVolume;
 use Struct\DataType\Enum\Currency;
-use Struct\Exception\Operator\SumException;
+use Struct\Exception\Operator\DataTypeException;
 use Struct\Exception\Serialize\DeserializeException;
 
-final class Amount extends AbstractDataType implements SumInterface
+final class Amount extends AbstractDataType implements SumInterface, SubInterface
 {
     protected int $value;
     protected Currency $currency = Currency::EUR;
@@ -182,18 +183,18 @@ final class Amount extends AbstractDataType implements SumInterface
         $currency = null;
 
         if (count($summandList) === 0) {
-            throw new SumException('There must be at least one summand', 1696344667);
+            throw new DataTypeException('There must be at least one summand', 1696344667);
         }
 
         foreach ($summandList as $summand) {
             if ($summand instanceof self === false) {
-                throw new SumException('All summand must be of type: ' . self::class, 1696344427);
+                throw new DataTypeException('All summand must be of type: ' . self::class, 1696344427);
             }
             if ($currency === null) {
                 $currency = $summand->currency;
             }
             if ($summand->currency !== $currency) {
-                throw new SumException('All summand must have the same currency', 1696344461);
+                throw new DataTypeException('All summand must have the same currency', 1696344461);
             }
             if ($summand->getAmountVolume() === AmountVolume::Base) {
                 $amountVolume = AmountVolume::Base;
@@ -247,6 +248,20 @@ final class Amount extends AbstractDataType implements SumInterface
         $result->setCurrency($currency);
         $result->setValue($sum);
 
+        return $result;
+    }
+
+    public static function sub(SubInterface $minuend, SubInterface $subtrahend): self
+    {
+        if ($minuend instanceof self === false) {
+            throw new DataTypeException('Minuend must be of type: ' . self::class, 1696347279);
+        }
+        if ($subtrahend instanceof self === false) {
+            throw new DataTypeException('Subtrahend must be of type: ' . self::class, 1696347282);
+        }
+        $subtrahend = clone $subtrahend;
+        $subtrahend->value *= -1;
+        $result = self::sum([$minuend, $subtrahend]);
         return $result;
     }
 }

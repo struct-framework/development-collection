@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 namespace Struct\Exception\Operator;
 
-class SumException extends \RuntimeException
+class DataTypeException extends \RuntimeException
 {
 }
