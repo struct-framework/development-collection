@@ -6,12 +6,13 @@ namespace Struct\DataType;
 
 use InvalidArgumentException;
 use Struct\Contracts\Operator\ComparableInterface;
+use Struct\Contracts\Operator\IncrementableInterface;
 use Struct\Contracts\Serialize\SerializableToInt;
 use Struct\Enum\Operator\Comparison;
 use Struct\Exception\Operator\CompareException;
 use Struct\Exception\Serialize\DeserializeException;
 
-final class Month extends AbstractDataType implements SerializableToInt, ComparableInterface
+final class Month extends AbstractDataType implements SerializableToInt, ComparableInterface, IncrementableInterface
 {
     protected int $year;
 
@@ -116,5 +117,23 @@ final class Month extends AbstractDataType implements SerializableToInt, Compara
             return Comparison::greaterThan;
         }
         return Comparison::equal;
+    }
+
+    public function increment(): void
+    {
+        $this->month++;
+        if ($this->month > 12) {
+            $this->month = 1;
+            $this->year++;
+        }
+    }
+
+    public function decrement(): void
+    {
+        $this->month--;
+        if ($this->month < 1) {
+            $this->month = 12;
+            $this->year--;
+        }
     }
 }
