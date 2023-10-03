@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Struct\DataType;
 
+use Struct\Contracts\Operator\SumInterface;
 use Struct\DataType\Enum\AmountVolume;
 use Struct\DataType\Enum\Currency;
+use Struct\Exception\Operator\SumException;
 use Struct\Exception\Serialize\DeserializeException;
 
-final class Amount extends AbstractDataType
+final class Amount extends AbstractDataType implements SumInterface
 {
     protected int $value;
     protected Currency $currency = Currency::EUR;
@@ -171,5 +173,80 @@ final class Amount extends AbstractDataType
         $amount .= $this->amountVolume->value;
         $amount .= $this->currency->name;
         return $amount;
+    }
+
+    public static function sum(array $summandList): self
+    {
+        $amountVolume = AmountVolume::Million;
+        $decimals = 0;
+        $currency = null;
+
+        if (count($summandList) === 0) {
+            throw new SumException('There must be at least one summand', 1696344667);
+        }
+
+        foreach ($summandList as $summand) {
+            if ($summand instanceof self === false) {
+                throw new SumException('All summand must be of type: ' . self::class, 1696344427);
+            }
+            if ($currency === null) {
+                $currency = $summand->currency;
+            }
+            if ($summand->currency !== $currency) {
+                throw new SumException('All summand must have the same currency', 1696344461);
+            }
+            if ($summand->getAmountVolume() === AmountVolume::Base) {
+                $amountVolume = AmountVolume::Base;
+            }
+            if (
+                $summand->getAmountVolume() === AmountVolume::Thousand &&
+                $amountVolume === AmountVolume::Million
+            ) {
+                $amountVolume = AmountVolume::Thousand;
+            }
+            if ($summand->getDecimals() > $decimals) {
+                $decimals = $summand->getDecimals();
+            }
+        }
+
+        $sum = 0;
+
+        /** @var Amount $summand */
+        foreach ($summandList as $summand) {
+            $tensShift = 10 ** ($decimals - $summand->decimals);
+
+            $volumeShift = 1;
+            if (
+                $amountVolume === AmountVolume::Base &&
+                $summand->getAmountVolume() === AmountVolume::Thousand
+            ) {
+                $volumeShift = 1000;
+            }
+
+            if (
+                $amountVolume === AmountVolume::Base &&
+                $summand->getAmountVolume() === AmountVolume::Million
+            ) {
+                $volumeShift = 1000 * 1000;
+            }
+
+            if (
+                $amountVolume === AmountVolume::Thousand &&
+                $summand->getAmountVolume() === AmountVolume::Million
+            ) {
+                $volumeShift = 1000;
+            }
+
+            $value = $summand->value * $tensShift * $volumeShift;
+            $sum += $value;
+        }
+
+        $result = new self();
+        $result->setDecimals($decimals);
+        $result->setAmountVolume($amountVolume);
+        $result->setCurrency($currency);
+        $result->setValue($sum);
+
+        return $result;
     }
 }
