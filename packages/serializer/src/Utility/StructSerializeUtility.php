@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Struct\Serializer\Utility;
 
+use Struct\Contracts\Serializer\StructSerializerInterface;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\UnexpectedException;
 use Struct\Serializer\Private\Utility\SerializeUtility;
 use Struct\Serializer\Private\Utility\UnSerializeUtility;
 
-class StructSerializeUtility
+class StructSerializeUtility implements StructSerializerInterface
 {
     protected SerializeUtility $serializeUtility;
     protected UnSerializeUtility $unSerializeUtility;
@@ -28,7 +29,12 @@ class StructSerializeUtility
         return $this->serializeUtility->serialize($structure);
     }
 
-    public function serializeJson(StructInterface $structure): string
+    public function deserialize(object|array $data, string $type): StructInterface
+    {
+        return $this->unSerializeUtility->unSerialize($data, $type);
+    }
+
+    public function serializeToJson(StructInterface $structure): string
     {
         $dataArray = $this->serialize($structure);
         $dataJson = \json_encode($dataArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -38,19 +44,7 @@ class StructSerializeUtility
         return $dataJson;
     }
 
-    /**
-     * @param mixed[]|object $data
-     * @param class-string<StructInterface> $type
-     */
-    public function unSerialize(array|object $data, string $type): StructInterface
-    {
-        return $this->unSerializeUtility->unSerialize($data, $type);
-    }
-
-    /**
-     * @param class-string<StructInterface> $type
-     */
-    public function unSerializeJson(string $dataJson, string $type): StructInterface
+    public function deserializeFromJson(string $dataJson, string $type): StructInterface
     {
         try {
             /** @var mixed[] $dataArray */

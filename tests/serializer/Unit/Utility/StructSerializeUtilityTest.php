@@ -31,7 +31,7 @@ class StructSerializeUtilityTest extends TestCase
 
     public function testFullSerialize(): void
     {
-        $companyJson = $this->subject->serializeJson($this->company);
+        $companyJson = $this->subject->serializeToJson($this->company);
         self::assertSame($this->expectation, $companyJson);
     }
 
@@ -39,7 +39,7 @@ class StructSerializeUtilityTest extends TestCase
     {
         $companyArrayExpectation = $this->subject->serialize($this->company);
         /** @var Company $companyUnSerialize */
-        $companyUnSerialize = $this->subject->unSerialize($companyArrayExpectation, Company::class);
+        $companyUnSerialize = $this->subject->deserialize($companyArrayExpectation, Company::class);
         self::assertSame($this->company->name, $companyUnSerialize->name);
     }
 
@@ -50,21 +50,21 @@ class StructSerializeUtilityTest extends TestCase
         $this->subject->serialize($wrong);
     }
 
-    public function testUnSerializeBadType(): StructInterface
+    public function testDeserializeFromJsonBadType(): StructInterface
     {
         $this->expectException(InvalidValueException::class);
-        return $this->subject->unSerializeJson($this->expectation, 'ImNotAnStructure');  // @phpstan-ignore-line
+        return $this->subject->deserializeFromJson($this->expectation, 'ImNotAnStructure');  // @phpstan-ignore-line
     }
 
-    public function testUnSerialize(): void
+    public function testDeserializeFromJson(): void
     {
-        $company = $this->subject->unSerializeJson($this->expectation, Company::class);
+        $company = $this->subject->deserializeFromJson($this->expectation, Company::class);
         self::assertInstanceOf(Company::class, $company);
     }
 
-    public function testUnSerializeObject(): void
+    public function testDeserializeObject(): void
     {
-        $company = $this->subject->unSerialize($this->company, Company::class);
+        $company = $this->subject->deserialize($this->company, Company::class);
         self::assertInstanceOf(Company::class, $company);
     }
 }

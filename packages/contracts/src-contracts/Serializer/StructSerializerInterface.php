@@ -15,11 +15,11 @@ interface StructSerializerInterface
     public function serialize(StructInterface $structure): array;
 
     /**
-     * @param mixed[] $data
+     * @param mixed[]|object $data
      * @param class-string<StructInterface> $type
      * @return StructInterface
      */
-    public function deserialize(array $data, string $type): StructInterface;
+    public function deserialize(array|object $data, string $type): StructInterface;
 
     /**
      * @param StructInterface $structure
