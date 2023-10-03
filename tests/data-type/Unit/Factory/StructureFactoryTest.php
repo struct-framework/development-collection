@@ -11,7 +11,6 @@ use Struct\TestData\Fixtures\Struct\DataType;
 
 class StructureFactoryTest extends TestCase
 {
-
     public function testCreateDataType(): void
     {
         $dataType = StructFactory::create(DataType::class);

@@ -25,6 +25,6 @@ class StructureFactoryTest extends TestCase
         $company = StructFactory::create(Company::class);
         self::assertNull($company->dataType->monthNull);
         self::assertInstanceOf(Month::class, $company->dataType->month);
-        #self::assertSame('2013-09', $company->dataType->month->serializeToString());
+        //self::assertSame('2013-09', $company->dataType->month->serializeToString());
     }
 }
