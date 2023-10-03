@@ -7,7 +7,7 @@ namespace Struct\Struct\Factory;
 use Struct\Contracts\DataType\DataTypeInterface;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidStructException;
-use Struct\Exception\UnexpectedException;
+use Struct\Struct\Private\Placeholder\Undefined;
 use Struct\Struct\Struct\StructureProperty;
 use Struct\Struct\Utility\StructurePropertyUtility;
 
@@ -27,7 +27,10 @@ class StructFactory
         $properties = StructurePropertyUtility::readProperties($structure);
         foreach ($properties as $property) {
             $name = $property->name;
-            $structure->$name = self::buildValue($property); // @phpstan-ignore-line
+            $value = self::buildValue($property);
+            if ($value instanceof Undefined === false) {
+                $structure->$name = $value; // @phpstan-ignore-line
+            }
         }
         return $structure;
     }
@@ -51,33 +54,17 @@ class StructFactory
         if (\is_a($type, StructInterface::class, true) === true) {
             return self::create($type);
         }
-
-        if ($type === 'string') {
-            return '';
-        }
-        if ($type === 'int') {
-            return 0;
-        }
-        if ($type === 'float') {
-            return 0.0;
-        }
-        if ($type === 'bool') {
-            return false;
-        }
-
-        if (\is_a($type, \DateTimeInterface::class, true) === true) {
-            try {
-                return new \DateTime('2000-01-01 00:00:00', new \DateTimeZone('UTC'));
-            } catch (\Exception $exception) { // @phpstan-ignore-line
-                throw new UnexpectedException(1675967987, $exception);
-            }
-        }
-        if (\is_a($type, DataTypeInterface::class, true) === true) {
-            $dataType = new $type();
-            return $dataType;
-        }
-        if (\is_a($type, \UnitEnum::class, true) === true) {
-            return $type::cases()[0];
+        if (
+            $type === 'string' ||
+            $type === 'int' ||
+            $type === 'float' ||
+            $type === 'bool' ||
+            \is_a($type, \DateTimeInterface::class, true) === true ||
+            \is_a($type, DataTypeInterface::class, true) === true ||
+            \is_a($type, \UnitEnum::class, true) === true
+        ) {
+            $undefined = new Undefined();
+            return $undefined;
         }
         throw new InvalidStructException('The type <' . $type . '> is not supported', 1675967989);
     }
