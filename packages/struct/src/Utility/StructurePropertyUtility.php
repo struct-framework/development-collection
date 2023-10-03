@@ -6,6 +6,7 @@ namespace Struct\Struct\Utility;
 
 use ReflectionProperty;
 use Struct\Attribute\DefaultValue;
+use Struct\Contracts\DataType\DataTypeInterface;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidValueException;
 use Struct\Exception\UnexpectedException;
@@ -97,6 +98,13 @@ class StructurePropertyUtility
             }
             $type = $property->getType();
             $typeName = $type->getName(); // @phpstan-ignore-line
+
+            if (\is_a($typeName, DataTypeInterface::class, true) === true) {
+                $defaultValueString = $attributeArguments[0];
+                $defaultValue = $typeName::deserializeFromString($defaultValueString);
+                $structureProperty->hasDefaultValue = true;
+                $structureProperty->defaultValue = $defaultValue;
+            }
 
             if (\is_a($typeName, \DateTimeInterface::class, true) === true) {
                 try {
