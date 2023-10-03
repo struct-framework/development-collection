@@ -18,8 +18,10 @@ use Struct\Struct\Private\Helper\PropertyReflectionHelper;
 class UnSerializeUtility
 {
     /**
-     * @param class-string<StructInterface> $type
-     * @return StructInterface
+     * @template T of StructInterface
+     * @param array<mixed>|Object $data
+     * @param class-string<T> $type
+     * @return T
      */
     public function unSerialize(array|Object $data, string $type): StructInterface
     {
@@ -31,14 +33,40 @@ class UnSerializeUtility
     {
         $dataType = $this->_findDataType($data, $type);
         $result = match ($dataType) {
+            SerializeDataType::StructureType  => $this->_unSerializeStructure($data, $type), // @phpstan-ignore-line
             SerializeDataType::NullType => $this->parseNull($propertyReflection),
             SerializeDataType::EnumType => $this->_unSerializeEnum($data, $type),
-            SerializeDataType::StructureType  => $this->_unSerializeStructure($data, $type),
             SerializeDataType::ArrayType => $this->_unSerializeArray($data, $propertyReflection),
-            SerializeDataType::DataType => $this->_unSerializeDataType($data, $propertyReflection),
+            SerializeDataType::DataType => $this->_unSerializeDataType($data, $propertyReflection), // @phpstan-ignore-line
             SerializeDataType::BuildInType => $this->_unSerializeBuildIn($data, $type, $propertyReflection),
         };
         return $result;
+    }
+
+    /**
+     * @template T of StructInterface
+     * @param class-string<T> $type
+     * @return T
+     */
+    protected function _unSerializeStructure(mixed $data, string $type): StructInterface
+    {
+        $dataArray = $this->_transformObjectToArray($data);
+        if (is_a($type, StructInterface::class, true) === false) {
+            throw new InvalidValueException('The type: <' . $type . '> must implement <' . StructInterface::class . '>', 1652123590);
+        }
+        $structure = new $type();
+        $propertyReflections = PropertyReflectionHelper::readProperties($structure);
+
+        foreach ($propertyReflections as $propertyReflection) {
+            $name = $propertyReflection->name;
+            $value = null;
+            if (\array_key_exists($name, $dataArray) === true) {
+                $value = $dataArray[$name];
+            }
+            $structure->$name = $this->_unSerialize($value, $propertyReflection->type, $propertyReflection);  // @phpstan-ignore-line
+        }
+
+        return $structure;
     }
 
     protected function _findDataType(mixed $data, string $type): SerializeDataType
@@ -87,27 +115,10 @@ class UnSerializeUtility
         throw new \LogicException('The value <' . $data . '> is not allowed for Enum <' . $type . '>', 1652899974);
     }
 
-    protected function _unSerializeStructure(mixed $data, string $type): StructInterface
-    {
-        $dataArray = $this->_transformObjectToArray($data);
-        if (is_a($type, StructInterface::class, true) === false) {
-            throw new InvalidValueException('The type: <' . $type . '> must implement <' . StructInterface::class . '>', 1652123590);
-        }
-        $structure = new $type();
-        $propertyReflections = PropertyReflectionHelper::readProperties($structure);
-
-        foreach ($propertyReflections as $propertyReflection) {
-            $name = $propertyReflection->name;
-            $value = null;
-            if (\array_key_exists($name, $dataArray) === true) {
-                $value = $dataArray[$name];
-            }
-            $structure->$name = $this->_unSerialize($value, $propertyReflection->type, $propertyReflection);  // @phpstan-ignore-line
-        }
-
-        return $structure;
-    }
-
+    /**
+     * @param mixed $data
+     * @return array<mixed>
+     */
     protected function _transformObjectToArray(mixed $data): array
     {
         if (\is_array($data) === true) {
@@ -143,6 +154,11 @@ class UnSerializeUtility
         return $dataType;
     }
 
+    /**
+     * @param mixed $dataArray
+     * @param PropertyReflection $propertyReflection
+     * @return array<mixed>
+     */
     protected function _unSerializeArray(mixed $dataArray, PropertyReflection $propertyReflection): array
     {
         if (\is_array($dataArray) === false) {

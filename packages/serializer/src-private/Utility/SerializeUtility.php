@@ -12,12 +12,20 @@ use Struct\Serializer\Private\Helper\TransformHelper;
 
 class SerializeUtility
 {
+    /**
+     * @param StructInterface $structure
+     * @return array<mixed>
+     */
     public function serialize(StructInterface $structure): array
     {
         $serializedData = $this->_serialize($structure);
         return $serializedData;
     }
 
+    /**
+     * @param StructInterface $structure
+     * @return array<mixed>
+     */
     public function _serialize(StructInterface $structure): array
     {
         $serializedData = [];
@@ -94,6 +102,10 @@ class SerializeUtility
         throw new InvalidStructException('The type of value is not supported', 1651515873);
     }
 
+    /**
+     * @param array<mixed> $value
+     * @return array<mixed>
+     */
     protected function formatArrayValue(array $value): array
     {
         $isList = \array_is_list($value);
@@ -108,6 +120,10 @@ class SerializeUtility
         return $values;
     }
 
+    /**
+     * @param object $value
+     * @return array<mixed>|string
+     */
     protected function formatObjectValue(object $value): array|string
     {
         if (\is_a($value, \DateTimeInterface::class)) {

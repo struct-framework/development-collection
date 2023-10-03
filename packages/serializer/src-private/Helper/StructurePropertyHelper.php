@@ -95,12 +95,12 @@ class StructurePropertyHelper
                 continue;
             }
             $type = $property->getType();
-            $typeName = $type->getName();
+            $typeName = $type->getName(); // @phpstan-ignore-line
 
             if (\is_a($typeName, \DateTimeInterface::class, true) === true) {
                 try {
                     $defaultValue = new \DateTime($attributeArguments[0]);
-                } catch (\Exception $exception) { // @phpstan-ignore-line
+                } catch (\Exception $exception) {
                     throw new UnexpectedException(1675967987, $exception);
                 }
                 $structureProperty->hasDefaultValue = true;
