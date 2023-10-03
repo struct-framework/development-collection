@@ -1,0 +1,15 @@
+{
+  "name": "struct/contracts",
+  "license": "MIT",
+  "description": "Simple package for providing contracts for structured and more complex data types, similar to 'Struct' in other programming languages",
+  "require": {
+    "php": "~8.2.7|~8.1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Struct\\Attribute\\": "src-attribute",
+      "Struct\\Contracts\\": "src-contracts",
+      "Struct\\Exception\\": "src-exception"
+    }
+  }
+}

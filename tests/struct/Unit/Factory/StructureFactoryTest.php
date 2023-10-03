@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Tests\struct\Unit\Factory;
+namespace Struct\Struct\Tests\Unit\Factory;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\Factory\StructFactory;
-use Struct\Struct\Tests\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\Company;
 
 class StructureFactoryTest extends TestCase
 {

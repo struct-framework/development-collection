@@ -20,6 +20,8 @@
     "struct/data-type-contracts": "self.version"
   },
   "require-dev": {
+    "ext-simplexml": "*",
+    "symfony/process": "^6.3",
     "phpstan/phpstan": "^1.10.28",
     "phpstan/phpstan-strict-rules": "^1.5.1",
     "thecodingmachine/phpstan-strict-rules": "^v1.0.0",
@@ -28,18 +30,32 @@
   },
   "autoload": {
     "psr-4": {
+      "Struct\\Attribute\\": "packages/contracts/src-attribute",
+      "Struct\\Contracts\\": "packages/contracts/src-contracts",
+      "Struct\\Exception\\": "packages/contracts/src-exception",
+
+      "Struct\\Serializer\\": "packages/serializer/src",
+      "Struct\\Serializer\\Private\\": "packages/serializer/src-private",
+
       "Struct\\Struct\\": "packages/struct/src",
       "Struct\\Struct\\Private\\": "packages/struct/src-private",
-      "Struct\\Struct\\Contracts\\": "packages/struct-contracts/src",
 
-      "Struct\\DataType\\": "packages/data-type/src",
-      "Struct\\DataType\\Contracts\\": "packages/data-type-contracts/src"
+      "Struct\\DataType\\": "packages/data-type/src"
     }
   },
   "autoload-dev": {
     "psr-4": {
+      "Struct\\Development\\": "src",
+      "Struct\\TestData\\": "tests/test-data",
+      "Struct\\Serializer\\Tests\\": "tests/serializer",
       "Struct\\Struct\\Tests\\": "tests/struct",
-      "Struct\\DataType\\Tests\\": "tests/struct-data-type"
+      "Struct\\DataType\\Tests\\": "tests/data-type"
     }
+  },
+  "bin": [
+    "binary/console"
+  ],
+  "config": {
+    "bin-dir": "bin"
   }
 }

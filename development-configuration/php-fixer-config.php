@@ -9,8 +9,7 @@ if (PHP_SAPI !== 'cli') {
 
 $finder = Finder::create()
     ->in([
-        'packages/**/src',
-        'packages/**/src-private',
+        'packages/**/src*',
         'tests'
     ]);
 

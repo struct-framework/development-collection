@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace Struct\Struct\Tests\Unit\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Struct\DataType\Month;
-use Struct\Struct\Tests\Fixtures\Struct\Company;
-use Struct\Struct\Tests\Fixtures\Struct\HashStruct01;
-use Struct\Struct\Tests\Fixtures\Struct\HashStruct02;
-use Struct\Struct\Tests\Preparer\CompanyPreparer;
 use Struct\Struct\Utility\StructHashUtility;
+use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\HashStruct01;
+use Struct\TestData\Fixtures\Struct\HashStruct02;
+use Struct\TestData\Preparer\CompanyPreparer;
 
 class StructHashUtilityTest extends TestCase
 {
