@@ -1,5 +1,5 @@
 {
-  "name": "struct/struct",
+  "name": "struct/serializer",
   "license": "MIT",
   "description": "Simple package for serializing structured and more complex data types, similar to 'Struct' in other programming languages",
   "require": {
