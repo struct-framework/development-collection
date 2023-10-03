@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct;
 
+use Struct\Attribute\ArrayList;
 use Struct\Contracts\StructInterface;
-use Struct\Struct\Contracts\Attribute\ArrayList;
 
 class Reference implements StructInterface
 {

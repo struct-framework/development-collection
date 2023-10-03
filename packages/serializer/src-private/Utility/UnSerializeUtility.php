@@ -2,17 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Private\Utility;
+namespace Struct\Serializer\Private\Utility;
 
-use Struct\DataType\Contracts\DataTypeInterface;
-use Struct\Serializer\Private\Helper\PropertyReflectionHelper;
+use Struct\Contracts\DataType\DataTypeInterface;
+use Struct\Contracts\StructInterface;
+
+use Struct\Exception\InvalidValueException;
+use Struct\Exception\Serializer\TransformException;
+use Struct\Exception\UnexpectedException;
+use Struct\Serializer\Private\Enum\SerializeDataType;
 use Struct\Serializer\Private\Helper\TransformHelper;
-use Struct\Struct\Contracts\StructInterface;
-use Struct\Struct\Exception\InvalidValueException;
-use Struct\Struct\Exception\TransformException;
-use Struct\Struct\Exception\UnexpectedException;
-use Struct\Struct\Private\Enum\SerializeDataType;
-use Struct\Struct\Private\Struct\PropertyReflection;
+use Struct\Serializer\Private\Struct\PropertyReflection;
+use Struct\Struct\Private\Helper\PropertyReflectionHelper;
 
 class UnSerializeUtility
 {

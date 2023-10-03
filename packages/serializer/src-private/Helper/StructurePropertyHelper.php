@@ -6,9 +6,9 @@ namespace Struct\Serializer\Private\Helper;
 
 use ReflectionProperty;
 use Struct\Contracts\StructInterface;
-use Struct\Exception\Serializer\InvalidValueException;
+use Struct\Exception\InvalidValueException;
 use Struct\Exception\UnexpectedException;
-use Struct\Struct\Private\Struct\StructureProperty;
+use Struct\Struct\Struct\StructureProperty;
 
 class StructurePropertyHelper
 {
@@ -87,7 +87,7 @@ class StructurePropertyHelper
         $attributes = $property->getAttributes();
         foreach ($attributes as $attribute) {
             $name = $attribute->getName();
-            if ($name !== 'Struct\Struct\Contracts\Attribute\DefaultValue') {
+            if ($name !== 'Struct\Serializer\Contracts\Attribute\DefaultValue') {
                 continue;
             }
             $attributeArguments = $attribute->getArguments();

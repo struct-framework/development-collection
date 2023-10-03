@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Private\Helper;
+namespace Struct\Serializer\Private\Helper;
 
-use Struct\Struct\Exception\TransformException;
+use Struct\Serializer\Exception\TransformException;
 
 class TransformHelper
 {

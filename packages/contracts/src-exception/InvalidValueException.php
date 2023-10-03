@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Exception\Serializer;
+namespace Struct\Exception;
 
 use LogicException;
 use Throwable;

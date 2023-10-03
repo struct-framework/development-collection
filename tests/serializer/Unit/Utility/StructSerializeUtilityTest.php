@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Tests\Unit\Utility;
+namespace Struct\Serializer\Tests\Unit\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Struct\Struct\Contracts\StructInterface;
-use Struct\Struct\Exception\InvalidValueException;
-use Struct\Struct\Tests\Fixtures\Struct\Company;
-use Struct\Struct\Tests\Fixtures\Struct\Wrong;
-use Struct\Struct\Tests\Preparer\CompanyPreparer;
-use Struct\Struct\Tests\Proxy\Utility\StructSerializeUtilityProxy;
+use Struct\Contracts\StructInterface;
+use Struct\Exception\InvalidStructException;
+use Struct\Exception\InvalidValueException;
+use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\Wrong;
+use Struct\TestData\Preparer\CompanyPreparer;
+use Struct\TestData\Proxy\Utility\StructSerializeUtilityProxy;
 
 class StructSerializeUtilityTest extends TestCase
 {
@@ -24,7 +25,7 @@ class StructSerializeUtilityTest extends TestCase
         $this->subject = new StructSerializeUtilityProxy();
         $companyPreparer = new CompanyPreparer();
         $this->company = $companyPreparer->buildCompany();
-        $this->expectation = (string) \file_get_contents(__DIR__ . '/../../Expectation/Company.json');
+        $this->expectation = (string) \file_get_contents(__DIR__ . '/../../../test-data/Expectation/Company.json');
         $this->expectation = \substr($this->expectation, 0, -1);
     }
 
@@ -45,7 +46,7 @@ class StructSerializeUtilityTest extends TestCase
     public function testInvalidValueException(): void
     {
         $wrong = new Wrong();
-        $this->expectException(InvalidValueException::class);
+        $this->expectException(InvalidStructException::class);
         $this->subject->serialize($wrong);
     }
 

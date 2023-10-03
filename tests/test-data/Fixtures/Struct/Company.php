@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct;
 
-use Struct\Contracts\Attribute\ArrayKeyList;
-use Struct\Contracts\Attribute\ArrayList;
-use Struct\Contracts\Attribute\DefaultValue;
+use Struct\Attribute\ArrayKeyList;
+use Struct\Attribute\ArrayList;
+use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 

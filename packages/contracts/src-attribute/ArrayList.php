@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Contracts\Attribute;
+namespace Struct\Attribute;
 
 use Attribute;
 

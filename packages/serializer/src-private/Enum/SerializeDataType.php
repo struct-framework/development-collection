@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Private\Enum;
+namespace Struct\Serializer\Private\Enum;
 
 enum SerializeDataType: string
 {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct;
 
+use Struct\Attribute\ArrayKeyList;
 use Struct\Contracts\StructInterface;
-use Struct\Struct\Contracts\Attribute\ArrayKeyList;
 
 class Person implements StructInterface
 {
