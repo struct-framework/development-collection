@@ -68,7 +68,9 @@
     ],
     "dataType": {
         "month": "2023-08",
-        "amount": "134.78 EUR"
+        "amount": "134.78 EUR",
+        "taxRate": "19 %",
+        "rate": "19.8 ‰"
     },
     "amount": {
         "value": 200,

@@ -8,7 +8,9 @@ use PHPUnit\Framework\TestCase;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidStructException;
 use Struct\Exception\InvalidValueException;
+use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\DataType;
 use Struct\TestData\Fixtures\Struct\Wrong;
 use Struct\TestData\Preparer\CompanyPreparer;
 use Struct\TestData\Proxy\Utility\StructSerializeUtilityProxy;
@@ -27,6 +29,13 @@ class StructSerializeUtilityTest extends TestCase
         $this->company = $companyPreparer->buildCompany();
         $this->expectation = (string) \file_get_contents(__DIR__ . '/../../../test-data/Expectation/Company.json');
         $this->expectation = \substr($this->expectation, 0, -1);
+    }
+
+    public function testDataType(): void
+    {
+        $dataType = StructFactory::create(DataType::class);
+
+        self::assertInstanceOf(DataType::class, $dataType);
     }
 
     public function testFullSerialize(): void

@@ -42,6 +42,8 @@
       "Struct\\Struct\\Private\\": "packages/struct/src-private",
 
       "Struct\\DataType\\": "packages/data-type/src",
+      "Struct\\DataType\\Private\\": "packages/data-type/src-private",
+
       "Struct\\Operator\\": "packages/operator/src"
     }
   },

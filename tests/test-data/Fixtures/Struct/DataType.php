@@ -8,6 +8,7 @@ use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
 use Struct\DataType\Amount;
 use Struct\DataType\Month;
+use Struct\DataType\Rate;
 
 class DataType implements StructInterface
 {
@@ -17,4 +18,10 @@ class DataType implements StructInterface
     public Month $month;
 
     public Amount $amount;
+
+    #[DefaultValue('19 %')]
+    public Rate $taxRate;
+
+    #[DefaultValue('19.8 ‰')]
+    public Rate $rate;
 }

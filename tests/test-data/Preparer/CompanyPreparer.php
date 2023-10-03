@@ -106,14 +106,12 @@ class CompanyPreparer
             $reference02
         ];
 
-        $company->dataType = $this->buildDataType();
+        $this->buildDataType($company->dataType);
         return $company;
     }
 
-    protected function buildDataType(): DataType
+    protected function buildDataType(DataType $dataType): DataType
     {
-        $dataType = new DataType();
-
         // Data type month
         $month = new Month('2023-08');
         $dataType->month = $month;
