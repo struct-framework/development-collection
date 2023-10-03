@@ -21,7 +21,8 @@ class MonthTest extends TestCase
     public function testDeserializeToString(): void
     {
         $serializedMonth = '2023-08';
-        $month = Month::deserializeFromString($serializedMonth);
+        $month = new Month();
+        $month->deserializeFromString($serializedMonth);
         self::assertSame(2023, $month->getYear());
         self::assertSame(8, $month->getMonth());
     }
@@ -30,6 +31,23 @@ class MonthTest extends TestCase
     {
         $serializedMonth = '202308';
         self::expectExceptionCode(1696227826);
-        Month::deserializeFromString($serializedMonth);
+        $month = new Month();
+        $month->deserializeFromString($serializedMonth);
+    }
+
+    public function testSerializeToInt(): void
+    {
+        $month = new Month();
+        $month->setYear(2023);
+        $month->setMonth(8);
+        self::assertSame(24283, $month->serializeToInt());
+    }
+
+    public function testDeserializeFromInt(): void
+    {
+        $month = new Month();
+        $month->deserializeFromInt(24283);
+        self::assertSame(2023, $month->getYear());
+        self::assertSame(8, $month->getMonth());
     }
 }

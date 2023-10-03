@@ -31,12 +31,9 @@ abstract class AbstractDataType implements DataTypeInterface
         return $this->_serializeToString();
     }
 
-    public static function deserializeFromString(string $serializedData): static
+    public function deserializeFromString(string $serializedData): void
     {
-        $class = static::class;
-        $dataType = new $class();
-        $dataType->_deserializeFromString($serializedData);
-        return $dataType;
+        $this->_deserializeFromString($serializedData);
     }
 
     public function __toString(): string

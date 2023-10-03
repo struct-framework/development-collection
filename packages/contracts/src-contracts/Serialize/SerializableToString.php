@@ -8,5 +8,5 @@ interface SerializableToString extends \Stringable
 {
     public function serializeToString(): string;
 
-    public static function deserializeFromString(string $serializedData): self;
+    public function deserializeFromString(string $serializedData): void;
 }

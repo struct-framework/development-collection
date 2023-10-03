@@ -22,7 +22,8 @@ class DateText extends TestCase
     public function testDeserializeToString(): void
     {
         $serializedMonth = '2023-08-15';
-        $date = Date::deserializeFromString($serializedMonth);
+        $date = new Date();
+        $date->deserializeFromString($serializedMonth);
         self::assertSame(2023, $date->getYear());
         self::assertSame(8, $date->getMonth());
         self::assertSame(15, $date->getDay());

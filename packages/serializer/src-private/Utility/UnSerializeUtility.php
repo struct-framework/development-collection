@@ -12,6 +12,7 @@ use Struct\Exception\Serializer\TransformException;
 use Struct\Exception\UnexpectedException;
 use Struct\Serializer\Private\Enum\SerializeDataType;
 use Struct\Serializer\Private\Helper\TransformHelper;
+use Struct\Struct\Factory\ModelFactory;
 use Struct\Struct\Private\Helper\PropertyReflectionHelper;
 use Struct\Struct\Struct\PropertyReflection;
 
@@ -148,9 +149,9 @@ class UnSerializeUtility
     protected function _unSerializeDataType(string|\Stringable $serializedData, PropertyReflection $propertyReflection): DataTypeInterface
     {
         $serializedData = (string) $serializedData;
-        /** @var DataTypeInterface $type */
+        /** @var class-string<DataTypeInterface> $type */
         $type = $propertyReflection->type;
-        $dataType = $type::deserializeFromString($serializedData);
+        $dataType = ModelFactory::createDataTypeFromString($type, $serializedData);
         return $dataType;
     }
 

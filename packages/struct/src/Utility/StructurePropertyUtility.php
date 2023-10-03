@@ -10,6 +10,7 @@ use Struct\Contracts\DataType\DataTypeInterface;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidValueException;
 use Struct\Exception\UnexpectedException;
+use Struct\Struct\Factory\ModelFactory;
 use Struct\Struct\Struct\StructureProperty;
 
 class StructurePropertyUtility
@@ -101,7 +102,7 @@ class StructurePropertyUtility
 
             if (\is_a($typeName, DataTypeInterface::class, true) === true) {
                 $defaultValueString = $attributeArguments[0];
-                $defaultValue = $typeName::deserializeFromString($defaultValueString);
+                $defaultValue = ModelFactory::createDataTypeFromString($typeName, $defaultValueString); // @phpstan-ignore-line
                 $structureProperty->hasDefaultValue = true;
                 $structureProperty->defaultValue = $defaultValue;
             }

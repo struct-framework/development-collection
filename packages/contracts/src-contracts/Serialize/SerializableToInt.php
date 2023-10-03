@@ -8,5 +8,5 @@ interface SerializableToInt
 {
     public function serializeToInt(): int;
 
-    public static function deserializeFromInt(int $serializedData): self;
+    public function deserializeFromInt(int $serializedData): void;
 }

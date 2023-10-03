@@ -64,7 +64,8 @@ class AmountTest extends TestCase
     public function testDeserializeFromString(): void
     {
         $serializedAmount = '-0.001 EUR';
-        $amount = Amount::deserializeFromString($serializedAmount);
+        $amount = new Amount();
+        $amount->deserializeFromString($serializedAmount);
         self::assertSame(-1, $amount->getValue());
     }
 }

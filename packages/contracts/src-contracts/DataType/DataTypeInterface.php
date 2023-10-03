@@ -8,5 +8,5 @@ use Struct\Contracts\Serialize\SerializableToString;
 
 interface DataTypeInterface extends SerializableToString
 {
-    public static function deserializeFromString(string $serializedData): self;
+    public function deserializeFromString(string $serializedData): void;
 }

@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace Struct\DataType;
 
 use InvalidArgumentException;
+use Struct\Contracts\Serialize\SerializableToInt;
 use Struct\Exception\Serialize\DeserializeException;
 
-final class Month extends AbstractDataType
+final class Month extends AbstractDataType implements SerializableToInt
 {
     protected int $year;
 
@@ -27,6 +28,12 @@ final class Month extends AbstractDataType
             throw new InvalidArgumentException('The year must be between 1000 and 9999', 1696052931);
         }
         $this->year = $year;
+    }
+
+    public function setYearAndMonth(int $year, int $month): void
+    {
+        $this->setYear($year);
+        $this->setMonth($month);
     }
 
     public function getYear(): int
@@ -72,5 +79,19 @@ final class Month extends AbstractDataType
         } catch (InvalidArgumentException $exception) {
             throw new DeserializeException('Invalid month: ' . $exception->getMessage(), 1696228168, $exception);
         }
+    }
+
+    public function serializeToInt(): int
+    {
+        $monthAsInt = $this->year * 12;
+        $monthAsInt += $this->month - 1;
+        return $monthAsInt;
+    }
+
+    public function deserializeFromInt(int $serializedData): void
+    {
+        $year = (int) ($serializedData / 12);
+        $month = ($serializedData % 12) + 1;
+        $this->setYearAndMonth($year, $month);
     }
 }
