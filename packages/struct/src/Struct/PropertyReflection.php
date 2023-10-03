@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serializer\Private\Struct;
+namespace Struct\Struct\Struct;
 
 class PropertyReflection
 {

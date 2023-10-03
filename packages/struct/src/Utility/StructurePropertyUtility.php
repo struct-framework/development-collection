@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serializer\Private\Helper;
+namespace Struct\Struct\Utility;
 
 use ReflectionProperty;
+use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidValueException;
 use Struct\Exception\UnexpectedException;
 use Struct\Struct\Struct\StructureProperty;
 
-class StructurePropertyHelper
+class StructurePropertyUtility
 {
     /**
      * @param class-string<StructInterface>|StructInterface $structure
@@ -87,7 +88,7 @@ class StructurePropertyHelper
         $attributes = $property->getAttributes();
         foreach ($attributes as $attribute) {
             $name = $attribute->getName();
-            if ($name !== 'Struct\Serializer\Contracts\Attribute\DefaultValue') {
+            if ($name !== DefaultValue::class) {
                 continue;
             }
             $attributeArguments = $attribute->getArguments();

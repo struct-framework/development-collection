@@ -12,8 +12,8 @@ use Struct\Exception\Serializer\TransformException;
 use Struct\Exception\UnexpectedException;
 use Struct\Serializer\Private\Enum\SerializeDataType;
 use Struct\Serializer\Private\Helper\TransformHelper;
-use Struct\Serializer\Private\Struct\PropertyReflection;
 use Struct\Struct\Private\Helper\PropertyReflectionHelper;
+use Struct\Struct\Struct\PropertyReflection;
 
 class UnSerializeUtility
 {
