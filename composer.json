@@ -32,6 +32,7 @@
     "psr-4": {
       "Struct\\Attribute\\": "packages/contracts/src-attribute",
       "Struct\\Contracts\\": "packages/contracts/src-contracts",
+      "Struct\\Enum\\": "packages/contracts/src-enum",
       "Struct\\Exception\\": "packages/contracts/src-exception",
 
       "Struct\\Serializer\\": "packages/serializer/src",
@@ -40,13 +41,15 @@
       "Struct\\Struct\\": "packages/struct/src",
       "Struct\\Struct\\Private\\": "packages/struct/src-private",
 
-      "Struct\\DataType\\": "packages/data-type/src"
+      "Struct\\DataType\\": "packages/data-type/src",
+      "Struct\\Operator\\": "packages/operator/src"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Struct\\Development\\": "src",
       "Struct\\TestData\\": "tests/test-data",
+      "Struct\\Operator\\Tests\\": "tests/operator",
       "Struct\\Serializer\\Tests\\": "tests/serializer",
       "Struct\\Struct\\Tests\\": "tests/struct",
       "Struct\\DataType\\Tests\\": "tests/data-type"
