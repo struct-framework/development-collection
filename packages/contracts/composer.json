@@ -7,10 +7,10 @@
   },
   "autoload": {
     "psr-4": {
-      "Struct\\Attribute\\": "src-attribute",
-      "Struct\\Contracts\\": "src-contracts",
-      "Struct\\Enum\\": "src-enum",
-      "Struct\\Exception\\": "src-exception"
+      "Struct\\Attribute\\": "struct/src-attribute",
+      "Struct\\Contracts\\": "struct/src-contracts",
+      "Struct\\Enum\\": "struct/src-enum",
+      "Struct\\Exception\\": "struct/src-exception"
     }
   }
 }

@@ -30,21 +30,29 @@
   },
   "autoload": {
     "psr-4": {
-      "Struct\\Attribute\\": "packages/contracts/src-attribute",
-      "Struct\\Contracts\\": "packages/contracts/src-contracts",
-      "Struct\\Enum\\": "packages/contracts/src-enum",
-      "Struct\\Exception\\": "packages/contracts/src-exception",
+      "Struct\\Contracts\\DataType\\": "packages/contracts/data-type/src",
+      "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src",
+      "Struct\\Contracts\\Serialize\\": "packages/contracts/serialize/src",
 
-      "Struct\\Serializer\\": "packages/serializer/src",
-      "Struct\\Serializer\\Private\\": "packages/serializer/src-private",
 
-      "Struct\\Struct\\": "packages/struct/src",
-      "Struct\\Struct\\Private\\": "packages/struct/src-private",
+      "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
+      "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
+      "Struct\\Enum\\": "packages/contracts/struct/src-enum",
+      "Struct\\Exception\\": "packages/contracts/struct/src-exception",
 
-      "Struct\\DataType\\": "packages/data-type/src",
-      "Struct\\DataType\\Private\\": "packages/data-type/src-private",
 
-      "Struct\\Operator\\": "packages/operator/src"
+
+
+      "Struct\\DataType\\": "packages/implementation/data-type/src",
+      "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
+
+      "Struct\\Operator\\": "packages/implementation/operator/src",
+
+      "Struct\\Serializer\\": "packages/implementation/serializer/src",
+      "Struct\\Serializer\\Private\\": "packages/implementation/serializer/src-private",
+
+      "Struct\\Struct\\": "packages/implementation/struct/src",
+      "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private"
     }
   },
   "autoload-dev": {

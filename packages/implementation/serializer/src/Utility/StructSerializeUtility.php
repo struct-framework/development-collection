@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Struct\Serializer\Utility;
 
-use Struct\Contracts\Serializer\StructSerializerInterface;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\UnexpectedException;
 use Struct\Serializer\Private\Utility\SerializeUtility;
 use Struct\Serializer\Private\Utility\UnSerializeUtility;
 
-class StructSerializeUtility implements StructSerializerInterface
+class StructSerializeUtility
 {
     protected SerializeUtility $serializeUtility;
     protected UnSerializeUtility $unSerializeUtility;
