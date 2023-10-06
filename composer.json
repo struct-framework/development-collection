@@ -31,7 +31,12 @@
   "autoload": {
     "psr-4": {
       "Struct\\Contracts\\DataType\\": "packages/contracts/data-type/src",
-      "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src",
+
+
+      "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src-contracts",
+      "Struct\\Enum\\Operator\\": "packages/contracts/operator/src-enum",
+
+
       "Struct\\Contracts\\Serialize\\": "packages/contracts/serialize/src",
 
 
