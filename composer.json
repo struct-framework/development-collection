@@ -40,8 +40,10 @@
 
       "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src-contracts",
       "Struct\\Enum\\Operator\\": "packages/contracts/operator/src-enum",
+      "Struct\\Exception\\Operator\\": "packages/contracts/operator/src-exception",
 
-      "Struct\\Contracts\\Serialize\\": "packages/contracts/serialize/src",
+      "Struct\\Contracts\\Serialize\\": "packages/contracts/serialize/src-contracts",
+      "Struct\\Exception\\Serialize\\": "packages/contracts/serialize/src-exception",
 
       "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
       "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",

@@ -8,7 +8,8 @@
   "autoload": {
     "psr-4": {
       "Struct\\Contracts\\Operator\\": "src-contracts",
-      "Struct\\Enum\\Operator\\": "src-enum"
+      "Struct\\Enum\\Operator\\": "src-enum",
+      "Struct\\Enum\\Exception\\": "src-exception"
     }
   }
 }
