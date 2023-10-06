@@ -7,7 +7,7 @@ git subtree split -P packages/contracts/struct      -b contracts-struct
 
 git subtree split -P packages/implementation/data-type  -b data-type
 git subtree split -P packages/implementation/operator   -b operator
-git subtree split -P packages/implementation/serialize  -b serialize
+git subtree split -P packages/implementation/serializing  -b serializing
 git subtree split -P packages/implementation/struct     -b struct
 
 
@@ -19,7 +19,7 @@ git push contracts-struct     contracts-struct:main -f
 
 git push data-type            data-type:main -f
 git push operator             operator:main -f
-git push serialize            serialize:main -f
+git push serializing          serializing:main -f
 git push struct               struct:main -f
 
 
@@ -30,7 +30,7 @@ git branch -D contracts-struct
 
 git branch -D data-type
 git branch -D operator
-git branch -D serialize
+git branch -D serializing
 git branch -D struct
 
 
