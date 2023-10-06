@@ -1,5 +1,5 @@
 {
-  "name": "struct/serializer",
+  "name": "struct/serialize",
   "license": "MIT",
   "description": "Simple package for serializing structured and more complex data types, similar to 'Struct' in other programming languages",
   "require": {
@@ -8,8 +8,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Struct\\Serializer\\": "src",
-      "Struct\\Serializer\\Private\\": "src-private"
+      "Struct\\Serialize\\": "src",
+      "Struct\\Serialize\\Private\\": "src-private"
     }
   }
 }

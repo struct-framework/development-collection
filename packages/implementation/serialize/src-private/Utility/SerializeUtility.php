@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serializer\Private\Utility;
+namespace Struct\Serialize\Private\Utility;
 
 use Struct\Contracts\DataType\DataTypeInterface;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidStructException;
 use Struct\Exception\UnexpectedException;
-use Struct\Serializer\Private\Helper\TransformHelper;
+use Struct\Serialize\Private\Helper\TransformHelper;
 
 class SerializeUtility
 {

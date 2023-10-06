@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serializer\Private\Helper;
+namespace Struct\Serialize\Private\Helper;
 
 use Struct\Exception\Serializer\TransformException;
 

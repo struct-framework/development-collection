@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serializer\Tests\Unit\Utility;
+namespace Struct\Serialize\Tests\Unit\Utility;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Contracts\StructInterface;
