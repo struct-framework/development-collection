@@ -17,11 +17,11 @@
     "struct/contracts-data-type": "self.version",
     "struct/contracts-operator": "self.version",
     "struct/contracts-serialize": "self.version",
-    "struct/contracts-struct": "self.version",
+    "struct/contracts": "self.version",
 
     "struct/data-type": "self.version",
     "struct/operator": "self.version",
-    "struct/serialize": "self.version",
+    "struct/serializing": "self.version",
     "struct/struct": "self.version"
   },
   "require-dev": {
@@ -55,8 +55,8 @@
 
       "Struct\\Operator\\": "packages/implementation/operator/src",
 
-      "Struct\\Serialize\\": "packages/implementation/serialize/src",
-      "Struct\\Serialize\\Private\\": "packages/implementation/serialize/src-private",
+      "Struct\\Serializing\\": "packages/implementation/serializing/src",
+      "Struct\\Serializing\\Private\\": "packages/implementation/serializing/src-private",
 
       "Struct\\Struct\\": "packages/implementation/struct/src",
       "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private"
@@ -67,7 +67,7 @@
       "Struct\\Development\\": "src",
       "Struct\\TestData\\": "tests/test-data",
       "Struct\\Operator\\Tests\\": "tests/operator",
-      "Struct\\Serialize\\Tests\\": "tests/serialize",
+      "Struct\\Serializing\\Tests\\": "tests/serializing",
       "Struct\\Struct\\Tests\\": "tests/struct",
       "Struct\\DataType\\Tests\\": "tests/data-type"
     }

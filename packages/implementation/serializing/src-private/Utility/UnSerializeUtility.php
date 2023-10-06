@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serialize\Private\Utility;
+namespace Struct\Serializing\Private\Utility;
 
 use Struct\Contracts\DataType\DataTypeInterface;
 use Struct\Contracts\StructInterface;
@@ -10,8 +10,8 @@ use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidValueException;
 use Struct\Exception\Serializer\TransformException;
 use Struct\Exception\UnexpectedException;
-use Struct\Serialize\Private\Enum\SerializeDataType;
-use Struct\Serialize\Private\Helper\TransformHelper;
+use Struct\Serializing\Private\Enum\SerializeDataType;
+use Struct\Serializing\Private\Helper\TransformHelper;
 use Struct\Struct\Factory\ModelFactory;
 use Struct\Struct\Private\Helper\PropertyReflectionHelper;
 use Struct\Struct\Struct\PropertyReflection;

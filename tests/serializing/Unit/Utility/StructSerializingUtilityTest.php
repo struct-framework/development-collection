@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serialize\Tests\Unit\Utility;
+namespace Struct\serializing\Tests\Unit\Utility;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Contracts\StructInterface;
@@ -13,18 +13,18 @@ use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\DataType;
 use Struct\TestData\Fixtures\Struct\Wrong;
 use Struct\TestData\Preparer\CompanyPreparer;
-use Struct\TestData\Proxy\Utility\StructSerializeUtilityProxy;
+use Struct\TestData\Proxy\Utility\StructSerializingUtilityProxy;
 
-class StructSerializeUtilityTest extends TestCase
+class StructSerializingUtilityTest extends TestCase
 {
-    protected StructSerializeUtilityProxy $subject;
+    protected StructSerializingUtilityProxy $subject;
     protected Company $company;
     protected string $expectation;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->subject = new StructSerializeUtilityProxy();
+        $this->subject = new StructSerializingUtilityProxy();
         $companyPreparer = new CompanyPreparer();
         $this->company = $companyPreparer->buildCompany();
         $this->expectation = (string) \file_get_contents(__DIR__ . '/../../../test-data/Expectation/Company.json');
