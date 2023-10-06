@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5db7bd86920131ea8e6e19c85e74ad2",
-    "packages": [],
+    "content-hash": "2f080926186b6faa717f33ffc8865733",
+    "packages": [
+        {
+            "name": "exception/unexpected",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timo-poppinga/exception-unexpected.git",
+                "reference": "754aea7e73b58357dbc671ef0f6387d8040ba392"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timo-poppinga/exception-unexpected/zipball/754aea7e73b58357dbc671ef0f6387d8040ba392",
+                "reference": "754aea7e73b58357dbc671ef0f6387d8040ba392",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1.0|^8.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exception\\Unexpected\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Timo Poppinga",
+                    "email": "timo.poppinga@zdrei.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/timo-poppinga/exception-unexpected/issues",
+                "source": "https://github.com/timo-poppinga/exception-unexpected/tree/1.0.0"
+            },
+            "time": "2023-10-06T08:04:51+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "composer/pcre",
