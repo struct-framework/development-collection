@@ -62,7 +62,7 @@ class StructSerializeUtilityTest extends TestCase
     public function testDeserializeFromJsonBadType(): StructInterface
     {
         $this->expectException(InvalidValueException::class);
-        return $this->subject->deserializeFromJson($this->expectation, 'ImNotAnStructure');  // @phpstan-ignore-line
+        return $this->subject->deserializeFromJson($this->expectation, 'ImNotAnStructure'); // @phpstan-ignore-line
     }
 
     public function testDeserializeFromJson(): void

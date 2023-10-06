@@ -28,6 +28,12 @@ class StructSerializeUtility
         return $this->serializeUtility->serialize($structure);
     }
 
+    /**
+     * @template T of StructInterface
+     * @param object|array<mixed> $data
+     * @param class-string<T> $type
+     * @return T
+     */
     public function deserialize(object|array $data, string $type): StructInterface
     {
         return $this->unSerializeUtility->unSerialize($data, $type);
@@ -43,6 +49,12 @@ class StructSerializeUtility
         return $dataJson;
     }
 
+    /**
+     * @template T of StructInterface
+     * @param string $dataJson
+     * @param class-string<T> $type
+     * @return T
+     */
     public function deserializeFromJson(string $dataJson, string $type): StructInterface
     {
         try {
