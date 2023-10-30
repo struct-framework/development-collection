@@ -9,14 +9,14 @@ use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidStructException;
 use Struct\Exception\InvalidValueException;
 use Struct\Serializing\Enum\KeyConvert;
-use Struct\Serializing\StructSerializing;
+use Struct\Serializing\StructSerializer;
 use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\DataType;
 use Struct\TestData\Fixtures\Struct\Wrong;
 use Struct\TestData\Preparer\CompanyPreparer;
 
-class StructSerializingTest extends TestCase
+class StructSerializerTest extends TestCase
 {
     protected Company $company;
     protected string $expectation;
@@ -42,28 +42,28 @@ class StructSerializingTest extends TestCase
 
     public function testFullSerialize(): void
     {
-        $companyJson = StructSerializing::serializeToJson($this->company);
+        $companyJson = StructSerializer::serializeToJson($this->company);
         self::assertSame($this->expectation, $companyJson);
     }
 
     public function testFullSerializeSnakeCase(): void
     {
-        $companyJson = StructSerializing::serializeToJson($this->company, KeyConvert::snakeCase);
+        $companyJson = StructSerializer::serializeToJson($this->company, KeyConvert::snakeCase);
         self::assertSame($this->expectationSnakeCase, $companyJson);
     }
 
     public function testFullUnSerialize(): void
     {
-        $companyArrayExpectation = StructSerializing::serialize($this->company);
+        $companyArrayExpectation = StructSerializer::serialize($this->company);
         /** @var Company $companyUnSerialize */
-        $companyUnSerialize = StructSerializing::deserialize($companyArrayExpectation, Company::class);
+        $companyUnSerialize = StructSerializer::deserialize($companyArrayExpectation, Company::class);
         self::assertSame($this->company->name, $companyUnSerialize->name);
     }
 
     public function testFullUnSerializeSnakeCase(): void
     {
-        $companyUnSerialize = StructSerializing::deserializeFromJson($this->expectationSnakeCase, Company::class, KeyConvert::snakeCase);
-        $companyJson = StructSerializing::serializeToJson($companyUnSerialize);
+        $companyUnSerialize = StructSerializer::deserializeFromJson($this->expectationSnakeCase, Company::class, KeyConvert::snakeCase);
+        $companyJson = StructSerializer::serializeToJson($companyUnSerialize);
         self::assertSame($this->expectation, $companyJson);
     }
 
@@ -71,24 +71,24 @@ class StructSerializingTest extends TestCase
     {
         $wrong = new Wrong();
         $this->expectException(InvalidStructException::class);
-        StructSerializing::serialize($wrong);
+        StructSerializer::serialize($wrong);
     }
 
     public function testDeserializeFromJsonBadType(): StructInterface
     {
         $this->expectException(InvalidValueException::class);
-        return StructSerializing::deserializeFromJson($this->expectation, 'ImNotAnStructure'); // @phpstan-ignore-line
+        return StructSerializer::deserializeFromJson($this->expectation, 'ImNotAnStructure'); // @phpstan-ignore-line
     }
 
     public function testDeserializeFromJson(): void
     {
-        $company = StructSerializing::deserializeFromJson($this->expectation, Company::class);
+        $company = StructSerializer::deserializeFromJson($this->expectation, Company::class);
         self::assertInstanceOf(Company::class, $company);
     }
 
     public function testDeserializeObject(): void
     {
-        $company = StructSerializing::deserialize($this->company, Company::class);
+        $company = StructSerializer::deserialize($this->company, Company::class);
         self::assertInstanceOf(Company::class, $company);
     }
 }

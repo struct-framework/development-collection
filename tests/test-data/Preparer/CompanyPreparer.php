@@ -38,7 +38,8 @@ class CompanyPreparer
 
         $company->properties = [
             'turnover' => '20m',
-            'employees' => '100'
+            'employees' => '100',
+            'foundingYear' => '2000'
         ];
 
         $company->tags = [

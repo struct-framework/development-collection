@@ -12,7 +12,8 @@
     "category2": "cat-financial",
     "properties": {
         "turnover": "20m",
-        "employees": "100"
+        "employees": "100",
+        "foundingYear": "2000"
     },
     "tags": [
         "industry",
