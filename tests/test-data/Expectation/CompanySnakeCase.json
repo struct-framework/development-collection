@@ -1,0 +1,79 @@
+{
+    "name": "Musterfirma",
+    "founding-date": "2000-02-05T14:35:12+01:00",
+    "address": {
+        "street": "Musterstraße",
+        "house-number": "99",
+        "zip": "99999",
+        "city": "Musterdorf"
+    },
+    "is-active": true,
+    "category": "cat-technology",
+    "category2": "cat-financial",
+    "properties": {
+        "turnover": "20m",
+        "employees": "100"
+    },
+    "tags": [
+        "industry",
+        "middle size"
+    ],
+    "persons": [
+        {
+            "title": "Geschäftsführer",
+            "first-name": "Max",
+            "middle-name": "Maier",
+            "last-name": "Mustermann",
+            "contacts": []
+        },
+        {
+            "title": "Developer",
+            "first-name": "Kai",
+            "last-name": "Kaul",
+            "contacts": [
+                {
+                    "type": "phone",
+                    "value": "+499999999"
+                }
+            ]
+        }
+    ],
+    "age": 20,
+    "roles": {
+        "first": {
+            "name": "blue"
+        },
+        "second": {
+            "name": "green"
+        },
+        "third": {
+            "name": "white"
+        }
+    },
+    "longitude": 8,
+    "latitude": 48.25652,
+    "references": [
+        {
+            "title": "Website Blue GmbH",
+            "technologies": [
+                {
+                    "name": "One CMS",
+                    "country": "Germany"
+                }
+            ]
+        },
+        {
+            "title": "Website Green GmbH"
+        }
+    ],
+    "data-type": {
+        "month": "2023-08",
+        "amount": "134.78 EUR",
+        "tax-rate": "19 %",
+        "rate": "19.8 ‰"
+    },
+    "amount": {
+        "value": 200,
+        "currency": "EUR"
+    }
+}
