@@ -7,6 +7,7 @@ namespace Struct\Struct\Tests\Unit\Factory;
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\RoleCollection;
 
 class StructureFactoryTest extends TestCase
 {
@@ -16,5 +17,6 @@ class StructureFactoryTest extends TestCase
         $company = StructFactory::create(Company::class);
         $company->address->city = 'hello';
         self::assertInstanceOf(Company::class, $company);
+        self::assertInstanceOf(RoleCollection::class, $company->roleCollection);
     }
 }

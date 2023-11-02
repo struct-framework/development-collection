@@ -59,6 +59,14 @@
             "name": "white"
         }
     },
+    "roleCollection": [
+        {
+            "name": "blue"
+        },
+        {
+            "name": "green"
+        }
+    ],
     "longitude": 8,
     "latitude": 48.25652,
     "references": [

@@ -56,6 +56,7 @@ class StructSerializerTest extends TestCase
         $companyArrayExpectation = StructSerializer::serialize($this->company);
         /** @var Company $companyUnSerialize */
         $companyUnSerialize = StructSerializer::deserialize($companyArrayExpectation, Company::class);
+
         $hashExpectation = StructHash::buildHash($this->company);
         $hash = StructHash::buildHash($companyUnSerialize);
         self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
@@ -89,7 +90,10 @@ class StructSerializerTest extends TestCase
 
     public function testDeserializeObject(): void
     {
-        $company = StructSerializer::deserialize($this->company, Company::class);
-        self::assertInstanceOf(Company::class, $company);
+        $companyDeSerialize = StructSerializer::deserialize($this->company, Company::class);
+
+        $hashExpectation = StructHash::buildHash($this->company);
+        $hash = StructHash::buildHash($companyDeSerialize);
+        self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
     }
 }

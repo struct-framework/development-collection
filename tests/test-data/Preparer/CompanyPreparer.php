@@ -93,6 +93,9 @@ class CompanyPreparer
             'third' => $role03
         ];
 
+        $company->roleCollection->addValue($role01);
+        $company->roleCollection->addValue($role02);
+
         $company->latitude = 48.25652;
         $company->longitude = 8.0;
 

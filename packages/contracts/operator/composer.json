@@ -1,16 +1,15 @@
 {
-  "name": "struct/contracts-operator",
-  "license": "MIT",
-  "description": "Simple package for providing contracts for operator overloading",
-  "require": {
-    "php": "~8.2.7|~8.1.5"
-  },
-  "autoload": {
-    "psr-4": {
-      "Struct\\Contracts\\Operator\\": "src-contracts",
-      "Struct\\Enum\\Operator\\": "src-enum",
-      "Struct\\Enum\\Exception\\": "src-exception"
+    "name": "struct/contracts-operator",
+    "license": "MIT",
+    "description": "Simple package for providing contracts for operator overloading",
+    "require": {
+        "php": "~8.2.7|~8.1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Struct\\Contracts\\Operator\\": "src-contracts",
+            "Struct\\Enum\\Operator\\": "src-enum",
+            "Struct\\Enum\\Exception\\": "src-exception"
+        }
     }
-  }
 }
-

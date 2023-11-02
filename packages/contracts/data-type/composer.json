@@ -1,14 +1,14 @@
 {
-  "name": "struct/contracts-data-type",
-  "license": "MIT",
-  "description": "Simple package for providing contracts for custom data types",
-  "require": {
-    "php": "~8.2.7|~8.1.5",
-    "struct/contracts-serialize": "^1.4.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Struct\\Contracts\\DataType\\": "src"
+    "name": "struct/contracts-data-type",
+    "license": "MIT",
+    "description": "Simple package for providing contracts for custom data types",
+    "require": {
+        "php": "~8.2.7|~8.1.5",
+        "struct/contracts-serialize": "^1.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Struct\\Contracts\\DataType\\": "src"
+        }
     }
-  }
 }
