@@ -52,8 +52,8 @@ class CompanyPreparer
         $tag1->name = 'industry';
         $tag2 = new Tag();
         $tag2->name = 'middle size';
-        $company->tagCollection->values[] = $tag1;
-        $company->tagCollection->values[] = $tag2;
+        $company->tagCollection->addValue($tag1);
+        $company->tagCollection->addValue($tag2);
 
         $person01 = new Person();
         $person01->title = 'Geschäftsführer';

@@ -52,6 +52,8 @@ class Company implements StructInterface
     #[ArrayKeyList(Role::class)]
     public array $roles = [];
 
+    public RoleCollection $roleCollection;
+
     public float $longitude;
     public float $latitude;
 
