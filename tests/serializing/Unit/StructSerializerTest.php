@@ -11,6 +11,7 @@ use Struct\Exception\InvalidValueException;
 use Struct\Serializing\Enum\KeyConvert;
 use Struct\Serializing\StructSerializer;
 use Struct\Struct\Factory\StructFactory;
+use Struct\Struct\StructHash;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\DataType;
 use Struct\TestData\Fixtures\Struct\Wrong;
@@ -30,8 +31,6 @@ class StructSerializerTest extends TestCase
         $this->company = $companyPreparer->buildCompany();
         $this->expectation = (string) \file_get_contents(__DIR__ . '/../../test-data/Expectation/Company.json');
         $this->expectationSnakeCase = (string) \file_get_contents(__DIR__ . '/../../test-data/Expectation/CompanySnakeCase.json');
-        $this->expectation = \substr($this->expectation, 0, -1);
-        $this->expectationSnakeCase = \substr($this->expectationSnakeCase, 0, -1);
     }
 
     public function testDataType(): void
@@ -57,7 +56,9 @@ class StructSerializerTest extends TestCase
         $companyArrayExpectation = StructSerializer::serialize($this->company);
         /** @var Company $companyUnSerialize */
         $companyUnSerialize = StructSerializer::deserialize($companyArrayExpectation, Company::class);
-        self::assertSame($this->company->name, $companyUnSerialize->name);
+        $hashExpectation = StructHash::buildHash($this->company);
+        $hash = StructHash::buildHash($companyUnSerialize);
+        self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
     }
 
     public function testFullUnSerializeSnakeCase(): void

@@ -19,6 +19,14 @@
         "industry",
         "middle size"
     ],
+    "tagCollection": [
+        {
+            "name": "industry"
+        },
+        {
+            "name": "middle size"
+        }
+    ],
     "persons": [
         {
             "title": "Geschäftsführer",

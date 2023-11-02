@@ -15,6 +15,7 @@ use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Person;
 use Struct\TestData\Fixtures\Struct\Reference;
 use Struct\TestData\Fixtures\Struct\Role;
+use Struct\TestData\Fixtures\Struct\Tag;
 use Struct\TestData\Fixtures\Struct\Technology;
 
 class CompanyPreparer
@@ -46,6 +47,13 @@ class CompanyPreparer
             'industry',
             'middle size'
         ];
+
+        $tag1 = new Tag();
+        $tag1->name = 'industry';
+        $tag2 = new Tag();
+        $tag2->name = 'middle size';
+        $company->tagCollection->values[] = $tag1;
+        $company->tagCollection->values[] = $tag2;
 
         $person01 = new Person();
         $person01->title = 'Geschäftsführer';
