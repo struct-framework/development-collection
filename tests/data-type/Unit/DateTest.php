@@ -6,6 +6,7 @@ namespace Struct\DataType\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Struct\DataType\Date;
+use Struct\DataType\Enum\Weekday;
 
 class DateTest extends TestCase
 {
@@ -109,5 +110,20 @@ class DateTest extends TestCase
             $yearResult = Date::calculateYearByDays($days);
             self::assertSame($year, $yearResult);
         }
+    }
+
+    public function testWeekday(): void
+    {
+        $date01 = new Date('2023-11-25');
+        self::assertSame(Weekday::Saturday, $date01->weekday());
+
+        $date02 = new Date('2021-10-06');
+        self::assertSame(Weekday::Wednesday, $date02->weekday());
+
+        $date03 = new Date('1701-11-25');
+        self::assertSame(Weekday::Friday, $date03->weekday());
+
+        $date04 = new Date('3654-02-14');
+        self::assertSame(Weekday::Saturday, $date04->weekday());
     }
 }
