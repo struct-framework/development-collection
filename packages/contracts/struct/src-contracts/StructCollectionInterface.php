@@ -11,4 +11,5 @@ interface StructCollectionInterface extends \Countable, \Iterator
      */
     public function getValues(): array;
     public function addValue(StructInterface $struct): void;
+    public function current(): StructInterface;
 }
