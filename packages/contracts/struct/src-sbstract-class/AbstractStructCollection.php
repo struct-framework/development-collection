@@ -2,15 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct;
+namespace Struct\AbstractClass;
 
 use Struct\Contracts\StructCollectionInterface;
 use Struct\Contracts\StructInterface;
 
-/**
- * @deprecated
- */
-class StructCollection implements StructCollectionInterface
+abstract class AbstractStructCollection implements StructCollectionInterface
 {
     /**
      * @var array<StructInterface>
