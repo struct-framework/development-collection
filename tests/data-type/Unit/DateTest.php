@@ -126,4 +126,46 @@ class DateTest extends TestCase
         $date04 = new Date('3654-02-14');
         self::assertSame(Weekday::Saturday, $date04->weekday());
     }
+
+    public function testCalendarWeek(): void
+    {
+        $date = new Date('2025-12-29');
+        self::assertSame(1, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2020-12-29');
+        self::assertSame(53, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2025-12-28');
+        self::assertSame(52, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2025-12-31');
+        self::assertSame(1, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2026-01-01');
+        self::assertSame(1, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2020-12-31');
+        self::assertSame(53, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2021-01-01');
+        self::assertSame(53, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2023-01-01');
+        self::assertSame(52, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2024-01-01');
+        self::assertSame(1, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2023-06-04');
+        self::assertSame(22, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2023-06-05');
+        self::assertSame(23, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2023-06-11');
+        self::assertSame(23, $date->calendarWeek(), $date->serializeToString());
+
+        $date = new Date('2023-06-12');
+        self::assertSame(24, $date->calendarWeek(), $date->serializeToString());
+    }
 }
