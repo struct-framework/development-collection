@@ -9,4 +9,4 @@
     git remote add data-type git@github.com:timo-poppinga/struct-data-type.git
     git remote add operator git@github.com:timo-poppinga/struct-operator.git
     git remote add serializing git@github.com:timo-poppinga/struct-serializing.git
-    git remote add struct git@github.com:timo-poppinga/struct.git
+    git remote add struct git@github.com:struct-framework/struct.git
