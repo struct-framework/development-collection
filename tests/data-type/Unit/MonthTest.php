@@ -50,4 +50,18 @@ class MonthTest extends TestCase
         self::assertSame(2023, $month->getYear());
         self::assertSame(8, $month->getMonth());
     }
+
+    public function testFirstDayOfMonth(): void
+    {
+        $month = new Month('2025-12');
+        $firstDayOfMonth = $month->firstDayOfMonth();
+        self::assertSame('2025-12-01', $firstDayOfMonth->serializeToString());
+    }
+
+    public function testLastDayOfMonth(): void
+    {
+        $month = new Month('2024-02');
+        $lastDayOfMonth = $month->lastDayOfMonth();
+        self::assertSame('2024-02-29', $lastDayOfMonth->serializeToString());
+    }
 }

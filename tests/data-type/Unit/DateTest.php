@@ -127,6 +127,20 @@ class DateTest extends TestCase
         self::assertSame(Weekday::Saturday, $date04->weekday());
     }
 
+    public function testFirstDayOfMonth(): void
+    {
+        $date = new Date('2025-12-29');
+        $firstDayOfMonth = $date->firstDayOfMonth();
+        self::assertSame('2025-12-01', $firstDayOfMonth->serializeToString());
+    }
+
+    public function testLastDayOfMonth(): void
+    {
+        $date = new Date('2024-02-03');
+        $lastDayOfMonth = $date->lastDayOfMonth();
+        self::assertSame('2024-02-29', $lastDayOfMonth->serializeToString());
+    }
+
     public function testCalendarWeek(): void
     {
         $date = new Date('2025-12-29');
