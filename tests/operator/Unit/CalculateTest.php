@@ -20,7 +20,6 @@ class CalculateTest extends TestCase
         self::assertSame('2023-11', $moth01->serializeToString());
     }
 
-
     public function testBla(): void
     {
         $output = [];
@@ -29,10 +28,9 @@ class CalculateTest extends TestCase
         do {
             $output[] = $moth01->serializeToString();
             O::increment($moth01);
-        } while(O::lessThanOrEquals($moth01, $mothTo));
+        } while (O::lessThanOrEquals($moth01, $mothTo));
         self::assertSame('admin', $output);
     }
-
 
     public function testDecrement(): void
     {
