@@ -6,8 +6,10 @@ namespace Struct\Operator\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Struct\DataType\Amount;
+use Struct\DataType\Date;
 use Struct\DataType\Month;
 use Struct\Operator\Calculate;
+use Struct\Operator\O;
 
 class CalculateTest extends TestCase
 {
@@ -17,6 +19,20 @@ class CalculateTest extends TestCase
         Calculate::increment($moth01);
         self::assertSame('2023-11', $moth01->serializeToString());
     }
+
+
+    public function testBla(): void
+    {
+        $output = [];
+        $moth01 = new Date('2024-01-01');
+        $mothTo = $moth01->lastDayOfTheYear();
+        do {
+            $output[] = $moth01->serializeToString();
+            O::increment($moth01);
+        } while(O::lessThanOrEquals($moth01, $mothTo));
+        self::assertSame('admin', $output);
+    }
+
 
     public function testDecrement(): void
     {
