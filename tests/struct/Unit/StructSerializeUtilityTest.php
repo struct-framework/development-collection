@@ -14,6 +14,7 @@ use Struct\Struct\StructHashUtility;
 use Struct\Struct\StructSerializeUtility;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\DataType;
+use Struct\TestData\Fixtures\Struct\Role;
 use Struct\TestData\Fixtures\Struct\RoleCollection;
 use Struct\TestData\Fixtures\Struct\Wrong;
 use Struct\TestData\Preparer\CompanyPreparer;
@@ -104,7 +105,20 @@ class StructSerializeUtilityTest extends TestCase
         $structCollection = $structCollectionPreparer->buildStructCollection();
 
         $serializedStructCollection = StructSerializeUtility::serialize($structCollection);
-        $unSerializeStructCollection = StructSerializeUtility::deserialize($serializedStructCollection, RoleCollection::class);
+        $unSerializeStructCollection = StructSerializeUtility::deserializeStructCollection($serializedStructCollection, Role::class, null, RoleCollection::class);
+
+        $hashExpectation = StructHashUtility::buildHash($structCollection);
+        $hash = StructHashUtility::buildHash($unSerializeStructCollection);
+        self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
+    }
+
+    public function testBuildHashStructDefaultCollection(): void
+    {
+        $structCollectionPreparer = new StructCollectionPreparer();
+        $structCollection = $structCollectionPreparer->buildDefaultStructCollection();
+
+        $serializedStructCollection = StructSerializeUtility::serialize($structCollection);
+        $unSerializeStructCollection = StructSerializeUtility::deserializeStructCollection($serializedStructCollection, Role::class);
 
         $hashExpectation = StructHashUtility::buildHash($structCollection);
         $hash = StructHashUtility::buildHash($unSerializeStructCollection);
