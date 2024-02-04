@@ -2,15 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Struct\AbstractClass;
+namespace Struct\Contracts;
 
-use Struct\Contracts\StructCollectionInterface;
-use Struct\Contracts\StructInterface;
-
-/**
- * @deprecated
- */
-abstract class AbstractStructCollection implements StructCollectionInterface
+class StructCollection implements StructCollectionInterface
 {
     /**
      * @var array<StructInterface>
@@ -56,7 +50,6 @@ abstract class AbstractStructCollection implements StructCollectionInterface
         }
         return false;
     }
-
     public function rewind(): void
     {
         $this->currentIndex = 0;

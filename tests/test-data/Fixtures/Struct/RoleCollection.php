@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct;
 
-use Struct\Struct\StructCollection;
+use Struct\Contracts\StructCollection;
 
 class RoleCollection extends StructCollection
 {

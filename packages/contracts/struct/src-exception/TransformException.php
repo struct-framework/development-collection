@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Serializing\Exception;
+namespace Struct\Exception;
 
 final class TransformException extends \RuntimeException
 {

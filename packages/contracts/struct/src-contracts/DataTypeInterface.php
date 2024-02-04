@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Contracts\Operator;
-
-use Struct\Contracts\SerializableToString;
+namespace Struct\Contracts;
 
 interface DataTypeInterface extends SerializableToString
 {

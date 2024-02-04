@@ -17,7 +17,6 @@
   "replace": {
     "struct/contracts-data-type": "self.version",
     "struct/contracts-operator": "self.version",
-    "struct/contracts-serialize": "self.version",
     "struct/contracts": "self.version",
 
     "struct/data-type": "self.version",
@@ -36,30 +35,18 @@
   },
   "autoload": {
     "psr-4": {
-      "Struct\\Contracts\\DataType\\": "packages/contracts/data-type/src",
-
       "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src-contracts",
       "Struct\\Enum\\Operator\\": "packages/contracts/operator/src-enum",
       "Struct\\Exception\\Operator\\": "packages/contracts/operator/src-exception",
-
-      "Struct\\Contracts\\Serialize\\": "packages/contracts/serialize/src-contracts",
-      "Struct\\Exception\\Serialize\\": "packages/contracts/serialize/src-exception",
 
       "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
       "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
       "Struct\\Exception\\": "packages/contracts/struct/src-exception",
 
-
-
-
-
       "Struct\\DataType\\": "packages/implementation/data-type/src",
       "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
 
       "Struct\\Operator\\": "packages/implementation/operator/src",
-
-      "Struct\\Serializing\\": "packages/implementation/serializing/src",
-      "Struct\\Serializing\\Private\\": "packages/implementation/serializing/src-private",
 
       "Struct\\Struct\\": "packages/implementation/struct/src",
       "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private"
@@ -70,7 +57,6 @@
       "Struct\\Development\\": "src",
       "Struct\\TestData\\": "tests/test-data",
       "Struct\\Operator\\Tests\\": "tests/operator",
-      "Struct\\Serializing\\Tests\\": "tests/serializing",
       "Struct\\Struct\\Tests\\": "tests/struct",
       "Struct\\DataType\\Tests\\": "tests/data-type"
     }

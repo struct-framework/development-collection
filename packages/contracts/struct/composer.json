@@ -10,8 +10,7 @@
         "psr-4": {
             "Struct\\Attribute\\": "src-attribute",
             "Struct\\Contracts\\": "src-contracts",
-            "Struct\\Exception\\": "src-exception",
-            "Struct\\AbstractClass\\": "src-sbstract-class"
+            "Struct\\Exception\\": "src-exception"
         }
     }
 }

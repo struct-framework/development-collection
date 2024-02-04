@@ -8,8 +8,8 @@ use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
 use Struct\Attribute\StructType;
+use Struct\Contracts\StructCollection;
 use Struct\Contracts\StructInterface;
-use Struct\Struct\StructCollection;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 
 class Company implements StructInterface

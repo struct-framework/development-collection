@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Contracts\Serialize;
+namespace Struct\Contracts;
 
 interface SerializableToString extends \Stringable
 {
