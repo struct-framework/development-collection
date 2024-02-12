@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Struct\DataType\Month;
 use Struct\Exception\Operator\DataTypeException;
 use Struct\Operator\O;
+use Struct\TestData\Fixtures\Struct\Enum\Category;
 
 class CompareTest extends TestCase
 {
@@ -19,6 +20,16 @@ class CompareTest extends TestCase
 
         self::assertTrue(O::equals($moth01, $moth02));
         self::assertFalse(O::equals($moth01, $moth03));
+
+        self::assertTrue(O::equals(55, 55));
+        self::assertTrue(O::equals(55.3, 55.3));
+        self::assertTrue(O::equals('bla', 'bla'));
+        self::assertTrue(O::equals(Category::Technology, Category::Technology));
+
+        self::assertFalse(O::equals(55, 56));
+        self::assertFalse(O::equals(55.3, 56.3));
+        self::assertFalse(O::equals('bla', 'blu'));
+        self::assertFalse(O::equals(Category::Technology, Category::Healthcare));
     }
 
     public function testNotEquals(): void
@@ -30,13 +41,15 @@ class CompareTest extends TestCase
         self::assertFalse(O::notEquals($moth01, $moth02));
         self::assertTrue(O::notEquals($moth01, $moth03));
 
-        self::assertTrue(O::equals(55, 55));
-        self::assertTrue(O::equals(55.3, 55.3));
-        self::assertTrue(O::equals('bla', 'bla'));
+        self::assertFalse(O::notEquals(55, 55));
+        self::assertFalse(O::notEquals(55.3, 55.3));
+        self::assertFalse(O::notEquals('bla', 'bla'));
+        self::assertFalse(O::notEquals(Category::Technology, Category::Technology));
 
-        self::assertFalse(O::equals(55, 56));
-        self::assertFalse(O::equals(55.3, 56.3));
-        self::assertFalse(O::equals('bla', 'blu'));
+        self::assertTrue(O::notEquals(55, 56));
+        self::assertTrue(O::notEquals(55.3, 56.3));
+        self::assertTrue(O::notEquals('bla', 'blu'));
+        self::assertTrue(O::notEquals(Category::Technology, Category::Healthcare));
     }
 
     public function testLessThan(): void
