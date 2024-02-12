@@ -7,7 +7,6 @@ namespace Struct\TestData\Fixtures\Struct;
 use DateTimeInterface;
 use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
-use Struct\Attribute\ArrayMixed;
 use Struct\Attribute\DefaultValue;
 use Struct\Attribute\StructType;
 use Struct\Contracts\StructCollection;
@@ -70,8 +69,14 @@ class Company implements StructInterface
     public Amount $amount;
 
     /**
-     * @var array<mixed>
+     * @var array<string, mixed>
      */
-    #[ArrayMixed]
-    public array $arrayMixed = [];
+    #[ArrayKeyList('mixed')]
+    public array $arrayKeyMixed = [];
+
+    /**
+     * @var list<mixed>
+     */
+    #[ArrayList('mixed')]
+    public array $arrayListMixed = [];
 }

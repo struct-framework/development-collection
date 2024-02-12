@@ -120,9 +120,17 @@ class CompanyPreparer
             $reference02
         ];
 
-        $company->arrayMixed = [
+        $company->arrayKeyMixed = [
             'extras' => [
                 'configurationNamespace' => 'my/namespace'
+            ],
+        ];
+
+        $company->arrayListMixed = [
+            'green',
+            2,
+            [
+                'PHP' => 'is cool',
             ],
         ];
 

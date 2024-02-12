@@ -26,7 +26,7 @@ class StructHashUtilityTest extends TestCase
     public function testBuildHash(): void
     {
         $companyHash = StructHashUtility::buildHash($this->company);
-        self::assertSame('cd0efc3e2aa99fa7d0885e4618e1e4a3086ae5ba8e8d3acad3e1636d567e232b', bin2hex($companyHash));
+        self::assertSame('7c203a1856e25953dd0565a209505834effb8786a2d900fcb0bf058edff1260b', bin2hex($companyHash));
     }
 
     public function testBuildHashStruct01(): void

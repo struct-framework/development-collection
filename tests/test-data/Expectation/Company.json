@@ -93,9 +93,16 @@
         "value": 200,
         "currency": "EUR"
     },
-    "arrayMixed": {
+    "arrayKeyMixed": {
         "extras": {
             "configurationNamespace": "my\/namespace"
         }
-    }
+    },
+    "arrayListMixed": [
+        "green",
+        2,
+        {
+            "PHP": "is cool"
+        }
+    ]
 }
