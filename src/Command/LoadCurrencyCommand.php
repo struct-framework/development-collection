@@ -8,6 +8,9 @@ namespace Struct\Development\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use function array_key_exists;
+use function file_get_contents;
+use function simplexml_load_string;
 
 class LoadCurrencyCommand extends Command
 {
@@ -20,8 +23,8 @@ class LoadCurrencyCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $xmlString = \file_get_contents('https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml');
-        $xml = \simplexml_load_string($xmlString);
+        $xmlString = file_get_contents('https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml');
+        $xml = simplexml_load_string($xmlString);
         $children = $xml->children();
 
         $CcyTbl = $children[0];
@@ -44,7 +47,7 @@ class LoadCurrencyCommand extends Command
                 continue;
             }
 
-            if(\array_key_exists($Ccy, $currencies) === false) {
+            if(array_key_exists($Ccy, $currencies) === false) {
                 $currencies[$Ccy] = $CcyNm;
             }
         }

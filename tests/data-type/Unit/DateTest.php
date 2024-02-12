@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\DataType\Tests\Unit;
 
+use DateTime;
+use DateTimeZone;
 use PHPUnit\Framework\TestCase;
 use Struct\DataType\Date;
 use Struct\DataType\Enum\Weekday;
@@ -47,7 +49,7 @@ class DateTest extends TestCase
 
     public function testSerializeAll(): void
     {
-        $startDateTime = new \DateTime('1000-01-01 00:00:00', new \DateTimeZone('UTC'));
+        $startDateTime = new DateTime('1000-01-01 00:00:00', new DateTimeZone('UTC'));
         $startDayNumber = 0;
         $endDayNumber   = 3287181;
 

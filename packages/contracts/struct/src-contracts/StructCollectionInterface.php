@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Struct\Contracts;
 
-interface StructCollectionInterface extends \Countable, \Iterator
+use Countable;
+use Iterator;
+
+interface StructCollectionInterface extends Countable, Iterator
 {
     /**
      * @return array<StructInterface>

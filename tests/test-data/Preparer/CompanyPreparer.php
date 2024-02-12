@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Preparer;
 
+use DateTime;
+use DateTimeZone;
 use Struct\DataType\Amount;
 use Struct\DataType\Month;
 use Struct\Struct\Factory\StructFactory;
@@ -24,7 +26,7 @@ class CompanyPreparer
     {
         $company = StructFactory::create(Company::class);
         $company->name = 'Musterfirma';
-        $company->foundingDate = new \DateTime('2000-02-05 14:35:12', new \DateTimeZone('Europe/Berlin'));
+        $company->foundingDate = new DateTime('2000-02-05 14:35:12', new DateTimeZone('Europe/Berlin'));
 
         $address = new Address();
         $address->street = 'Musterstraße';

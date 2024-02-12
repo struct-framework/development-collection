@@ -1,70 +1,69 @@
 {
-  "name": "struct/development-collection",
-  "type": "development",
-  "description": "",
-  "keywords": ["framework"],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Timo Poppinga",
-      "email": "timo.poppinga@zdrei.com"
+    "name": "struct/development-collection",
+    "type": "development",
+    "description": "",
+    "keywords": [
+        "framework"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Timo Poppinga",
+            "email": "timo.poppinga@zdrei.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2.0",
+        "exception/unexpected": "1.0.0"
+    },
+    "replace": {
+        "struct/contracts-data-type": "self.version",
+        "struct/contracts-operator": "self.version",
+        "struct/contracts": "self.version",
+        "struct/data-type": "self.version",
+        "struct/operator": "self.version",
+        "struct/serializing": "self.version",
+        "struct/struct": "self.version"
+    },
+    "require-dev": {
+        "ext-simplexml": "*",
+        "symfony/process": "^6.3",
+        "phpstan/phpstan": "^1.10.28",
+        "phpstan/phpstan-strict-rules": "^1.5.1",
+        "thecodingmachine/phpstan-strict-rules": "^v1.0.0",
+        "friendsofphp/php-cs-fixer": "^v3.22.0",
+        "phpunit/phpunit": "^10.3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src-contracts",
+            "Struct\\Enum\\Operator\\": "packages/contracts/operator/src-enum",
+            "Struct\\Exception\\Operator\\": "packages/contracts/operator/src-exception",
+
+            "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
+            "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
+            "Struct\\Exception\\": "packages/contracts/struct/src-exception",
+            "Struct\\DataType\\": "packages/implementation/data-type/src",
+            "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
+            "Struct\\Operator\\": "packages/implementation/operator/src",
+            "Struct\\Operator\\Internal\\": "packages/implementation/operator/src-internal",
+            "Struct\\Struct\\": "packages/implementation/struct/src",
+            "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Struct\\Development\\": "src",
+            "Struct\\TestData\\": "tests/test-data",
+            "Struct\\Operator\\Tests\\": "tests/operator",
+            "Struct\\Struct\\Tests\\": "tests/struct",
+            "Struct\\DataType\\Tests\\": "tests/data-type"
+        }
+    },
+    "bin": [
+        "binary/console"
+    ],
+    "config": {
+        "bin-dir": "bin"
     }
-  ],
-  "require": {
-    "php": "^8.2.0",
-    "exception/unexpected" : "1.0.0"
-  },
-  "replace": {
-    "struct/contracts-data-type": "self.version",
-    "struct/contracts-operator": "self.version",
-    "struct/contracts": "self.version",
-
-    "struct/data-type": "self.version",
-    "struct/operator": "self.version",
-    "struct/serializing": "self.version",
-    "struct/struct": "self.version"
-  },
-  "require-dev": {
-    "ext-simplexml": "*",
-    "symfony/process": "^6.3",
-    "phpstan/phpstan": "^1.10.28",
-    "phpstan/phpstan-strict-rules": "^1.5.1",
-    "thecodingmachine/phpstan-strict-rules": "^v1.0.0",
-    "friendsofphp/php-cs-fixer": "^v3.22.0",
-    "phpunit/phpunit": "^10.3.1"
-  },
-  "autoload": {
-    "psr-4": {
-      "Struct\\Contracts\\Operator\\": "packages/contracts/operator/src-contracts",
-      "Struct\\Enum\\Operator\\": "packages/contracts/operator/src-enum",
-      "Struct\\Exception\\Operator\\": "packages/contracts/operator/src-exception",
-
-      "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
-      "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
-      "Struct\\Exception\\": "packages/contracts/struct/src-exception",
-
-      "Struct\\DataType\\": "packages/implementation/data-type/src",
-      "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
-
-      "Struct\\Operator\\": "packages/implementation/operator/src",
-
-      "Struct\\Struct\\": "packages/implementation/struct/src",
-      "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Struct\\Development\\": "src",
-      "Struct\\TestData\\": "tests/test-data",
-      "Struct\\Operator\\Tests\\": "tests/operator",
-      "Struct\\Struct\\Tests\\": "tests/struct",
-      "Struct\\DataType\\Tests\\": "tests/data-type"
-    }
-  },
-  "bin": [
-    "binary/console"
-  ],
-  "config": {
-    "bin-dir": "bin"
-  }
 }

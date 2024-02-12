@@ -2,10 +2,11 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
+use Struct\Development\Command\LoadCurrencyCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application('echo', '1.0.0');
-$loadCurrencyCommand = new \Struct\Development\Command\LoadCurrencyCommand();
+$loadCurrencyCommand = new LoadCurrencyCommand();
 
 $application->add($loadCurrencyCommand);
 $application->run();

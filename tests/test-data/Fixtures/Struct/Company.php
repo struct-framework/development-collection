@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct;
 
+use DateTimeInterface;
 use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
@@ -17,7 +18,7 @@ class Company implements StructInterface
     public string $name = '';
 
     #[DefaultValue('2022-05-05 00:00:00')]
-    public \DateTimeInterface $foundingDate;
+    public DateTimeInterface $foundingDate;
     public Address $address;
     public bool $isActive;
     public Category $category;

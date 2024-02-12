@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\Exception;
 
-class SerializeException extends \RuntimeException
+use RuntimeException;
+
+class SerializeException extends RuntimeException
 {
 }

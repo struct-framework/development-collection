@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Struct\Struct\Tests\Unit;
 
+use function file_get_contents;
 use PHPUnit\Framework\TestCase;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidStructException;
@@ -32,8 +33,8 @@ class StructSerializeUtilityTest extends TestCase
         parent::setUp();
         $companyPreparer = new CompanyPreparer();
         $this->company = $companyPreparer->buildCompany();
-        $this->expectation = (string) \file_get_contents(__DIR__ . '/../../test-data/Expectation/Company.json');
-        $this->expectationSnakeCase = (string) \file_get_contents(__DIR__ . '/../../test-data/Expectation/CompanySnakeCase.json');
+        $this->expectation = (string) file_get_contents(__DIR__ . '/../../test-data/Expectation/Company.json');
+        $this->expectationSnakeCase = (string) file_get_contents(__DIR__ . '/../../test-data/Expectation/CompanySnakeCase.json');
     }
 
     public function testDataType(): void

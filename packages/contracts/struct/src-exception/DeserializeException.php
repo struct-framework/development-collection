@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\Exception;
 
-class DeserializeException extends \RuntimeException
+use RuntimeException;
+
+class DeserializeException extends RuntimeException
 {
 }
