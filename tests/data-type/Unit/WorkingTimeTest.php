@@ -44,12 +44,10 @@ class WorkingTimeTest extends TestCase
         self::assertSame(33, $workingTimeSum->minutes);
     }
 
-    public function testSub(): void
+    public function testSignChange(): void
     {
         $workingTime01 = new WorkingTime('20m');
-        $workingTime02 = new WorkingTime('3m');
-
-        $workingTimeSum = WorkingTime::sub($workingTime01, $workingTime02);
-        self::assertSame(17, $workingTimeSum->minutes);
+        $result = WorkingTime::signChange($workingTime01);
+        self::assertSame(-20, $result->minutes);
     }
 }

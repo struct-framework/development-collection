@@ -143,11 +143,10 @@ class AmountTest extends TestCase
         Amount::sum([$amount01, $amount02]);
     }
 
-    public function testSub(): void
+    public function testSignChange(): void
     {
         $amount01 = new Amount('1256.95 EUR');
-        $amount02 = new Amount('241.47 EUR');
-        $amountResult = Amount::sub($amount01, $amount02);
-        self::assertSame('1015.48 EUR', $amountResult->serializeToString());
+        $amountResult = Amount::signChange($amount01);
+        self::assertSame('-1256.95 EUR', $amountResult->serializeToString());
     }
 }
