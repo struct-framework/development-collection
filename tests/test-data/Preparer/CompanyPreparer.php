@@ -120,6 +120,12 @@ class CompanyPreparer
             $reference02
         ];
 
+        $company->arrayMixed = [
+            'extras' => [
+                'configurationNamespace' => 'my/namespace'
+            ],
+        ];
+
         $this->buildDataType($company->dataType);
         return $company;
     }

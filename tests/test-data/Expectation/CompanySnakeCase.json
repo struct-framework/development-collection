@@ -92,5 +92,10 @@
     "amount": {
         "value": 200,
         "currency": "EUR"
+    },
+    "array-mixed": {
+        "extras": {
+            "configurationNamespace": "my\/namespace"
+        }
     }
 }
