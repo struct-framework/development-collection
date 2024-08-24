@@ -33,12 +33,10 @@ class CompanyProperty implements StructInterface
         #[ArrayKeyList('string')]
         public array $properties = [],
         public readonly string $test = 'Hello World!',
-    )
-    {}
+    ) {
+    }
 
     public Category $category2 = Category::Financial;
-
-
 
     /**
      * @var array<string>
@@ -62,7 +60,6 @@ class CompanyProperty implements StructInterface
      */
     #[ArrayKeyList(Role::class)]
     public array $roles = [];
-
 
     public int|float $longitude;
     public float $latitude;
@@ -95,10 +92,8 @@ class CompanyProperty implements StructInterface
     private string $private;
     protected string $protected;
 
-
     public function getText(int $number): string
     {
         return 'Hello World!';
     }
-
 }

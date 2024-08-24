@@ -6,10 +6,7 @@ namespace Struct\dataProcessing\Tests\Unit\Helper;
 
 use PHPUnit\Framework\TestCase;
 use Struct\DataProcessing\Helper\DataHelper;
-use Struct\DataType\Amount;
 use Struct\DataType\Date;
-use Struct\DataType\Enum\AmountVolume;
-use Struct\DataType\Month;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Enum\Type;
 
@@ -37,12 +34,10 @@ class DataHelperTest extends TestCase
         self::assertSame('bool', DataHelper::readPrefix($value));
         self::assertSame('bool:false', DataHelper::toFullyQualifiedString($value));
 
-
         $value = null;
         self::assertSame('null', DataHelper::toString($value));
         self::assertSame('null', DataHelper::readPrefix($value));
         self::assertSame('null:null', DataHelper::toFullyQualifiedString($value));
-
 
         $value = 'Hello World!';
         self::assertSame('Hello World!', DataHelper::toString($value));
@@ -55,20 +50,18 @@ class DataHelperTest extends TestCase
         self::assertSame('int:3', DataHelper::toFullyQualifiedString($value));
 
         $value = 3.0;
-        self::assertSame('3',  DataHelper::toString($value));
+        self::assertSame('3', DataHelper::toString($value));
         self::assertSame('float', DataHelper::readPrefix($value));
         self::assertSame('float:3', DataHelper::toFullyQualifiedString($value));
 
         $value = Category::Financial;
-        self::assertSame('cat-financial',  DataHelper::toString($value));
+        self::assertSame('cat-financial', DataHelper::toString($value));
         self::assertSame('Struct\TestData\Fixtures\Struct\Enum\Category', DataHelper::readPrefix($value));
         self::assertSame('Struct\TestData\Fixtures\Struct\Enum\Category:cat-financial', DataHelper::toFullyQualifiedString($value));
 
         $value = Type::Hot;
-        self::assertSame('Hot',  DataHelper::toString($value));
+        self::assertSame('Hot', DataHelper::toString($value));
         self::assertSame('Struct\TestData\Fixtures\Struct\Enum\Type', DataHelper::readPrefix($value));
         self::assertSame('Struct\TestData\Fixtures\Struct\Enum\Type:Hot', DataHelper::toFullyQualifiedString($value));
     }
-
-
 }

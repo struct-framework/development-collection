@@ -14,8 +14,8 @@ final readonly class DataCore
 {
     public function __construct(
         protected Well $well
-    )
-    {}
+    ) {
+    }
 
     /**
      * @param array<string> $identifiers
@@ -41,5 +41,4 @@ final readonly class DataCore
         $object = $this->well->get($referenceObject->identifier);
         return $object;
     }
-
 }

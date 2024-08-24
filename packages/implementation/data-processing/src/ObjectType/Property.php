@@ -16,6 +16,6 @@ final readonly class Property implements StructInterface
         public string|int|float|bool|null|DataTypeInterface|\UnitEnum $value,
         public ?string $typeShortIdentifier = null,
         public ?string $valueShortIdentifier = null,
-    )
-    {}
+    ) {
+    }
 }

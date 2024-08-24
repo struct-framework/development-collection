@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Struct\Exceptions;
 
-
 class SecurityException extends \RuntimeException
 {
     public function __construct(int $code, string $message, \Throwable $previous = null)

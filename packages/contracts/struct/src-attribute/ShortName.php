@@ -10,5 +10,6 @@ use Attribute;
 class ShortName
 {
     public function __construct(string $name)
-    {}
+    {
+    }
 }

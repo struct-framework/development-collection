@@ -22,7 +22,7 @@ final class Well
     public function add(EntityObject|ValueObject|ReferenceObject $object): string
     {
         $identifier = ObjectHelper::readIdentifier($object);
-        if($object instanceof ReferenceObject) {
+        if ($object instanceof ReferenceObject) {
             return $identifier;
         }
         $this->storage[$identifier] = $object;

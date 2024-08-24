@@ -4,7 +4,6 @@ namespace Z3\UnifiedModel;
 
 namespace Struct\DataProcessing\Internal;
 
-
 use Struct\DataProcessing\ObjectType\EntityObject;
 use Struct\DataProcessing\ObjectType\ValueObject;
 
@@ -18,8 +17,8 @@ class ObjectCollection implements \Iterator, \Countable
     public function __construct(
         protected readonly Well $well,
         protected array $identifiers = [],
-    )
-    {}
+    ) {
+    }
     /**
      * @return array<EntityObject|ValueObject>
      */

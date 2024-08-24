@@ -9,7 +9,6 @@ use Struct\DataProcessing\Internal\Well;
 
 final class DataCoreFactory
 {
-
     protected static ?DataCore $dataCore = null;
 
     public static function build(): DataCore
@@ -20,7 +19,7 @@ final class DataCoreFactory
 
     public static function buildSingleton(): DataCore
     {
-        if(self::$dataCore === null) {
+        if (self::$dataCore === null) {
             self::$dataCore = self::build();
         }
         return self::$dataCore;

@@ -8,10 +8,8 @@ use Random\Engine\Secure;
 use Random\Randomizer;
 use Struct\DataProcessing\Exception\UuidException;
 
-
 class Uuid
 {
-
     public function isValidUuid(string $uuid): bool
     {
         try {
@@ -118,5 +116,4 @@ class Uuid
     {
         return \substr($baseUuid, 0, 12) . $version . \substr($baseUuid, 13);
     }
-
 }

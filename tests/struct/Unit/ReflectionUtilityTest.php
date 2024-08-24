@@ -9,7 +9,6 @@ use Struct\Struct\Private\Struct\ObjectStruct\Parts\Visibility;
 use Struct\Struct\ReflectionUtility;
 use Struct\TestData\Fixtures\CompanyProperty;
 
-
 class ReflectionUtilityTest extends TestCase
 {
     public function testReadObjectStruct(): void

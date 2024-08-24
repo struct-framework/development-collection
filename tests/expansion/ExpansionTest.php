@@ -15,12 +15,10 @@ class ExpansionTest extends TestCase
         $this->throwUserException();
     }
 
-
     protected function throwUserException(): void
     {
         throw new UserException(1723054624, '');
     }
-
 
     protected function throwProgrammeException(): void
     {

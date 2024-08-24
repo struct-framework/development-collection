@@ -10,11 +10,9 @@ use Struct\TestData\Fixtures\Struct\Company;
 
 class PropertyReflectionHelperTest extends TestCase
 {
-
     public function testReadProperties(): void
     {
         $companyProperty = PropertyReflectionHelper::readProperties(Company::class);
-
 
         $r = 0;
     }
