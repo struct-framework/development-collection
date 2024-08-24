@@ -6,8 +6,11 @@ namespace Struct\TestData\Fixtures\Struct;
 
 use Struct\Contracts\StructInterface;
 
-class Technology implements StructInterface
+readonly class Technology implements StructInterface
 {
-    public string $name;
-    public ?string $country = null;
+    public function __construct(
+        public string $name,
+        public ?string $country = null,
+    ) {
+    }
 }

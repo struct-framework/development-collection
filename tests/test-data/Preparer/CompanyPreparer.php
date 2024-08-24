@@ -101,9 +101,10 @@ class CompanyPreparer
         $company->latitude = 48.25652;
         $company->longitude = 8.0;
 
-        $technology = new Technology();
-        $technology->name = 'One CMS';
-        $technology->country = 'Germany';
+        $technology = new Technology(
+            'One CMS',
+            'Germany'
+        );
 
         $reference01 = new Reference();
         $reference01->title = 'Website Blue GmbH';

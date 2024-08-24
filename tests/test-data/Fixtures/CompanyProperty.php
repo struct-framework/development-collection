@@ -2,33 +2,43 @@
 
 declare(strict_types=1);
 
-namespace Struct\TestData\Fixtures\Struct;
+namespace Struct\TestData\Fixtures;
 
 use DateTimeInterface;
 use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
 use Struct\Attribute\StructType;
+use Struct\Contracts\DataTypeInterface;
 use Struct\Contracts\StructCollection;
 use Struct\Contracts\StructInterface;
+use Struct\TestData\Fixtures\Struct\Address;
+use Struct\TestData\Fixtures\Struct\Amount;
+use Struct\TestData\Fixtures\Struct\DataType;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
+use Struct\TestData\Fixtures\Struct\Person;
+use Struct\TestData\Fixtures\Struct\Reference;
+use Struct\TestData\Fixtures\Struct\Role;
+use Struct\TestData\Fixtures\Struct\Tag;
 
-class Company implements StructInterface
+class CompanyProperty implements StructInterface
 {
-    public string $name = '';
+    public function __construct(
+        string $name,
+        #[DefaultValue('2022-05-05 00:00:00')]
+        public DateTimeInterface $foundingDate,
+        public Address $address,
+        public bool $isActive,
+        public Category $category,
+        #[ArrayKeyList('string')]
+        public array $properties = [],
+        public readonly string $test = 'Hello World!',
+    )
+    {}
 
-    #[DefaultValue('2022-05-05 00:00:00')]
-    public DateTimeInterface $foundingDate;
-    public Address $address;
-    public bool $isActive;
-    public Category $category;
     public Category $category2 = Category::Financial;
 
-    /**
-     * @var array<string, string>
-     */
-    #[ArrayKeyList('string')]
-    public array $properties = [];
+
 
     /**
      * @var array<string>
@@ -53,7 +63,6 @@ class Company implements StructInterface
     #[ArrayKeyList(Role::class)]
     public array $roles = [];
 
-    public RoleCollection $roleCollection;
 
     public int|float $longitude;
     public float $latitude;
@@ -79,4 +88,17 @@ class Company implements StructInterface
      */
     #[ArrayList('mixed')]
     public array $arrayListMixed = [];
+
+    public (StructInterface&DataTypeInterface)|int $intersectionType01;
+    public StructInterface&DataTypeInterface $intersectionType02;
+
+    private string $private;
+    protected string $protected;
+
+
+    public function getText(int $number): string
+    {
+        return 'Hello World!';
+    }
+
 }

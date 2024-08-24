@@ -23,7 +23,8 @@
         "struct/data-type": "self.version",
         "struct/operator": "self.version",
         "struct/serializing": "self.version",
-        "struct/struct": "self.version"
+        "struct/struct": "self.version",
+        "struct/data-processing": "self.version"
     },
     "require-dev": {
         "ext-simplexml": "*",
@@ -48,7 +49,13 @@
             "Struct\\Operator\\": "packages/implementation/operator/src",
             "Struct\\Operator\\Internal\\": "packages/implementation/operator/src-internal",
             "Struct\\Struct\\": "packages/implementation/struct/src",
-            "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private"
+            "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private",
+
+            "Struct\\Exceptions\\": "packages/implementation/exceptions/src",
+            "Struct\\Exceptions\\Internal\\": "packages/implementation/exceptions/src-internal",
+
+            "Struct\\DataProcessing\\": "packages/implementation/data-processing/src",
+            "Struct\\DataProcessing\\Internal\\": "packages/implementation/data-processing/src-internal"
         }
     },
     "autoload-dev": {
@@ -57,7 +64,9 @@
             "Struct\\TestData\\": "tests/test-data",
             "Struct\\Operator\\Tests\\": "tests/operator",
             "Struct\\Struct\\Tests\\": "tests/struct",
-            "Struct\\DataType\\Tests\\": "tests/data-type"
+            "Struct\\DataType\\Tests\\": "tests/data-type",
+            "Struct\\Expansion\\Tests\\": "tests/expansion",
+            "Struct\\DataProcessing\\Tests\\": "tests/data-processing"
         }
     },
     "bin": [

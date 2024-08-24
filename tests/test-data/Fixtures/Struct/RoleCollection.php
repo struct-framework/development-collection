@@ -6,6 +6,9 @@ namespace Struct\TestData\Fixtures\Struct;
 
 use Struct\Contracts\StructCollection;
 
+/**
+ * @deprecated
+ */
 class RoleCollection extends StructCollection
 {
     public function current(): Role

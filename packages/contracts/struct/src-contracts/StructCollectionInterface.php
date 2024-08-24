@@ -7,6 +7,9 @@ namespace Struct\Contracts;
 use Countable;
 use Iterator;
 
+/**
+ * @internal
+ */
 interface StructCollectionInterface extends Countable, Iterator
 {
     /**
