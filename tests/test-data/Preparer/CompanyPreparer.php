@@ -6,13 +6,10 @@ namespace Struct\TestData\Preparer;
 
 use DateTime;
 use DateTimeZone;
-use Struct\DataType\Amount;
-use Struct\DataType\Month;
 use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Address;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\Contact;
-use Struct\TestData\Fixtures\Struct\DataType;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Person;
 use Struct\TestData\Fixtures\Struct\Reference;
@@ -135,9 +132,6 @@ class CompanyPreparer
             ],
         ];
 
-
         return $company;
     }
-
-
 }

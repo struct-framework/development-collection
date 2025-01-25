@@ -34,8 +34,5 @@ class StructSignatureUtilityTest extends TestCase
     public function testReadValueSignature(): void
     {
         $objectSignature = StructSignatureUtility::readValueSignature($this->company);
-
-
     }
-
 }

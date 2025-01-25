@@ -9,7 +9,6 @@ use Throwable;
 
 class SerializeException extends RuntimeException
 {
-
     public readonly ?string $objectPath;
 
     public function __construct(
@@ -17,21 +16,20 @@ class SerializeException extends RuntimeException
         ?string $object = null,
         ?string $message = null,
         ?Throwable $previous = null
-    )
-    {
+    ) {
         $objectPath = null;
-        if($previous instanceof SerializeException === true) {
+        if ($previous instanceof self === true) {
             $objectPath = $previous->objectPath;
         }
 
-        if(
+        if (
             $object !== null &&
             $objectPath !== null
         ) {
             $objectPath = $object . '->' . $objectPath;
         }
 
-        if(
+        if (
             $objectPath === null
         ) {
             $objectPath = $object;
@@ -39,14 +37,13 @@ class SerializeException extends RuntimeException
 
         $this->objectPath = $objectPath;
 
-        if($message === null) {
+        if ($message === null) {
             $message = $previous->getMessage();
         }
 
-        if($this->objectPath !== null) {
+        if ($this->objectPath !== null) {
             $message .= ' in ' . $this->objectPath;
         }
-
 
         parent::__construct($message, $code, $previous);
     }

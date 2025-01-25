@@ -32,7 +32,6 @@ class DateTest extends TestCase
         self::assertSame('2023-08-15', $serializedMonth);
     }
 
-
     public function testDeserializeToString(): void
     {
         $serializedMonth = '2023-08-15';
@@ -48,13 +47,11 @@ class DateTest extends TestCase
         self::assertSame(0, $firstDate->serializeToInt());
     }
 
-
     public function testDayCheck(): void
     {
         self::expectExceptionCode(1737815642);
         new Date('2023-02-30');
     }
-
 
     public function testCalculateYearByDaysLabYear(): void
     {
@@ -68,7 +65,6 @@ class DateTest extends TestCase
         $year02 = Date::calculateYearByDays(1826);
         self::assertSame(1005, $year02);
     }
-
 
     public function testCalculateYearByDaysFourHundred(): void
     {
@@ -149,9 +145,6 @@ class DateTest extends TestCase
         self::assertSame(24, $date->calendarWeek(), $date->serializeToString());
     }
 
-
-
-
     public function testSerializeAll(): void
     {
         $startDateTime = new DateTime('1000-01-01 00:00:00', new \DateTimeZone('UTC'));
@@ -181,7 +174,6 @@ class DateTest extends TestCase
         $dateDeserialized = new Date($dateAsInt);
         self::assertSame($dateString, $dateDeserialized->serializeToString(), $dateString);
     }
-
 
     public function testFirstDayOfMonth(): void
     {

@@ -6,7 +6,6 @@ namespace Struct\DataType\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Struct\DataType\Amount;
-use Struct\DataType\Enum\AmountVolume;
 use Struct\DataType\Month;
 
 class AmountTest extends TestCase
