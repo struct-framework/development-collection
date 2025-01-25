@@ -37,9 +37,9 @@ class DateTest extends TestCase
     {
         $serializedMonth = '2023-08-15';
         $date = new Date($serializedMonth);
-        self::assertSame(2023, $date->getYear());
-        self::assertSame(8, $date->getMonth());
-        self::assertSame(15, $date->getDay());
+        self::assertSame(2023, $date->year);
+        self::assertSame(8, $date->month);
+        self::assertSame(15, $date->day);
     }
 
     public function testSerializeToInt(): void
@@ -51,7 +51,7 @@ class DateTest extends TestCase
 
     public function testDayCheck(): void
     {
-        self::expectExceptionCode(1696334057);
+        self::expectExceptionCode(1737815642);
         new Date('2023-02-30');
     }
 

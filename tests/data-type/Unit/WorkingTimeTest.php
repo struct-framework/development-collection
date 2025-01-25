@@ -11,23 +11,20 @@ class WorkingTimeTest extends TestCase
 {
     public function testSerializeToString(): void
     {
-        $workingTime = new WorkingTime();
-        $workingTime->minutes = 200;
+        $workingTime = new WorkingTime(200);
         self::assertSame('3h 20m', $workingTime->serializeToString());
     }
 
     public function testDeserializeFromString(): void
     {
-        $workingTime = new WorkingTime();
-        $workingTime->deserializeFromString('3h 20m');
+        $workingTime = new WorkingTime('3h 20m');
         self::assertSame(200, $workingTime->minutes);
     }
 
     public function testFull(): void
     {
         for ($i = -100000; $i < 100000; $i++) {
-            $workingTime = new WorkingTime();
-            $workingTime->minutes = $i;
+            $workingTime = new WorkingTime($i);
             $workingTimeString = $workingTime->serializeToString();
             $newWorkingTime = new WorkingTime($workingTimeString);
             self::assertSame($i, $newWorkingTime->minutes, $workingTimeString);

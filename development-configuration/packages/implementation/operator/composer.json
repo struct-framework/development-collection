@@ -1,0 +1,16 @@
+{
+    "name": "struct/operator",
+    "license": "MIT",
+    "description": "Simple package for operator overloading",
+    "require": {
+        "php": "^8.4.0",
+        "struct/contracts": "^1.6.0",
+        "struct/contracts-operator": "^1.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Struct\\Operator\\": "src",
+            "Struct\\Operator\\Internal\\": "src-internal"
+        }
+    }
+}

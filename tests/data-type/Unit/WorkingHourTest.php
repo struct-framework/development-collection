@@ -11,31 +11,28 @@ class WorkingHourTest extends TestCase
 {
     public function testSerializeToString(): void
     {
-        $workingHour = new WorkingHour();
-        $workingHour->minutes = 180;
+        $workingHour = new WorkingHour(180);
         self::assertSame('3.00', $workingHour->serializeToString());
 
-        $workingHour->minutes = 15;
+        $workingHour = new WorkingHour(15);
         self::assertSame('0.25', $workingHour->serializeToString());
 
-        $workingHour->minutes = 3;
+        $workingHour = new WorkingHour(3);
         self::assertSame('0.05', $workingHour->serializeToString());
 
-        $workingHour->minutes = 0;
+        $workingHour = new WorkingHour(0);
         self::assertSame('0.00', $workingHour->serializeToString());
 
-        $workingHour->minutes = -255;
+        $workingHour = new WorkingHour(-255);
         self::assertSame('- 4.25', $workingHour->serializeToString());
     }
 
     public function testDeserializeFromString(): void
     {
-        $workingHour = new WorkingHour();
-        $workingHour->deserializeFromString('0.25');
+        $workingHour = new WorkingHour('0.25');
         self::assertSame(15, $workingHour->minutes);
 
-        $workingHour = new WorkingHour();
-        $workingHour->deserializeFromString('- 4.25');
+        $workingHour = new WorkingHour('- 4.25');
         self::assertSame(-255, $workingHour->minutes);
     }
 

@@ -1,0 +1,14 @@
+{
+  "name": "struct/data-processing",
+  "license": "MIT",
+  "description": "",
+  "require": {
+    "php": "^8.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Struct\\DataProcessing\\": "src",
+      "Struct\\DataProcessing\\Internal\\": "src-internal"
+    }
+  }
+}
