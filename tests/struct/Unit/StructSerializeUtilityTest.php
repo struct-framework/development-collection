@@ -55,7 +55,7 @@ class StructSerializeUtilityTest extends TestCase
         self::assertSame($this->expectationSnakeCase, $companyJson);
     }
 
-    public function testFullUnSerialize(): void
+    public function testFullDeserialize(): void
     {
         $companyArrayExpectation = StructSerializeUtility::serialize($this->company);
         $companyUnSerialize = StructSerializeUtility::deserialize($companyArrayExpectation, Company::class);

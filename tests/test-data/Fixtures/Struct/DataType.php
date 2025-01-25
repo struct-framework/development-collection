@@ -17,6 +17,7 @@ class DataType implements StructInterface
     #[DefaultValue('2013-07')]
     public Month $month;
 
+    #[DefaultValue('125.24 EUR')]
     public Amount $amount;
 
     #[DefaultValue('19 %')]

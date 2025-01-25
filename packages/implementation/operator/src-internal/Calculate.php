@@ -21,7 +21,7 @@ final class Calculate extends AbstractOperator
             $object++;
             return;
         }
-        $object->increment();
+        $object = $object->increment();
     }
 
     public static function decrement(int|IncrementableInterface &$object): void
@@ -30,7 +30,7 @@ final class Calculate extends AbstractOperator
             $object--;
             return;
         }
-        $object->decrement();
+        $object = $object->decrement();
     }
 
     /**

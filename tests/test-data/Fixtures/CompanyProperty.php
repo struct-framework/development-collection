@@ -9,7 +9,7 @@ use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
 use Struct\Attribute\StructType;
-use Struct\Contracts\DataTypeInterface;
+use Struct\Contracts\DataTypeInterfaceWritable;
 use Struct\Contracts\StructCollection;
 use Struct\Contracts\StructInterface;
 use Struct\TestData\Fixtures\Struct\Address;
@@ -86,8 +86,8 @@ class CompanyProperty implements StructInterface
     #[ArrayList('mixed')]
     public array $arrayListMixed = [];
 
-    public (StructInterface&DataTypeInterface)|int $intersectionType01;
-    public StructInterface&DataTypeInterface $intersectionType02;
+    public (StructInterface&DataTypeInterfaceWritable)|int $intersectionType01;
+    public StructInterface&DataTypeInterfaceWritable $intersectionType02;
 
     private string $private;
     protected string $protected;

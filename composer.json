@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "php": "^8.2.0",
+        "php": "^8.4.0",
         "exception/unexpected": "1.0.0"
     },
     "replace": {
@@ -28,12 +28,11 @@
     },
     "require-dev": {
         "ext-simplexml": "*",
-        "symfony/process": "^6.3",
-        "phpstan/phpstan": "^1.10.28",
-        "phpstan/phpstan-strict-rules": "^1.5.1",
-        "thecodingmachine/phpstan-strict-rules": "^v1.0.0",
-        "friendsofphp/php-cs-fixer": "^v3.22.0",
-        "phpunit/phpunit": "^10.3.1"
+        "symfony/process": "^v7.2.0",
+        "phpstan/phpstan": "^2.1.2",
+        "phpstan/phpstan-strict-rules": "^2.0.3",
+        "friendsofphp/php-cs-fixer": "^v3.68.1",
+        "phpunit/phpunit": "^11.5.3"
     },
     "autoload": {
         "psr-4": {
@@ -49,7 +48,7 @@
             "Struct\\Operator\\": "packages/implementation/operator/src",
             "Struct\\Operator\\Internal\\": "packages/implementation/operator/src-internal",
             "Struct\\Struct\\": "packages/implementation/struct/src",
-            "Struct\\Struct\\Private\\": "packages/implementation/struct/src-private",
+            "Struct\\Struct\\Internal\\": "packages/implementation/struct/src-internal",
 
             "Struct\\Exceptions\\": "packages/implementation/exceptions/src",
             "Struct\\Exceptions\\Internal\\": "packages/implementation/exceptions/src-internal",

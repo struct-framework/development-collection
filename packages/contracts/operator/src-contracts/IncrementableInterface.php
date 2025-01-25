@@ -6,6 +6,6 @@ namespace Struct\Contracts\Operator;
 
 interface IncrementableInterface
 {
-    public function increment(): void;
-    public function decrement(): void;
+    public function increment(): self;
+    public function decrement(): self;
 }

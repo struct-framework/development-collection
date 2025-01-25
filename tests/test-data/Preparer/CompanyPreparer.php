@@ -47,15 +47,15 @@ class CompanyPreparer
 
         $company->tags = [
             'industry',
-            'middle size'
+            'middle:size'
         ];
 
         $tag1 = new Tag();
         $tag1->name = 'industry';
         $tag2 = new Tag();
         $tag2->name = 'middle size';
-        $company->tagCollection->addValue($tag1);
-        $company->tagCollection->addValue($tag2);
+        $company->tagCollection[] = $tag1;
+        $company->tagCollection[] = $tag2;
 
         $person01 = new Person();
         $person01->title = 'Geschäftsführer';
@@ -95,8 +95,8 @@ class CompanyPreparer
             'third' => $role03
         ];
 
-        $company->roleCollection->addValue($role01);
-        $company->roleCollection->addValue($role02);
+        $company->roleCollection[] = $role01;
+        $company->roleCollection[] = $role02;
 
         $company->latitude = 48.25652;
         $company->longitude = 8.0;
@@ -135,21 +135,9 @@ class CompanyPreparer
             ],
         ];
 
-        $this->buildDataType($company->dataType);
+
         return $company;
     }
 
-    protected function buildDataType(DataType $dataType): DataType
-    {
-        // Data type month
-        $month = new Month('2023-08');
-        $dataType->month = $month;
 
-        // Data type amount
-        $amount = new Amount();
-        $amount->setValue(13478);
-        $dataType->amount = $amount;
-
-        return $dataType;
-    }
 }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Struct\DataType\Tests\Unit;
 
 use DateTime;
-use DateTimeZone;
 use PHPUnit\Framework\TestCase;
 use Struct\DataType\Date;
 use Struct\DataType\Enum\Weekday;
@@ -14,31 +13,33 @@ class DateTest extends TestCase
 {
     public function testSerializeToString(): void
     {
-        $date = new Date();
-        $date->setYear(2023);
-        $date->setMonth(8);
-        $date->setDay(15);
+        $date = new Date('2023-08-15');
         $serializedMonth = $date->serializeToString();
         self::assertSame('2023-08-15', $serializedMonth);
     }
 
+    public function testSerializeToStringDateTime(): void
+    {
+        $date = new Date(new DateTime('2023-08-15 00:00:00'));
+        $serializedMonth = $date->serializeToString();
+        self::assertSame('2023-08-15', $serializedMonth);
+    }
+
+    public function testSerializeToStringInt(): void
+    {
+        $date = new Date(373869);
+        $serializedMonth = $date->serializeToString();
+        self::assertSame('2023-08-15', $serializedMonth);
+    }
+
+
     public function testDeserializeToString(): void
     {
         $serializedMonth = '2023-08-15';
-        $date = new Date();
-        $date->deserializeFromString($serializedMonth);
+        $date = new Date($serializedMonth);
         self::assertSame(2023, $date->getYear());
         self::assertSame(8, $date->getMonth());
         self::assertSame(15, $date->getDay());
-    }
-
-    public function testDayCheck(): void
-    {
-        $date = new Date();
-        $date->setYear(2023);
-        $date->setMonth(2);
-        self::expectExceptionCode(1696334057);
-        $date->setDay(30);
     }
 
     public function testSerializeToInt(): void
@@ -47,37 +48,13 @@ class DateTest extends TestCase
         self::assertSame(0, $firstDate->serializeToInt());
     }
 
-    public function testSerializeAll(): void
+
+    public function testDayCheck(): void
     {
-        $startDateTime = new DateTime('1000-01-01 00:00:00', new DateTimeZone('UTC'));
-        $startDayNumber = 0;
-        $endDayNumber   = 3287181;
-
-        $dateString = '';
-        for ($expectedDayNumber = $startDayNumber; $expectedDayNumber <= $endDayNumber; $expectedDayNumber++) {
-            $dateString = $startDateTime->format('Y-m-d');
-            $date = new Date($dateString);
-            $dateAsDayNumber = $date->serializeToInt();
-            $dateDeserialized = new Date('9999-12-31');
-            $dateDeserialized->deserializeFromInt($dateAsDayNumber);
-
-            self::assertSame($expectedDayNumber, $dateAsDayNumber, $dateString);
-            self::assertSame($dateString, $dateDeserialized->serializeToString(), $dateString);
-
-            $startDateTime->modify('+1 day');
-        }
-        echo $dateString . PHP_EOL;
+        self::expectExceptionCode(1696334057);
+        new Date('2023-02-30');
     }
 
-    public function testDeserializeFromInt01(): void
-    {
-        $dateString = '1004-12-31';
-        $date = new Date($dateString);
-        $dateAsInt = $date->serializeToInt();
-        $dateDeserialized = new Date('9999-12-31');
-        $dateDeserialized->deserializeFromInt($dateAsInt);
-        self::assertSame($dateString, $dateDeserialized->serializeToString(), $dateString);
-    }
 
     public function testCalculateYearByDaysLabYear(): void
     {
@@ -91,6 +68,7 @@ class DateTest extends TestCase
         $year02 = Date::calculateYearByDays(1826);
         self::assertSame(1005, $year02);
     }
+
 
     public function testCalculateYearByDaysFourHundred(): void
     {
@@ -127,34 +105,6 @@ class DateTest extends TestCase
 
         $date04 = new Date('3654-02-14');
         self::assertSame(Weekday::Saturday, $date04->weekday());
-    }
-
-    public function testFirstDayOfMonth(): void
-    {
-        $date = new Date('2025-12-29');
-        $firstDayOfMonth = $date->firstDayOfMonth();
-        self::assertSame('2025-12-01', $firstDayOfMonth->serializeToString());
-    }
-
-    public function testLastDayOfMonth(): void
-    {
-        $date = new Date('2024-02-03');
-        $lastDayOfMonth = $date->lastDayOfMonth();
-        self::assertSame('2024-02-29', $lastDayOfMonth->serializeToString());
-    }
-
-    public function testReset(): void
-    {
-        $date = new Date('2024-01-30');
-        $date->reset();
-        self::assertSame('1000-01-01', $date->serializeToString());
-    }
-
-    public function testDate(): void
-    {
-        $date = new Date('2024-01-30');
-        $date->deserializeFromString('2024-02-29');
-        self::assertSame('2024-02-29', $date->serializeToString());
     }
 
     public function testCalendarWeek(): void
@@ -197,5 +147,81 @@ class DateTest extends TestCase
 
         $date = new Date('2023-06-12');
         self::assertSame(24, $date->calendarWeek(), $date->serializeToString());
+    }
+
+
+
+
+    public function testSerializeAll(): void
+    {
+        $startDateTime = new DateTime('1000-01-01 00:00:00', new \DateTimeZone('UTC'));
+        $startDayNumber = 0;
+        $endDayNumber   = 3287181;
+
+        $dateString = '';
+        for ($expectedDayNumber = $startDayNumber; $expectedDayNumber <= $endDayNumber; $expectedDayNumber++) {
+            $dateString = $startDateTime->format('Y-m-d');
+            $date = new Date($dateString);
+            $dateAsDayNumber = $date->serializeToInt();
+            $dateDeserialized = new Date($dateAsDayNumber);
+
+            self::assertSame($expectedDayNumber, $dateAsDayNumber, $dateString);
+            self::assertSame($dateString, $dateDeserialized->serializeToString(), $dateString);
+
+            $startDateTime->modify('+1 day');
+        }
+        echo $dateString . PHP_EOL;
+    }
+
+    public function testDeserializeFromInt01(): void
+    {
+        $dateString = '1004-12-31';
+        $date = new Date($dateString);
+        $dateAsInt = $date->serializeToInt();
+        $dateDeserialized = new Date($dateAsInt);
+        self::assertSame($dateString, $dateDeserialized->serializeToString(), $dateString);
+    }
+
+
+    public function testFirstDayOfMonth(): void
+    {
+        $date = new Date('2025-12-29');
+        $firstDayOfMonth = $date->firstDayOfMonth();
+        self::assertSame('2025-12-01', $firstDayOfMonth->serializeToString());
+    }
+
+    public function testLastDayOfMonth(): void
+    {
+        $date = new Date('2024-02-03');
+        $lastDayOfMonth = $date->lastDayOfMonth();
+        self::assertSame('2024-02-29', $lastDayOfMonth->serializeToString());
+    }
+
+    public function testIncrement01(): void
+    {
+        $date = new Date('2024-01-30');
+        $date = $date->increment();
+        self::assertSame('2024-01-31', $date->serializeToString());
+    }
+
+    public function testIncrement02(): void
+    {
+        $date = new Date('2024-02-29');
+        $date = $date->increment();
+        self::assertSame('2024-03-01', $date->serializeToString());
+    }
+
+    public function testDecrement01(): void
+    {
+        $date = new Date('2024-01-30');
+        $date = $date->decrement();
+        self::assertSame('2024-01-29', $date->serializeToString());
+    }
+
+    public function testDecrement02(): void
+    {
+        $date = new Date('2024-03-01');
+        $date = $date->decrement();
+        self::assertSame('2024-02-29', $date->serializeToString());
     }
 }

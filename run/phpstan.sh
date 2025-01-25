@@ -2,7 +2,7 @@
 
 docker run --rm -ti -v ${PWD}:/opt/project \
    -w /opt/project \
-   poppinga/node_18_17-php_8_2-xdebug:latest \
+   registry.z3.ag/z3/docker-images/p1450-development-images/php-xdebug-8-4:latest \
    bin/phpstan analyse -l max \
    -c development-configuration/phpstan.neon \
    packages/**/**/src* tests

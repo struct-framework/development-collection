@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Struct\DataProcessing\Helper;
 
 use Exception\Unexpected\UnexpectedException;
-use Struct\Contracts\DataTypeInterface;
+use Struct\Contracts\DataTypeInterfaceWritable;
 
 final readonly class DataHelper
 {
     public static function toFullyQualifiedString(
-        int|float|bool|null|string|\DateTimeInterface|DataTypeInterface|\UnitEnum $value
+        int|float|bool|null|string|\DateTimeInterface|DataTypeInterfaceWritable|\UnitEnum $value
     ): string {
         $prefix = self::readPrefix($value);
         $valueAsString = self::toString($value);
@@ -19,7 +19,7 @@ final readonly class DataHelper
     }
 
     public static function toString(
-        int|float|bool|null|string|\DateTimeInterface|DataTypeInterface|\UnitEnum $value
+        int|float|bool|null|string|\DateTimeInterface|DataTypeInterfaceWritable|\UnitEnum $value
     ): string {
         if ($value instanceof \DateTimeInterface) {
             return $value->format('c');
@@ -43,7 +43,7 @@ final readonly class DataHelper
     }
 
     public static function readPrefix(
-        int|float|bool|string|null|\DateTimeInterface|DataTypeInterface|\UnitEnum $value
+        int|float|bool|string|null|\DateTimeInterface|DataTypeInterfaceWritable|\UnitEnum $value
     ): string {
         if (is_int($value) === true) {
             return 'int';
@@ -63,7 +63,7 @@ final readonly class DataHelper
         if ($value instanceof \DateTimeInterface) {
             return 'dateTime';
         }
-        if ($value instanceof DataTypeInterface) {
+        if ($value instanceof DataTypeInterfaceWritable) {
             $className = $value::class;
             if (\str_starts_with($className, 'Struct\DataType') === true) {
                 $className = substr($className, 16);

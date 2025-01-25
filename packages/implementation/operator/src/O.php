@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Struct\Operator;
 
+use Struct\Contracts\DataType\SerializableToInt;
+use Struct\Contracts\DataType\SerializableToString;
 use Struct\Contracts\Operator\ComparableInterface;
 use Struct\Contracts\Operator\IncrementableInterface;
 use Struct\Contracts\Operator\SignChangeInterface;
 use Struct\Contracts\Operator\SumInterface;
-use Struct\Contracts\SerializableToInt;
-use Struct\Contracts\SerializableToString;
 use Struct\Operator\Internal\Calculate;
 use Struct\Operator\Internal\Compare;
 use UnitEnum;

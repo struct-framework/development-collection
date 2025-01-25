@@ -8,8 +8,6 @@ use DateTimeInterface;
 use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
-use Struct\Attribute\StructType;
-use Struct\Contracts\StructCollection;
 use Struct\Contracts\StructInterface;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 
@@ -20,8 +18,8 @@ class Company implements StructInterface
     #[DefaultValue('2022-05-05 00:00:00')]
     public DateTimeInterface $foundingDate;
     public Address $address;
-    public bool $isActive;
     public Category $category;
+    public bool $isActive;
     public Category $category2 = Category::Financial;
 
     /**
@@ -36,8 +34,8 @@ class Company implements StructInterface
     #[ArrayList('string')]
     public array $tags = [];
 
-    #[StructType(Tag::class)]
-    public StructCollection $tagCollection;
+    #[ArrayList(Tag::class)]
+    public array $tagCollection = [];
 
     /**
      * @var Person[]
@@ -53,9 +51,10 @@ class Company implements StructInterface
     #[ArrayKeyList(Role::class)]
     public array $roles = [];
 
-    public RoleCollection $roleCollection;
+    #[ArrayList(Role::class)]
+    public array $roleCollection = [];
 
-    public int|float $longitude;
+    public float $longitude;
     public float $latitude;
 
     /**
@@ -65,8 +64,6 @@ class Company implements StructInterface
     public array $references = [];
 
     public DataType $dataType;
-
-    public Amount $amount;
 
     /**
      * @var array<string, mixed>

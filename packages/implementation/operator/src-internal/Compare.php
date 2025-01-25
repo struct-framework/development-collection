@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Struct\Operator\Internal;
 
 use Exception\Unexpected\UnexpectedException;
+use Struct\Contracts\DataType\SerializableToInt;
+use Struct\Contracts\DataType\SerializableToString;
 use Struct\Contracts\Operator\ComparableInterface;
-use Struct\Contracts\SerializableToInt;
-use Struct\Contracts\SerializableToString;
 use Struct\Enum\Operator\Comparison;
 use Struct\Exception\Operator\CompareException;
 use UnitEnum;

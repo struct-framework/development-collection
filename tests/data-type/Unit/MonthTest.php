@@ -11,9 +11,7 @@ class MonthTest extends TestCase
 {
     public function testSerializeToString(): void
     {
-        $month = new Month();
-        $month->setYear(2023);
-        $month->setMonth(8);
+        $month = new Month('2023-08');
         $serializedMonth = $month->serializeToString();
         self::assertSame('2023-08', $serializedMonth);
     }
@@ -21,8 +19,7 @@ class MonthTest extends TestCase
     public function testDeserializeToString(): void
     {
         $serializedMonth = '2023-08';
-        $month = new Month();
-        $month->deserializeFromString($serializedMonth);
+        $month = new Month($serializedMonth);
         self::assertSame(2023, $month->getYear());
         self::assertSame(8, $month->getMonth());
     }
@@ -31,22 +28,18 @@ class MonthTest extends TestCase
     {
         $serializedMonth = '202308';
         self::expectExceptionCode(1696227826);
-        $month = new Month();
-        $month->deserializeFromString($serializedMonth);
+        new Month($serializedMonth);
     }
 
     public function testSerializeToInt(): void
     {
-        $month = new Month();
-        $month->setYear(2023);
-        $month->setMonth(8);
+        $month = new Month('2023-08');
         self::assertSame(24283, $month->serializeToInt());
     }
 
     public function testDeserializeFromInt(): void
     {
-        $month = new Month();
-        $month->deserializeFromInt(24283);
+        $month = new Month(24283);
         self::assertSame(2023, $month->getYear());
         self::assertSame(8, $month->getMonth());
     }
@@ -63,5 +56,19 @@ class MonthTest extends TestCase
         $month = new Month('2024-02');
         $lastDayOfMonth = $month->lastDayOfMonth();
         self::assertSame('2024-02-29', $lastDayOfMonth->serializeToString());
+    }
+
+    public function testIncrement(): void
+    {
+        $month = new Month('2024-02');
+        $month = $month->increment();
+        self::assertSame('2024-03', $month->serializeToString());
+    }
+
+    public function testDecrement(): void
+    {
+        $month = new Month('2024-01');
+        $month = $month->decrement();
+        self::assertSame('2023-12', $month->serializeToString());
     }
 }
