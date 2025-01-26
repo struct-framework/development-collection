@@ -9,6 +9,7 @@ use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
+use Struct\DataType\Date;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 
 class Company implements StructInterface
@@ -22,6 +23,9 @@ class Company implements StructInterface
     public bool $isActive;
     public Category $category2 = Category::Financial;
 
+
+    public Date $refactorDate;
+
     /**
      * @var array<string, string>
      */
@@ -34,6 +38,9 @@ class Company implements StructInterface
     #[ArrayList('string')]
     public array $tags = [];
 
+    /**
+     * @var array<Tag>
+     */
     #[ArrayList(Tag::class)]
     public array $tagCollection = [];
 
@@ -51,6 +58,9 @@ class Company implements StructInterface
     #[ArrayKeyList(Role::class)]
     public array $roles = [];
 
+    /**
+     * @var array<Role>
+     */
     #[ArrayList(Role::class)]
     public array $roleCollection = [];
 
@@ -63,7 +73,7 @@ class Company implements StructInterface
     #[ArrayKeyList(Reference::class)]
     public array $references = [];
 
-    public DataType $dataType;
+    public DataType $dataTypeCollection;
 
     /**
      * @var array<string, mixed>

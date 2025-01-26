@@ -6,8 +6,11 @@ namespace Struct\TestData\Fixtures\Struct;
 
 use Struct\Contracts\StructInterface;
 
-class Contact implements StructInterface
+readonly class Contact implements StructInterface
 {
-    public string $type = '';
-    public string $value = '';
+    public function __construct(
+        public string $type = '',
+        public string $value = '',
+    )
+    {}
 }

@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Struct\TestData\Fixtures;
+namespace Struct\TestData\Fixtures\Reflection;
 
 use DateTimeInterface;
 use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
 use Struct\Attribute\DefaultValue;
-use Struct\Attribute\StructType;
-use Struct\Contracts\DataTypeInterfaceWritable;
-use Struct\Contracts\StructCollection;
+use Struct\Contracts\Operator\SumInterface;
 use Struct\Contracts\StructInterface;
 use Struct\TestData\Fixtures\Struct\Address;
 use Struct\TestData\Fixtures\Struct\Amount;
@@ -23,7 +21,10 @@ use Struct\TestData\Fixtures\Struct\Tag;
 
 class CompanyProperty implements StructInterface
 {
-    public function __construct(
+    /**
+     * @param array<string> $properties
+     */
+    public function __construct(// @phpstan-ignore  constructor.unusedParameter
         string $name,
         #[DefaultValue('2022-05-05 00:00:00')]
         public DateTimeInterface $foundingDate,
@@ -44,8 +45,11 @@ class CompanyProperty implements StructInterface
     #[ArrayList('string')]
     public array $tags = [];
 
-    #[StructType(Tag::class)]
-    public StructCollection $tagCollection;
+    /**
+     * @var array<Tag>
+     */
+    #[ArrayList(Tag::class)]
+    public array $tagCollection;
 
     /**
      * @var Person[]
@@ -70,7 +74,7 @@ class CompanyProperty implements StructInterface
     #[ArrayKeyList(Reference::class)]
     public array $references = [];
 
-    public DataType $dataType;
+    public DataType $dataTypeCollection;
 
     public Amount $amount;
 
@@ -86,10 +90,10 @@ class CompanyProperty implements StructInterface
     #[ArrayList('mixed')]
     public array $arrayListMixed = [];
 
-    public (StructInterface&DataTypeInterfaceWritable)|int $intersectionType01;
-    public StructInterface&DataTypeInterfaceWritable $intersectionType02;
+    public (StructInterface&SumInterface)|int $intersectionType01;
+    public StructInterface&SumInterface $intersectionType02;
 
-    private string $private;
+    private string $private; // @phpstan-ignore property.unused
     protected string $protected;
 
     public function getText(int $number): string

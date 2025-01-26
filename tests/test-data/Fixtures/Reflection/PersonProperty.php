@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\TestData\Fixtures;
+namespace Struct\TestData\Fixtures\Reflection;
 
 use Struct\Contracts\StructInterface;
 

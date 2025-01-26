@@ -6,6 +6,7 @@ namespace Struct\TestData\Preparer;
 
 use DateTime;
 use DateTimeZone;
+use Struct\DataType\Date;
 use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Address;
 use Struct\TestData\Fixtures\Struct\Company;
@@ -36,6 +37,8 @@ class CompanyPreparer
         $company->isActive = true;
         $company->category = Category::Technology;
 
+        $company->refactorDate = new Date(2024, 05, 03);
+
         $company->properties = [
             'turnover' => '20m',
             'employees' => '100',
@@ -44,7 +47,7 @@ class CompanyPreparer
 
         $company->tags = [
             'industry',
-            'middle:size'
+            'middle size'
         ];
 
         $tag1 = new Tag();
@@ -70,9 +73,10 @@ class CompanyPreparer
             $person02
         ];
 
-        $contact = new Contact();
-        $contact->type = 'phone';
-        $contact->value = '+499999999';
+        $contact = new Contact(
+            'phone',
+            '+499999999'
+        );
 
         $person02->contacts = [
             $contact

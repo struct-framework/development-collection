@@ -7,9 +7,10 @@
         "zip": "99999",
         "city": "Musterdorf"
     },
-    "is-active": true,
     "category": "cat-technology",
+    "is-active": true,
     "category2": "cat-financial",
+    "refactor-date": "2024-05-03",
     "properties": {
         "turnover": "20m",
         "employees": "100",
@@ -84,14 +85,10 @@
         }
     ],
     "data-type": {
-        "month": "2023-08",
-        "amount": "134.78 EUR",
+        "month": "2013-07",
+        "amount": "125.24 EUR",
         "tax-rate": "19 %",
         "rate": "19.8 ‰"
-    },
-    "amount": {
-        "value": 200,
-        "currency": "EUR"
     },
     "array-key-mixed": {
         "extras": {

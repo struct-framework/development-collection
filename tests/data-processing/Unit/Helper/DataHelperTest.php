@@ -6,7 +6,7 @@ namespace Struct\dataProcessing\Tests\Unit\Helper;
 
 use PHPUnit\Framework\TestCase;
 use Struct\DataProcessing\Helper\DataHelper;
-use Struct\DataType\Date\DateWritableOld;
+use Struct\DataType\Date;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Enum\Type;
 
@@ -19,7 +19,7 @@ class DataHelperTest extends TestCase
         self::assertSame('dateTime', DataHelper::readPrefix($value));
         self::assertSame('dateTime:2021-01-01T12:15:14+00:00', DataHelper::toFullyQualifiedString($value));
 
-        $value = new DateWritableOld('2021-10-12');
+        $value = new Date('2021-10-12');
         self::assertSame('2021-10-12', DataHelper::toString($value));
         self::assertSame('Date', DataHelper::readPrefix($value));
         self::assertSame('Date:2021-10-12', DataHelper::toFullyQualifiedString($value));
