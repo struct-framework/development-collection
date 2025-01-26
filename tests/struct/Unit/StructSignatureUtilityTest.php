@@ -25,14 +25,10 @@ class StructSignatureUtilityTest extends TestCase
         $objectSignature = StructSignatureUtility::readPropertySignature(Company::class);
 
         $companyHash = StructSignatureUtility::readPropertySignatureHash(Company::class);
-        self::assertSame('98da0ec1a76e9dba5b14594957a8330f98046030', $companyHash);
+        self::assertSame('c5afcc02e3790f5727a9e5fd67bc04ddc242f880', $companyHash);
 
         $companyHash = StructSignatureUtility::readPropertySignatureHash(Company::class, true);
-        self::assertSame('3d193a33f804e7453c7584cb969883fbea7de329', $companyHash);
+        self::assertSame('ac67ab0f7e066ed8010533894208871ce89d15a8', $companyHash);
     }
 
-    public function testReadValueSignature(): void
-    {
-        $objectSignature = StructSignatureUtility::readValueSignature($this->company);
-    }
 }

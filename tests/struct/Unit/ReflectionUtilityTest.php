@@ -7,7 +7,6 @@ namespace Struct\Struct\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\Internal\Struct\ObjectSignature\Parts\Visibility;
 use Struct\Struct\ReflectionUtility;
-use Struct\TestData\Fixtures\Reflection\CompanyProperty;
 use Struct\TestData\Fixtures\Reflection\PersonProperty;
 
 class ReflectionUtilityTest extends TestCase

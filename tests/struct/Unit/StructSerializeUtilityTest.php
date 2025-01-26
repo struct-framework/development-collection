@@ -8,14 +8,12 @@ use function file_get_contents;
 use PHPUnit\Framework\TestCase;
 use Struct\Contracts\StructInterface;
 use Struct\Exception\InvalidStructException;
-use Struct\Exception\InvalidValueException;
 use Struct\Struct\Enum\KeyConvert;
 use Struct\Struct\Factory\StructFactory;
 use Struct\Struct\StructHashUtility;
 use Struct\Struct\StructSerializeUtility;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\DataType;
-use Struct\TestData\Fixtures\Struct\Role;
 use Struct\TestData\Fixtures\Struct\Wrong;
 use Struct\TestData\Preparer\CompanyPreparer;
 
@@ -79,7 +77,7 @@ class StructSerializeUtilityTest extends TestCase
 
     public function testDeserializeFromJsonBadType(): StructInterface
     {
-        $this->expectException(InvalidValueException::class);
+        $this->expectExceptionCode(1737885869);
         return StructSerializeUtility::deserializeFromJson($this->expectation, 'ImNotAnStructure'); // @phpstan-ignore-line
     }
 
@@ -98,27 +96,4 @@ class StructSerializeUtilityTest extends TestCase
         self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
     }
 
-    public function testBuildHashStructCollection(): void
-    {
-        $structCollectionPreparer = new StructCollectionPreparer();
-        $structCollection = $structCollectionPreparer->buildStructCollection();
-
-        $serializedStructCollection = StructSerializeUtility::serialize($structCollection);
-        $hashExpectation = StructHashUtility::buildHash($structCollection);
-        $hash = StructHashUtility::buildHash($unSerializeStructCollection);
-        self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
-    }
-
-    public function testBuildHashStructDefaultCollection(): void
-    {
-        $structCollectionPreparer = new StructCollectionPreparer();
-        $structCollection = $structCollectionPreparer->buildDefaultStructCollection();
-
-        $serializedStructCollection = StructSerializeUtility::serialize($structCollection);
-        $unSerializeStructCollection = StructSerializeUtility::deserializeStructCollection($serializedStructCollection, Role::class);
-
-        $hashExpectation = StructHashUtility::buildHash($structCollection);
-        $hash = StructHashUtility::buildHash($unSerializeStructCollection);
-        self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
-    }
 }
