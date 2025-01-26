@@ -14,7 +14,6 @@ use Struct\TestData\Fixtures\StructInvalid\WithMethod;
 
 class StructValidatorUtilityTest extends TestCase
 {
-
     public function testRight(): void
     {
         StructValidatorUtility::isValidStruct(Company::class);

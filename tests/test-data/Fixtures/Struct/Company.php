@@ -23,7 +23,6 @@ class Company implements StructInterface
     public bool $isActive;
     public Category $category2 = Category::Financial;
 
-
     public Date $refactorDate;
 
     /**

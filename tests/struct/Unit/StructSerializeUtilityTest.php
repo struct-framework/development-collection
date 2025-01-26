@@ -95,5 +95,4 @@ class StructSerializeUtilityTest extends TestCase
         $hash = StructHashUtility::buildHash($companyDeSerialize);
         self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
     }
-
 }
