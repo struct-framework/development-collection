@@ -9,8 +9,11 @@ use Struct\Contracts\StructInterface;
 
 class ArrayAttribute implements StructInterface
 {
+    /**
+     * @var array<string>
+     */
     #[ArrayList('string')]
     public array $names = [];
 
-    public array $tags = [];
+    public array $tags = [];  // @phpstan-ignore  missingType.iterableValue
 }

@@ -17,7 +17,7 @@ class StructValidatorUtilityTest extends TestCase
     public function testRight(): void
     {
         StructValidatorUtility::isValidStruct(Company::class);
-        self::assertTrue(true);
+        self::assertTrue(true); // @phpstan-ignore  staticMethod.alreadyNarrowedType
     }
 
     public function testArrayAttribute(): void

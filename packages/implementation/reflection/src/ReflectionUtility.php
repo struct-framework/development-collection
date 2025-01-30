@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct;
+namespace Struct\Reflection;
 
 use Exception\Unexpected\UnexpectedException;
 use ReflectionClass;
@@ -14,22 +14,23 @@ use ReflectionParameter;
 use ReflectionProperty;
 use ReflectionUnionType;
 use Struct\Exception\InvalidValueException;
-use Struct\Struct\Internal\Struct\ObjectSignature;
-use Struct\Struct\Internal\Struct\ObjectSignature\Method;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parameter;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\Attribute;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\IntersectionType;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\NamedType;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\Visibility;
-use Struct\Struct\Internal\Struct\ObjectSignature\Property;
+use Struct\Reflection\Internal\Struct\ObjectSignature;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Method;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parameter;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\Attribute;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\IntersectionType;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\NamedType;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\Visibility;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Property;
 
 class ReflectionUtility
 {
     /**
-     * @param object|class-string<object> $object
+     * @param object|class-string $object
      */
     public static function readObjectSignature(object|string $object): ObjectSignature
     {
+        /** @var class-string $objectName */
         $objectName = $object;
         if (is_object($object) === true) {
             $objectName = $object::class;

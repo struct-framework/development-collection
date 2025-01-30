@@ -8,5 +8,5 @@ use Struct\Contracts\StructInterface;
 
 readonly class ReadOnlyStruct implements StructInterface
 {
-    public string $name;
+    public string $name; // @phpstan-ignore property.uninitializedReadonly
 }

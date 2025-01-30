@@ -16,6 +16,7 @@ class CalculateTest extends TestCase
     {
         $moth01 = new Month('2023-10');
         O::increment($moth01);
+        self::assertInstanceOf(Month::class, $moth01);
         self::assertSame('2023-11', $moth01->serializeToString());
 
         $i = 100;
@@ -27,6 +28,7 @@ class CalculateTest extends TestCase
     {
         $moth01 = new Month('2023-10');
         O::decrement($moth01);
+        self::assertInstanceOf(Month::class, $moth01);
         self::assertSame('2023-09', $moth01->serializeToString());
 
         $i = 100;
@@ -42,6 +44,7 @@ class CalculateTest extends TestCase
         do {
             $output[] = $moth01->serializeToString();
             O::increment($moth01);
+            self::assertInstanceOf(Date::class, $moth01);
         } while (O::lessThanOrEquals($moth01, $mothTo));
         self::assertCount(366, $output);
     }

@@ -45,8 +45,13 @@
             "Struct\\Exception\\": "packages/contracts/struct/src-exception",
             "Struct\\DataType\\": "packages/implementation/data-type/src",
             "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
+
             "Struct\\Operator\\": "packages/implementation/operator/src",
             "Struct\\Operator\\Internal\\": "packages/implementation/operator/src-internal",
+
+            "Struct\\Reflection\\": "packages/implementation/reflection/src",
+            "Struct\\Reflection\\Internal\\": "packages/implementation/reflection/src-internal",
+
             "Struct\\Struct\\": "packages/implementation/struct/src",
             "Struct\\Struct\\Internal\\": "packages/implementation/struct/src-internal",
 
@@ -64,7 +69,7 @@
             "Struct\\Operator\\Tests\\": "tests/operator",
             "Struct\\Struct\\Tests\\": "tests/struct",
             "Struct\\DataType\\Tests\\": "tests/data-type",
-            "Struct\\Expansion\\Tests\\": "tests/expansion",
+            "Struct\\Reflection\\Tests\\": "tests/reflection",
             "Struct\\DataProcessing\\Tests\\": "tests/data-processing"
         }
     },

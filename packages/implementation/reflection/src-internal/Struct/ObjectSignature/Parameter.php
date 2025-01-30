@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Internal\Struct\ObjectSignature;
+namespace Struct\Reflection\Internal\Struct\ObjectSignature;
 
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\Attribute;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\IntersectionType;
-use Struct\Struct\Internal\Struct\ObjectSignature\Parts\NamedType;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\Attribute;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\IntersectionType;
+use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\NamedType;
 
 /**
  * @internal

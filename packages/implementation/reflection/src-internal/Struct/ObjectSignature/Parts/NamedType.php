@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Struct\Struct\Internal\Struct\ObjectSignature\Parts;
+namespace Struct\Reflection\Internal\Struct\ObjectSignature\Parts;
 
 /**
  * @internal
