@@ -14,13 +14,12 @@ final class InvalidValueException extends LogicException
     public function __construct(
         int|Throwable $codeOrPrevious,
         protected ?string $reasonOrEmitter = null,
-    )
-    {
+    ) {
         $previous = null;
-        if($codeOrPrevious instanceof \Throwable === true) {
+        if ($codeOrPrevious instanceof \Throwable === true) {
             $code = $codeOrPrevious->getCode();
             $previous = $codeOrPrevious;
-            if($codeOrPrevious instanceof InvalidValueException === true) {
+            if ($codeOrPrevious instanceof self === true) {
                 $this->previousInvalidValueException = $codeOrPrevious;
             } else {
                 $this->reasonOrEmitter = $codeOrPrevious->getMessage();
@@ -46,11 +45,11 @@ final class InvalidValueException extends LogicException
     /**
      * @param array<string> $messageArray
      */
-    protected function _buildMessageArray(array &$messageArray, string &$reason, InvalidValueException $invalidValueException, string $indentation = ''): void
+    protected function _buildMessageArray(array &$messageArray, string &$reason, self $invalidValueException, string $indentation = ''): void
     {
         $previousInvalidValueException = $invalidValueException->getPreviousInvalidValueException();
-        if($previousInvalidValueException !== null) {
-            $messageArray[] = $indentation . '└→ ' .$invalidValueException->getReasonOrEmitter();
+        if ($previousInvalidValueException !== null) {
+            $messageArray[] = $indentation . '└→ ' . $invalidValueException->getReasonOrEmitter();
             self::_buildMessageArray($messageArray, $reason, $previousInvalidValueException, $indentation . '  ');
             return;
         }
@@ -62,9 +61,8 @@ final class InvalidValueException extends LogicException
         return $this->reasonOrEmitter;
     }
 
-    public function getPreviousInvalidValueException(): ?InvalidValueException
+    public function getPreviousInvalidValueException(): ?self
     {
         return $this->previousInvalidValueException;
     }
-
 }

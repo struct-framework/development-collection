@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Struct\Struct\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Struct\Attribute\ArrayList;
 use Struct\Struct\Internal\Struct\StructSignature\StructArrayTypeOption;
 use Struct\Struct\Internal\Struct\StructSignature\StructBaseDataType;
 use Struct\Struct\StructReflectionUtility;
