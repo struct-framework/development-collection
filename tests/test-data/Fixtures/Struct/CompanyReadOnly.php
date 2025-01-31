@@ -11,9 +11,11 @@ use Struct\Contracts\StructInterface;
 readonly class CompanyReadOnly implements StructInterface
 {
     public function __construct(
-        public string $name = '',
+        #[DefaultValue('')]
+        public string $name,
         #[DefaultValue('2022-05-05 00:00:00')]
         public DateTimeInterface $foundingDate,
+        public int $age,
     ) {
     }
 }

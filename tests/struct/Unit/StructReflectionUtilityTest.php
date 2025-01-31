@@ -13,7 +13,7 @@ use Struct\TestData\Fixtures\Struct\Role;
 
 class StructReflectionUtilityTest extends TestCase
 {
-    public function testBla(): void
+    public function testReflection(): void
     {
         $signature = StructReflectionUtility::readSignature(Company::class);
         self::assertEquals($signature->structName, Company::class);
@@ -22,14 +22,17 @@ class StructReflectionUtilityTest extends TestCase
 
         $elementRoleCollection = $signature->structElements[13];
         self::assertEquals('roleCollection', $elementRoleCollection->name);
+        self::assertNotNull($elementRoleCollection->structArrayType);
+        self::assertCount(1, $elementRoleCollection->structArrayType->structDataTypes);
         self::assertEquals(Role::class, $elementRoleCollection->structArrayType->structDataTypes[0]->className);
         self::assertEquals(StructBaseDataType::Struct, $elementRoleCollection->structArrayType->structDataTypes[0]->structBaseDataType);
         self::assertEquals(StructArrayTypeOption::ArrayList, $elementRoleCollection->structArrayType->structArrayTypeOption);
 
         $elementAge = $signature->structElements[11];
         self::assertEquals('age', $elementAge->name);
-        self::assertNull($elementAge->structArrayType->structDataTypes[0]->className);
-        self::assertTrue($elementAge->hasDefaultValue);
-        self::assertEquals(20, $elementAge->hasDefaultValue);
+        self::assertCount(1, $elementAge->structDataTypes);
+        self::assertNull($elementAge->structArrayType);
+        self::assertNotNull($elementAge->defaultValue);
+        self::assertEquals(20, $elementAge->defaultValue->valueData);
     }
 }

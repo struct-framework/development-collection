@@ -22,7 +22,8 @@ class StructureFactoryTest extends TestCase
 
     public function testCreateReadOnly(): void
     {
-        $company = StructFactory::create(CompanyReadOnly::class);
+        $company = StructFactory::create(CompanyReadOnly::class, ['age' => 10]);
         self::assertInstanceOf(CompanyReadOnly::class, $company);
+        self::assertEquals(10, $company->age);
     }
 }

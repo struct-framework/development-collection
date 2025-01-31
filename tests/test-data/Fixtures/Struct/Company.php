@@ -75,11 +75,8 @@ class Company implements StructInterface
 
     public DataType $dataTypeCollection;
 
-    /**
-     * @var array<string, int>
-     */
     #[ArrayPassThrough]
-    public array $arrayKeyMixed = [];
+    public array $arrayKeyMixed = []; // @phpstan-ignore missingType.iterableValue
 
     /**
      * @var list<mixed>

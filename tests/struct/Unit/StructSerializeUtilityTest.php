@@ -55,10 +55,11 @@ class StructSerializeUtilityTest extends TestCase
     {
         $companyArrayExpectation = StructSerializeUtility::serialize($this->company);
         $companyUnSerialize = StructSerializeUtility::deserialize($companyArrayExpectation, Company::class);
+        self::assertSame(8.0, $companyUnSerialize->longitude);
 
-        $hashExpectation = StructHashUtility::buildHash($this->company);
-        $hash = StructHashUtility::buildHash($companyUnSerialize);
-        self::assertSame(bin2hex($hashExpectation), bin2hex($hash));
+
+        $companyJson = StructSerializeUtility::serialize($companyUnSerialize);
+        self::assertSame($this->expectation, $companyJson);
     }
 
     public function testFullUnSerializeSnakeCase(): void
