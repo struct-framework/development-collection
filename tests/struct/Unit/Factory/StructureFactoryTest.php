@@ -6,7 +6,9 @@ namespace Struct\Struct\Tests\Unit\Factory;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\Factory\StructFactory;
+use Struct\TestData\Fixtures\Struct\Address;
 use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\CompanyReadOnly;
 
 class StructureFactoryTest extends TestCase
 {
@@ -14,7 +16,13 @@ class StructureFactoryTest extends TestCase
     {
         /** @var Company $company */
         $company = StructFactory::create(Company::class);
-        $company->address->city = 'hello';
+        self::assertInstanceOf(Address::class, $company->address);
         self::assertInstanceOf(Company::class, $company);
+    }
+
+    public function testCreateReadOnly(): void
+    {
+        $company = StructFactory::create(CompanyReadOnly::class);
+        self::assertInstanceOf(CompanyReadOnly::class, $company);
     }
 }

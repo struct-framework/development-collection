@@ -9,8 +9,11 @@ use Attribute;
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class ArrayList
 {
-    // @phpstan-ignore-next-line
-    public function __construct(string $type)
+    /**
+     * @param string|array<string> $dataTypes
+     * @phpstan-ignore-next-line
+     */
+    public function __construct(string|array $dataTypes)
     {
     }
 }

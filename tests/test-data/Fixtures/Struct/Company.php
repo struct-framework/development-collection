@@ -7,6 +7,7 @@ namespace Struct\TestData\Fixtures\Struct;
 use DateTimeInterface;
 use Struct\Attribute\ArrayKeyList;
 use Struct\Attribute\ArrayList;
+use Struct\Attribute\ArrayPassThrough;
 use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
 use Struct\DataType\Date;
@@ -75,14 +76,14 @@ class Company implements StructInterface
     public DataType $dataTypeCollection;
 
     /**
-     * @var array<string, mixed>
+     * @var array<string, int>
      */
-    #[ArrayKeyList('mixed')]
+    #[ArrayPassThrough]
     public array $arrayKeyMixed = [];
 
     /**
      * @var list<mixed>
      */
-    #[ArrayList('mixed')]
+    #[ArrayPassThrough]
     public array $arrayListMixed = [];
 }

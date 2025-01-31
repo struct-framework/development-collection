@@ -14,7 +14,7 @@ class ReflectionUtilityTest extends TestCase
 {
     public function testPersonProperty(): void
     {
-        $objectSignature = ReflectionUtility::readObjectSignature(PersonProperty::class);
+        $objectSignature = ReflectionUtility::readSignature(PersonProperty::class);
         self::assertCount(2, $objectSignature->methods);
         self::assertSame(Visibility::public, $objectSignature->methods[0]->visibility);
         self::assertSame('getName', $objectSignature->methods[0]->name);
