@@ -10,9 +10,9 @@ use Struct\Attribute\ArrayList;
 use Struct\Attribute\ArrayPassThrough;
 use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
+use Struct\DataType\Amount as AmountDataType;
 use Struct\DataType\Date;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
-use Struct\DataType\Amount as AmountDataType;
 
 class Company implements StructInterface
 {

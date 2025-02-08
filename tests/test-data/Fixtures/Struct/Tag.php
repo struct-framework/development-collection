@@ -10,6 +10,6 @@ readonly class Tag implements StructInterface
 {
     public function __construct(
         public string $name = '',
-    )
-    {}
+    ) {
+    }
 }

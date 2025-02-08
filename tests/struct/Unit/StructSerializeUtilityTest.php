@@ -57,7 +57,6 @@ class StructSerializeUtilityTest extends TestCase
         $companyUnSerialize = StructSerializeUtility::deserialize($companyArrayExpectation, Company::class);
         self::assertSame(8.0, $companyUnSerialize->longitude);
 
-
         $companyJson = StructSerializeUtility::serialize($companyUnSerialize);
         self::assertSame($this->expectation, $companyJson);
     }

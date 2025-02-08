@@ -26,15 +26,12 @@ class StructDeSerializeUtilityTest extends TestCase
         $this->expectationSnakeCase = (string) file_get_contents(__DIR__ . '/../../test-data/Expectation/CompanySnakeCase.json');
     }
 
-
     public function testFullDeserialize(): void
     {
         $companyUnSerialize = StructSerializeUtility::deserialize($companyArrayExpectation, Company::class);
         self::assertSame(8.0, $companyUnSerialize->longitude);
 
-
         $companyJson = StructSerializeUtility::serialize($companyUnSerialize);
         self::assertSame($this->expectation, $companyJson);
     }
-
 }
