@@ -6,7 +6,10 @@ namespace Struct\TestData\Fixtures\Struct;
 
 use Struct\Contracts\StructInterface;
 
-class Tag implements StructInterface
+readonly class Tag implements StructInterface
 {
-    public string $name = '';
+    public function __construct(
+        public string $name = '',
+    )
+    {}
 }

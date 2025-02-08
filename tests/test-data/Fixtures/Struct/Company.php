@@ -12,6 +12,7 @@ use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
 use Struct\DataType\Date;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
+use Struct\DataType\Amount as AmountDataType;
 
 class Company implements StructInterface
 {
@@ -35,7 +36,7 @@ class Company implements StructInterface
     /**
      * @var array<string>
      */
-    #[ArrayList('string')]
+    #[ArrayList(['string', Tag::class])]
     public array $tags = [];
 
     /**
@@ -83,4 +84,7 @@ class Company implements StructInterface
      */
     #[ArrayPassThrough]
     public array $arrayListMixed = [];
+
+    #[DefaultValue('145.45 EUR')]
+    public string|AmountDataType $turnOver;
 }

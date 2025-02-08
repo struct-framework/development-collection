@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct\Base;
 
-use Struct\Attribute\ArrayList;
+use Struct\Attribute\ArrayKeyList;
 use Struct\Contracts\StructInterface;
 use Struct\DataType\Amount;
 use Struct\TestData\Fixtures\Struct\Company;
@@ -24,6 +24,6 @@ class ReflectionStruct implements StructInterface
     /**
      * @var array<Tag>
      */
-    #[ArrayList(Tag::class)]
+    #[ArrayKeyList([Tag::class, 'string'])]
     public array $tags;
 }

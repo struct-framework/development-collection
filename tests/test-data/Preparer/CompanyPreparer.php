@@ -47,13 +47,12 @@ class CompanyPreparer
 
         $company->tags = [
             'industry',
-            'middle size'
+            'middle size',
+            new Tag('one man'),
         ];
 
-        $tag1 = new Tag();
-        $tag1->name = 'industry';
-        $tag2 = new Tag();
-        $tag2->name = 'middle size';
+        $tag1 = new Tag('industry');
+        $tag2 = new Tag('middle size');
         $company->tagCollection[] = $tag1;
         $company->tagCollection[] = $tag2;
 
