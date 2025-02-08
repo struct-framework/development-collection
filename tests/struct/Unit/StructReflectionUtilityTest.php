@@ -5,34 +5,84 @@ declare(strict_types=1);
 namespace Struct\Struct\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Struct\Struct\Internal\Struct\StructSignature\StructArrayTypeOption;
-use Struct\Struct\Internal\Struct\StructSignature\StructBaseDataType;
+use Struct\DataType\Amount;
+use Struct\Reflection\MemoryCache;
+use Struct\Struct\Internal\Struct\StructSignature\DataType\StructUnderlyingDataType;
 use Struct\Struct\StructReflectionUtility;
+use Struct\TestData\Fixtures\Struct\Base\ReflectionStruct;
 use Struct\TestData\Fixtures\Struct\Company;
-use Struct\TestData\Fixtures\Struct\Role;
 
 class StructReflectionUtilityTest extends TestCase
 {
-    public function testReflection(): void
+
+    public function testReflectionStruct(): void
     {
-        $signature = StructReflectionUtility::readSignature(Company::class);
-        self::assertEquals($signature->structName, Company::class);
-        self::assertCount(20, $signature->structElements);
-        self::assertFalse($signature->isReadOnly);
+        MemoryCache::clear();
 
-        $elementRoleCollection = $signature->structElements[13];
-        self::assertEquals('roleCollection', $elementRoleCollection->name);
-        self::assertNotNull($elementRoleCollection->structArrayType);
-        self::assertCount(1, $elementRoleCollection->structArrayType->structDataTypes);
-        self::assertEquals(Role::class, $elementRoleCollection->structArrayType->structDataTypes[0]->className);
-        self::assertEquals(StructBaseDataType::Struct, $elementRoleCollection->structArrayType->structDataTypes[0]->structBaseDataType);
-        self::assertEquals(StructArrayTypeOption::ArrayList, $elementRoleCollection->structArrayType->structArrayTypeOption);
+        $signature = StructReflectionUtility::readSignature(ReflectionStruct::class);
+        self::assertCount(7, $signature->structElements);
 
-        $elementAge = $signature->structElements[11];
-        self::assertEquals('age', $elementAge->name);
-        self::assertCount(1, $elementAge->structDataTypes);
-        self::assertNull($elementAge->structArrayType);
-        self::assertNotNull($elementAge->defaultValue);
-        self::assertEquals(20, $elementAge->defaultValue->valueData);
+        $structElement  = $signature->structElements[0];
+        self::assertSame('name', $structElement->name);
+        self::assertCount(1, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::String, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[0]->className);
+
+        $structElement  = $signature->structElements[1];
+        self::assertSame('age', $structElement->name);
+        self::assertSame(false, $structElement->isAllowsNull);
+        self::assertCount(1, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::Integer, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[0]->className);
+
+        $structElement  = $signature->structElements[2];
+        self::assertSame('ageNull', $structElement->name);
+        self::assertSame(true, $structElement->isAllowsNull);
+        self::assertCount(1, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::Integer, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[0]->className);
+
+        $structElement  = $signature->structElements[3];
+        self::assertSame('turnover',$structElement->name);
+        self::assertCount(2, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::String, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[0]->className);
+        self::assertSame(StructUnderlyingDataType::Integer, $structElement->structDataTypes[1]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[1]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[1]->className);
+
+        $structElement  = $signature->structElements[4];
+        self::assertSame('company',$structElement->name);
+        self::assertCount(2, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::Struct, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(true, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(Company::class, $structElement->structDataTypes[0]->className);
+        self::assertSame(StructUnderlyingDataType::String, $structElement->structDataTypes[1]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[1]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[1]->className);
+
+        $structElement  = $signature->structElements[5];
+        self::assertSame('amount',$structElement->name);
+        self::assertCount(2, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::DataType, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(false, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(Amount::class, $structElement->structDataTypes[0]->className);
+        self::assertSame(StructUnderlyingDataType::String, $structElement->structDataTypes[1]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[1]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[1]->className);
+
+        $structElement  = $signature->structElements[6];
+        self::assertSame('tags',$structElement->name);
+        self::assertCount(1, $structElement->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::Array, $structElement->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypes[0]->isClearlyDefined);
+        self::assertSame(null, $structElement->structDataTypes[0]->className);
     }
+
+
+
 }

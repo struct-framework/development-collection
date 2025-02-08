@@ -56,7 +56,6 @@
             "Struct\\Reflection\\Internal\\": "packages/implementation/reflection/src-internal",
 
             "Struct\\Struct\\": "packages/implementation/struct/src",
-            "Struct\\Struct\\Internal\\": "packages/implementation/struct/src-internal",
 
             "Struct\\Exceptions\\": "packages/implementation/exceptions/src",
             "Struct\\Exceptions\\Internal\\": "packages/implementation/exceptions/src-internal",
