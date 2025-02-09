@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Struct\TestData\Fixtures\Struct\Base;
 
-
 use Struct\Contracts\StructInterface;
 
 class SerializeStruct implements StructInterface

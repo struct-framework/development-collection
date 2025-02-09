@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Struct\Struct\Tests\Unit;
 
-use Struct\Struct\Factory\StructFactory;
-use Struct\TestData\Fixtures\Struct\Base\SerializeStruct;
 use function file_get_contents;
 use PHPUnit\Framework\TestCase;
+use Struct\Struct\Factory\StructFactory;
 use Struct\Struct\StructSerializeUtility;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Preparer\CompanyPreparer;
@@ -27,7 +26,6 @@ class StructDeserializationTest extends TestCase
         $this->expectation = (string) file_get_contents(__DIR__ . '/../../test-data/Expectation/Company.json');
         $this->expectationSnakeCase = (string) file_get_contents(__DIR__ . '/../../test-data/Expectation/CompanySnakeCase.json');
     }
-
 
     public function testFullSerializeCompany(): void
     {
