@@ -8,6 +8,7 @@ use Struct\Attribute\ArrayKeyList;
 use Struct\Contracts\StructInterface;
 use Struct\DataType\Amount;
 use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Tag;
 
 class ReflectionStruct implements StructInterface
@@ -26,4 +27,6 @@ class ReflectionStruct implements StructInterface
      */
     #[ArrayKeyList([Tag::class, 'string'])]
     public array $tags;
+
+    public Category $category;
 }

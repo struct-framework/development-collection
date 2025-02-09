@@ -21,7 +21,7 @@ class StructReflectionUtilityTest extends TestCase
         MemoryCache::clear();
 
         $signature = StructReflectionUtility::readSignature(ReflectionStruct::class);
-        self::assertCount(7, $signature->structElements);
+        self::assertCount(8, $signature->structElements);
 
         $structElement  = $signature->structElements[0];
         self::assertSame('name', $structElement->name);
@@ -85,5 +85,13 @@ class StructReflectionUtilityTest extends TestCase
         self::assertSame(Tag::class, $structDataTypeCollection->structDataTypes[0]->className);
         self::assertSame(StructUnderlyingDataType::String, $structDataTypeCollection->structDataTypes[1]->structUnderlyingDataType);
         self::assertSame(null, $structDataTypeCollection->structDataTypes[1]->className);
+
+        $structElement  = $signature->structElements[7];
+        self::assertSame('category', $structElement->name);
+        self::assertCount(1, $structElement->structDataTypeCollection->structDataTypes);
+        self::assertSame(StructUnderlyingDataType::EnumString, $structElement->structDataTypeCollection->structDataTypes[0]->structUnderlyingDataType);
+        self::assertSame(null, $structElement->structDataTypeCollection->structDataTypes[0]->className);
+        self::assertNotNull($structElement->structElementArray);
+        self::assertSame(StructUnderlyingArrayType::ArrayKeyList, $structElement->structElementArray->structUnderlyingArrayType);
     }
 }
