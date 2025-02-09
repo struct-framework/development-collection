@@ -16,6 +16,7 @@ use Struct\TestData\Fixtures\Struct\Person;
 use Struct\TestData\Fixtures\Struct\Reference;
 use Struct\TestData\Fixtures\Struct\Role;
 use Struct\TestData\Fixtures\Struct\Tag;
+use Struct\TestData\Fixtures\Struct\TagInt;
 use Struct\TestData\Fixtures\Struct\Technology;
 
 class CompanyPreparer
@@ -49,6 +50,13 @@ class CompanyPreparer
             'industry',
             'middle size',
             new Tag('one man'),
+        ];
+
+        $company->tagsStringInt = [
+            new Tag('one man'),
+            new Tag('two man'),
+            new TagInt(20),
+            new TagInt(15),
         ];
 
         $tag1 = new Tag('industry');
@@ -134,6 +142,8 @@ class CompanyPreparer
                 'PHP' => 'is cool',
             ],
         ];
+
+        $company->turnOver = new \Struct\DataType\Amount('145.45 EUR');
 
         return $company;
     }

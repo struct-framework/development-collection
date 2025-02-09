@@ -23,6 +23,32 @@
             "name": "one man"
         }
     ],
+    "tagsStringInt": [
+        {
+            "structType": "Struct\\TestData\\Fixtures\\Struct\\Tag",
+            "value": {
+                "name": "one man"
+            }
+        },
+        {
+            "structType": "Struct\\TestData\\Fixtures\\Struct\\Tag",
+            "value": {
+                "name": "two man"
+            }
+        },
+        {
+            "structType": "Struct\\TestData\\Fixtures\\Struct\\TagInt",
+            "value": {
+                "value": 20
+            }
+        },
+        {
+            "structType": "Struct\\TestData\\Fixtures\\Struct\\TagInt",
+            "value": {
+                "value": 15
+            }
+        }
+    ],
     "tagCollection": [
         {
             "name": "industry"
@@ -111,5 +137,6 @@
     "turnOver": {
         "structType": "Struct\\DataType\\Amount",
         "value": "145.45 EUR"
-    }
+    },
+    "turnOver2": "857"
 }

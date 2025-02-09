@@ -40,6 +40,12 @@ class Company implements StructInterface
     public array $tags = [];
 
     /**
+     * @var array<string|Tag>
+     */
+    #[ArrayList([TagInt::class, Tag::class])]
+    public array $tagsStringInt = [];
+
+    /**
      * @var array<Tag>
      */
     #[ArrayList(Tag::class)]
@@ -85,6 +91,6 @@ class Company implements StructInterface
     #[ArrayPassThrough]
     public array $arrayListMixed = [];
 
-    #[DefaultValue('145.45 EUR')]
     public string|AmountDataType $turnOver;
+    public string|AmountDataType $turnOver2 = '857';
 }
