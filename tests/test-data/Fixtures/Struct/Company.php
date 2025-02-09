@@ -34,7 +34,7 @@ class Company implements StructInterface
     public array $properties = [];
 
     /**
-     * @var array<string>
+     * @var array<string|Tag>
      */
     #[ArrayList(['string', Tag::class])]
     public array $tags = [];

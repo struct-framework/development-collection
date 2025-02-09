@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Struct\Struct\Tests\Unit\Factory;
 
 use PHPUnit\Framework\TestCase;
+use Struct\Reflection\MemoryCache;
 use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Address;
 use Struct\TestData\Fixtures\Struct\Company;
@@ -12,6 +13,11 @@ use Struct\TestData\Fixtures\Struct\CompanyReadOnly;
 
 class StructureFactoryTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        MemoryCache::clear();
+    }
+
     public function testCreate(): void
     {
         /** @var Company $company */

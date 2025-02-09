@@ -75,9 +75,11 @@ class StructReflectionUtilityTest extends TestCase
         self::assertCount(1, $structElement->structDataTypeCollection->structDataTypes);
         self::assertSame(StructUnderlyingDataType::Array, $structElement->structDataTypeCollection->structDataTypes[0]->structUnderlyingDataType);
         self::assertSame(null, $structElement->structDataTypeCollection->structDataTypes[0]->className);
+        self::assertNotNull($structElement->structElementArray);
         self::assertSame(StructUnderlyingArrayType::ArrayKeyList, $structElement->structElementArray->structUnderlyingArrayType);
 
         $structDataTypeCollection = $structElement->structElementArray->structDataTypeCollection;
+        self::assertNotNull($structDataTypeCollection);
         self::assertCount(2, $structDataTypeCollection->structDataTypes);
         self::assertSame(StructUnderlyingDataType::Struct, $structDataTypeCollection->structDataTypes[0]->structUnderlyingDataType);
         self::assertSame(Tag::class, $structDataTypeCollection->structDataTypes[0]->className);
