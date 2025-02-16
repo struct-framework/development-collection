@@ -29,4 +29,6 @@ class ReflectionStruct implements StructInterface
     public array $tags;
 
     public Category $category;
+
+    public AbstractType $type;
 }

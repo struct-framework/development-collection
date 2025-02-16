@@ -6,7 +6,9 @@ namespace Struct\Struct\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\StructHashUtility;
+use Struct\Struct\StructHashUtilityBak;
 use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\Role;
 use Struct\TestData\Preparer\CompanyPreparer;
 
 class StructHashUtilityTest extends TestCase
@@ -20,12 +22,12 @@ class StructHashUtilityTest extends TestCase
         $this->company = $companyPreparer->buildCompany();
     }
 
-    public function testBuildHash(): void
+    public function testSignatureHash(): void
     {
-        exec('ls -al');
-
-
-        $companyHash = StructHashUtility::buildHash($this->company);
-        self::assertSame('8d0e2d20c116660b218e76d017c2796718092426b03749f234ac4c5e20cbf809', bin2hex($companyHash));
+        $companyHash = StructHashUtility::signatureHash(Company::class);
+        self::assertSame('f5ac7742070cd50fa28a1a6f1a325588def4c949', $companyHash);
+        $roleHash = StructHashUtility::signatureHash(Role::class);
+        self::assertSame('4c13de84cb5eb3c5fa2293c8990eb18f566d5e57', $roleHash);
     }
+
 }

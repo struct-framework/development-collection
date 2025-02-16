@@ -42,7 +42,9 @@ class CompanyPreparer
 
         $company->refactorDate = new Date(2024, 05, 03);
         $company->country01 = new Germany();
+        $company->country01->name = 'Germany';
         $company->country02 = new Switzerland();
+        $company->country02->name = 'Switzerland';
 
         $company->properties = [
             'turnover' => '20m',

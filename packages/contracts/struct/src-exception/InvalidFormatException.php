@@ -7,6 +7,9 @@ namespace Struct\Exception;
 use LogicException;
 use Throwable;
 
+/**
+ * @deprecated
+ */
 final class InvalidFormatException extends LogicException
 {
     public function __construct(string $givenValue, string $expectedFormat, int $code, ?Throwable $previous = null)

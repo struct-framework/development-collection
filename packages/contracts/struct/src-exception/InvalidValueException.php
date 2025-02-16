@@ -7,6 +7,9 @@ namespace Struct\Exception;
 use LogicException;
 use Throwable;
 
+/**
+ * @deprecated
+ */
 final class InvalidValueException extends LogicException
 {
     protected ?InvalidValueException $previousInvalidValueException = null;

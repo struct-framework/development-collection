@@ -6,6 +6,9 @@ namespace Struct\Exception;
 
 use RuntimeException;
 
+/**
+ * @deprecated
+ */
 final class TransformException extends RuntimeException
 {
 }

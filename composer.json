@@ -24,7 +24,8 @@
         "struct/operator": "self.version",
         "struct/serializing": "self.version",
         "struct/struct": "self.version",
-        "struct/data-processing": "self.version"
+        "struct/data-processing": "self.version",
+        "struct/exception": "self.version"
     },
     "require-dev": {
         "ext-simplexml": "*",
@@ -45,9 +46,10 @@
 
             "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
             "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
-            "Struct\\Exception\\": "packages/contracts/struct/src-exception",
             "Struct\\DataType\\": "packages/implementation/data-type/src",
             "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
+
+            "Struct\\Exception\\": "packages/contracts/struct-exception/src",
 
             "Struct\\Operator\\": "packages/implementation/operator/src",
             "Struct\\Operator\\Internal\\": "packages/implementation/operator/src-internal",

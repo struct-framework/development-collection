@@ -9,6 +9,8 @@ use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\NamedType;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\Visibility;
 use Struct\Reflection\ReflectionUtility;
 use Struct\TestData\Fixtures\Reflection\PersonProperty;
+use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\Country\AbstractCountry;
 
 class ReflectionUtilityTest extends TestCase
 {
@@ -29,4 +31,11 @@ class ReflectionUtilityTest extends TestCase
         self::assertSame('bool', $objectSignature->methods[1]->returnTypes[1]->dataType);
         self::assertTrue($objectSignature->methods[1]->returnTypes[1]->isBuiltin);
     }
+
+    public function testIsAbstract(): void
+    {
+        self::assertFalse(ReflectionUtility::isAbstract(Company::class));
+        self::assertTrue(ReflectionUtility::isAbstract(AbstractCountry::class));
+    }
+
 }

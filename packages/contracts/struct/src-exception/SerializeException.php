@@ -7,6 +7,9 @@ namespace Struct\Exception;
 use RuntimeException;
 use Throwable;
 
+/**
+ * @deprecated
+ */
 class SerializeException extends RuntimeException
 {
     public readonly ?string $objectPath;

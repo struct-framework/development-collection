@@ -12,6 +12,7 @@ use Struct\Struct\Internal\Struct\StructSignature\DataType\StructUnderlyingDataT
 use Struct\Struct\StructReflectionUtility;
 use Struct\TestData\Fixtures\Struct\Base\ReflectionStruct;
 use Struct\TestData\Fixtures\Struct\Company;
+use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Tag;
 
 class StructReflectionUtilityTest extends TestCase
@@ -21,7 +22,7 @@ class StructReflectionUtilityTest extends TestCase
         MemoryCache::clear();
 
         $signature = StructReflectionUtility::readSignature(ReflectionStruct::class);
-        self::assertCount(8, $signature->structElements);
+        self::assertCount(9, $signature->structElements);
 
         $structElement  = $signature->structElements[0];
         self::assertSame('name', $structElement->name);
@@ -90,8 +91,13 @@ class StructReflectionUtilityTest extends TestCase
         self::assertSame('category', $structElement->name);
         self::assertCount(1, $structElement->structDataTypeCollection->structDataTypes);
         self::assertSame(StructUnderlyingDataType::EnumString, $structElement->structDataTypeCollection->structDataTypes[0]->structUnderlyingDataType);
-        self::assertSame(null, $structElement->structDataTypeCollection->structDataTypes[0]->className);
-        self::assertNotNull($structElement->structElementArray);
-        self::assertSame(StructUnderlyingArrayType::ArrayKeyList, $structElement->structElementArray->structUnderlyingArrayType);
+        self::assertSame(Category::class, $structElement->structDataTypeCollection->structDataTypes[0]->className);
+
+
+        $structElement  = $signature->structElements[8];
+        self::assertSame('type', $structElement->name);
+        self::assertCount(1, $structElement->structDataTypeCollection->structDataTypes);
+        self::assertSame(true, $structElement->structDataTypeCollection->structDataTypes[0]->isAbstract);
+
     }
 }

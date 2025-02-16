@@ -11,6 +11,18 @@
     "isActive": true,
     "category2": "cat-financial",
     "refactorDate": "2024-05-03",
+    "country01": {
+        "structType": "Struct\\TestData\\Fixtures\\Struct\\Country\\Germany",
+        "value": {
+            "name": "Germany"
+        }
+    },
+    "country02": {
+        "structType": "Struct\\TestData\\Fixtures\\Struct\\Country\\Switzerland",
+        "value": {
+            "name": "Switzerland"
+        }
+    },
     "properties": {
         "turnover": "20m",
         "employees": "100",

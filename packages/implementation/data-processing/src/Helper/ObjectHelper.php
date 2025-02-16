@@ -8,7 +8,7 @@ use Struct\DataProcessing\Generator\Uuid;
 use Struct\DataProcessing\ObjectType\EntityObject;
 use Struct\DataProcessing\ObjectType\ReferenceObject;
 use Struct\DataProcessing\ObjectType\ValueObject;
-use Struct\Struct\StructHashUtility;
+use Struct\Struct\StructHashUtilityBak;
 
 final readonly class ObjectHelper
 {
@@ -21,7 +21,7 @@ final readonly class ObjectHelper
             $identifier = $object->identifier;
         }
         if ($object instanceof ValueObject) {
-            $hash = StructHashUtility::buildHash($object);
+            $hash = StructHashUtilityBak::buildHash($object);
             $identifier =  Uuid::buildNamespacedUuid('bc19486a-3218-4dcd-8fa9-46a15a3d7ebd', $hash);
         }
         return $identifier;
