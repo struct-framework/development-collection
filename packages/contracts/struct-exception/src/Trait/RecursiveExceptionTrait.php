@@ -6,7 +6,6 @@ namespace Struct\Exception\Trait;
 
 use Struct\Exception\Contracts\RecursiveExceptionInterface;
 
-
 trait RecursiveExceptionTrait
 {
     protected ?RecursiveExceptionInterface $previousException = null;
@@ -65,5 +64,4 @@ trait RecursiveExceptionTrait
     {
         return $this->reasonOrEmitter;
     }
-
 }

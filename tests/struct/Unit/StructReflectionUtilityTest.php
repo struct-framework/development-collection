@@ -93,11 +93,9 @@ class StructReflectionUtilityTest extends TestCase
         self::assertSame(StructUnderlyingDataType::EnumString, $structElement->structDataTypeCollection->structDataTypes[0]->structUnderlyingDataType);
         self::assertSame(Category::class, $structElement->structDataTypeCollection->structDataTypes[0]->className);
 
-
         $structElement  = $signature->structElements[8];
         self::assertSame('type', $structElement->name);
         self::assertCount(1, $structElement->structDataTypeCollection->structDataTypes);
         self::assertSame(true, $structElement->structDataTypeCollection->structDataTypes[0]->isAbstract);
-
     }
 }

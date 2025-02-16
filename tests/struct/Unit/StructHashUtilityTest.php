@@ -6,7 +6,6 @@ namespace Struct\Struct\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Struct\Struct\StructHashUtility;
-use Struct\Struct\StructHashUtilityBak;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\Role;
 use Struct\TestData\Preparer\CompanyPreparer;
@@ -29,5 +28,4 @@ class StructHashUtilityTest extends TestCase
         $roleHash = StructHashUtility::signatureHash(Role::class);
         self::assertSame('4c13de84cb5eb3c5fa2293c8990eb18f566d5e57', $roleHash);
     }
-
 }

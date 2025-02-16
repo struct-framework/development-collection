@@ -37,5 +37,4 @@ class ReflectionUtilityTest extends TestCase
         self::assertFalse(ReflectionUtility::isAbstract(Company::class));
         self::assertTrue(ReflectionUtility::isAbstract(AbstractCountry::class));
     }
-
 }
