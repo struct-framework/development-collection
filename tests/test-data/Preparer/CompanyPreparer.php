@@ -11,6 +11,8 @@ use Struct\Struct\Factory\StructFactory;
 use Struct\TestData\Fixtures\Struct\Address;
 use Struct\TestData\Fixtures\Struct\Company;
 use Struct\TestData\Fixtures\Struct\Contact;
+use Struct\TestData\Fixtures\Struct\Country\Germany;
+use Struct\TestData\Fixtures\Struct\Country\Switzerland;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 use Struct\TestData\Fixtures\Struct\Person;
 use Struct\TestData\Fixtures\Struct\Reference;
@@ -39,6 +41,8 @@ class CompanyPreparer
         $company->category = Category::Technology;
 
         $company->refactorDate = new Date(2024, 05, 03);
+        $company->country01 = new Germany();
+        $company->country02 = new Switzerland();
 
         $company->properties = [
             'turnover' => '20m',

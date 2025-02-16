@@ -12,6 +12,7 @@ use Struct\Attribute\DefaultValue;
 use Struct\Contracts\StructInterface;
 use Struct\DataType\Amount as AmountDataType;
 use Struct\DataType\Date;
+use Struct\TestData\Fixtures\Struct\Country\AbstractCountry;
 use Struct\TestData\Fixtures\Struct\Enum\Category;
 
 class Company implements StructInterface
@@ -26,6 +27,9 @@ class Company implements StructInterface
     public Category $category2 = Category::Financial;
 
     public Date $refactorDate;
+
+    public AbstractCountry $country01;
+    public AbstractCountry $country02;
 
     /**
      * @var array<string, string>
