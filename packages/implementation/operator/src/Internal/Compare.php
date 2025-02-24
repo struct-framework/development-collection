@@ -72,7 +72,7 @@ final class Compare extends AbstractOperator
             ) {
                 $compareResult = $left->compare($right);
                 if ($compareResult === Comparison::notEqual) {
-                    throw new CompareException('At less than the compare function must not return <Comparison::notEqual>', 1707724028);
+                    throw new CompareException(1707724028, 'At less than the compare function must not return <Comparison::notEqual>');
                 }
                 return $compareResult === Comparison::lessThan;
             }
@@ -99,7 +99,7 @@ final class Compare extends AbstractOperator
             ) {
                 $compareResult = $left->compare($right);
                 if ($compareResult === Comparison::notEqual) {
-                    throw new CompareException('At less than the compare function must not return <Comparison::notEqual>', 1707724028);
+                    throw new CompareException(1707724028, 'At less than the compare function must not return <Comparison::notEqual>');
                 }
                 return $compareResult === Comparison::greaterThan;
             }

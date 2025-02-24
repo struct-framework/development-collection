@@ -37,7 +37,7 @@ class StructSerializeTest extends TestCase
         self::assertSame($struct02->turnOverTest->serializeToString(), '125.58 EUR');
     }
 
-    public function testFullSerializeCompany(): void
+    public function testFullSerializeAndDeserializeCompany(): void
     {
         $this->prepare();
         $firstCompany = $this->company;

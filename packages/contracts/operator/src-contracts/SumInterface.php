@@ -7,8 +7,9 @@ namespace Struct\Contracts\Operator;
 interface SumInterface
 {
     /**
-     * @param array<self> $summandList
-     * @return self
+     * @template T of SumInterface
+     * @param array<T> $summandList
+     * @return T
      */
     public static function sum(array $summandList): self;
 }

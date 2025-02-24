@@ -16,7 +16,7 @@ abstract class AbstractOperator
         $leftType = self::readType($left);
         $rightType = self::readType($right);
         if ($leftType !== $rightType) {
-            throw new DataTypeException('The data type of $left <' . $leftType . '> and $right <' . $rightType . '> must be same', 1707723361);
+            throw new DataTypeException(1707723361, 'The data type of $left <' . $leftType . '> and $right <' . $rightType . '> must be same');
         }
     }
 

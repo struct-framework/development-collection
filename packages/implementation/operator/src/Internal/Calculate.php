@@ -33,8 +33,6 @@ final class Calculate extends AbstractOperator
         $object = $object->decrement();
     }
 
-
-
     /**
      * @template T of SumInterface&SignChangeInterface
      * @param T $left
@@ -67,7 +65,7 @@ final class Calculate extends AbstractOperator
     public static function sum(array $summandList): SumInterface
     {
         if (count($summandList) === 0) {
-            throw new DataTypeException('There must be at least one summand', 1696344860);
+            throw new DataTypeException(1696344860, 'There must be at least one summand');
         }
         foreach ($summandList as $value) {
             if($value instanceof SumInterface === false) {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\Exception\Operator;
 
-use RuntimeException;
+use Exception\SystemException;
 
-class CompareException extends RuntimeException
+class CompareException extends SystemException
 {
 }
