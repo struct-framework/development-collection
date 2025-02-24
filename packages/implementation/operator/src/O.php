@@ -26,57 +26,46 @@ final class O
         Calculate::decrement($object);
     }
 
+
     /**
      * @template T of SumInterface
      * @param array<T> $summandList
-     * @return T
+     * @return SumInterface
      */
-
-    /**
-     * @template T of int|float|SumInterface
-     * @param array<T> $summandList
-     * @return T
-     */
-    public static function sum(array $summandList): int|float|SumInterface
+    public static function sum(array $summandList): SumInterface
     {
         return Calculate::sum($summandList);
     }
 
     /**
-     * @template T of int|float|SumInterface
+     * @template T of SumInterface
      * @param T $summand01
      * @param T $summand02
      * @return T
      */
-    public static function add(
-        int|float|SumInterface $summand01,
-        int|float|SumInterface $summand02
-    ): int|float|SumInterface {
+    public static function add(SumInterface $summand01, SumInterface $summand02): SumInterface
+    {
         return Calculate::add($summand01, $summand02);
     }
 
     /**
-     * @template T of int|float|(SumInterface&SignChangeInterface)
+     * @template T of SumInterface&SignChangeInterface
      * @param T $left
      * @param T $right
      * @return T
      */
-    public static function sub(
-        int|float|(SumInterface&SignChangeInterface) $left,
-        int|float|(SumInterface&SignChangeInterface) $right
-    ): int|float|(SumInterface&SignChangeInterface) {
+    public static function sub(SumInterface&SignChangeInterface $left, SumInterface&SignChangeInterface $right): SumInterface&SignChangeInterface
+    {
         return Calculate::sub($left, $right);
     }
 
     /**
-     * @template T of int|float|(SumInterface&SignChangeInterface)
+     * @template T of SignChangeInterface
      * @param T $left
      * @return T
      */
-    public static function singChange(
-        int|float|SignChangeInterface $left,
-    ): int|float|SignChangeInterface {
-        return Calculate::singChange($left);
+    public static function signChange(SignChangeInterface $left): SignChangeInterface {
+        return Calculate::signChange($left);
     }
 
     public static function equals(

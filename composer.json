@@ -13,8 +13,9 @@
         }
     ],
     "require": {
-        "php": "^8.3.0",
-        "exception/unexpected": "1.0.0"
+        "php": "^8.4.0",
+        "exception/unexpected": "1.0.0",
+        "exception/base": "dev-main"
     },
     "replace": {
         "struct/contracts-data-type": "self.version",
@@ -46,24 +47,13 @@
 
             "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
             "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
-            "Struct\\DataType\\": "packages/implementation/data-type/src",
-            "Struct\\DataType\\Private\\": "packages/implementation/data-type/src-private",
-
-            "Struct\\Exception\\": "packages/contracts/struct-exception/src",
-
-            "Struct\\Operator\\": "packages/implementation/operator/src",
-            "Struct\\Operator\\Internal\\": "packages/implementation/operator/src-internal",
-
-            "Struct\\Reflection\\": "packages/implementation/reflection/src",
-            "Struct\\Reflection\\Internal\\": "packages/implementation/reflection/src-internal",
-
-            "Struct\\Struct\\": "packages/implementation/struct/src",
-
-            "Struct\\Exceptions\\": "packages/implementation/exceptions/src",
-            "Struct\\Exceptions\\Internal\\": "packages/implementation/exceptions/src-internal",
+            "Struct\\Exception\\": "packages/contracts/struct/src-exception",
 
             "Struct\\DataProcessing\\": "packages/implementation/data-processing/src",
-            "Struct\\DataProcessing\\Internal\\": "packages/implementation/data-processing/src-internal"
+            "Struct\\DataType\\": "packages/implementation/data-type/src",
+            "Struct\\Operator\\": "packages/implementation/operator/src",
+            "Struct\\Reflection\\": "packages/implementation/reflection/src",
+            "Struct\\Struct\\": "packages/implementation/struct/src"
         }
     },
     "autoload-dev": {

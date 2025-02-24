@@ -11,7 +11,6 @@ class ArrayKeyList
 {
     /**
      * @param string|array<string> $dataTypes
-     * @phpstan-ignore-next-line
      */
     public function __construct(string|array $dataTypes)
     {

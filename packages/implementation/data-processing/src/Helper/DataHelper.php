@@ -70,10 +70,7 @@ final readonly class DataHelper
             }
             return $className;
         }
-        if ($value instanceof \UnitEnum) {
-            $className = $value::class;
-            return $className;
-        }
-        throw new UnexpectedException(1724323899);
+        $className = $value::class;
+        return $className;
     }
 }

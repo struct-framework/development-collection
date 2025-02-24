@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Struct\Exception;
 
-use RuntimeException;
+use Exception\SystemException;
 
-/**
- * @deprecated
- */
-class DeserializeException extends RuntimeException
+class DeserializeException extends SystemException
 {
 }

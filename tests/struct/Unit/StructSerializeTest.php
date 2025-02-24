@@ -33,6 +33,7 @@ class StructSerializeTest extends TestCase
         $struct01 = StructFactory::create(UnionStruct::class, ['turnOverTest' => '695']);
         $struct02 = StructFactory::create(UnionStruct::class, ['turnOverTest' => new Amount('125.58 EUR')]);
         self::assertSame($struct01->turnOverTest, '695');
+        self::assertInstanceOf(Amount::class, $struct02->turnOverTest);
         self::assertSame($struct02->turnOverTest->serializeToString(), '125.58 EUR');
     }
 
