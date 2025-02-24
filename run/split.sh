@@ -7,8 +7,8 @@
 git subtree split -P packages/contracts/operator    -b contracts-operator
 git subtree split -P packages/contracts/struct      -b contracts-struct
 
-git push contracts-operator   contracts-operator:main -f
-git push contracts-struct     contracts-struct:main -f
+git push contracts-operator   contracts-operator:2.0 -f
+git push contracts-struct     contracts-struct:2.0 -f
 
 git branch -D contracts-operator
 git branch -D contracts-struct
@@ -24,10 +24,10 @@ git subtree split -P packages/implementation/operator    -b implementation-opera
 git subtree split -P packages/implementation/reflection  -b implementation-reflection
 git subtree split -P packages/implementation/struct      -b implementation-struct
 
-git push implementation-data-type    implementation-data-type:main -f
-git push implementation-operator     implementation-operator:main -f
-git push implementation-reflection   implementation-reflectionr:main -f
-git push implementation-struct       implementation-struct:main -f
+git push implementation-data-type    implementation-data-type:2.0 -f
+git push implementation-operator     implementation-operator:2.0 -f
+git push implementation-reflection   implementation-reflectionr:2.0 -f
+git push implementation-struct       implementation-struct:2.0 -f
 
 git branch -D implementation-data-type
 git branch -D implementation-operator
