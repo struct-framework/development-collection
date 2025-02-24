@@ -3,7 +3,7 @@
     "license": "MIT",
     "description": "Simple package for operator overloading",
     "require": {
-        "php": "^8.3.0",
+        "php": "^8.4.0",
         "struct/contracts": "^2.0.0",
         "struct/contracts-operator": "^2.0.0"
     },

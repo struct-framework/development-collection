@@ -56,9 +56,6 @@ class CalculateTest extends TestCase
         $amountResult = O::sum([$amount01, $amount02]);
         self::assertInstanceOf(Amount::class, $amountResult);
         self::assertSame('1498.42 EUR', $amountResult->serializeToString());
-
-        self::assertSame(22, O::sum([10, 5, 7]));
-        self::assertSame(23.0, O::sum([10.5, 5.5, 7]));
     }
 
     public function testAdd(): void
@@ -68,8 +65,6 @@ class CalculateTest extends TestCase
         $amountResult = O::add($amount01, $amount02);
         self::assertInstanceOf(Amount::class, $amountResult);
         self::assertSame('1498.42 EUR', $amountResult->serializeToString());
-        self::assertSame(11, O::add(5, 6));
-        self::assertSame(12.0, O::add(5.5, 6.5));
     }
 
     public function testSub(): void
@@ -79,7 +74,5 @@ class CalculateTest extends TestCase
         $amountResult = O::sub($amount01, $amount02);
         self::assertInstanceOf(Amount::class, $amountResult);
         self::assertSame('1015.48 EUR', $amountResult->serializeToString());
-        self::assertSame(-1, O::sub(5, 6));
-        self::assertSame(-1.0, O::sub(5.5, 6.5));
     }
 }

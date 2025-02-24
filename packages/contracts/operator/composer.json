@@ -3,7 +3,7 @@
     "license": "MIT",
     "description": "Simple package for providing contracts for operator overloading",
     "require": {
-        "php": "^8.3.0"
+        "php": "^8.4.0"
     },
     "autoload": {
         "psr-4": {
