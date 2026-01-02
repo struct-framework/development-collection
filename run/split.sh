@@ -7,8 +7,8 @@
 git subtree split -P packages/contracts/operator    -b contracts-operator
 git subtree split -P packages/contracts/struct      -b contracts-struct
 
-git push contracts-operator   contracts-operator:main -f
-git push contracts-struct     contracts-struct:main -f
+git push contracts-operator   contracts-operator:1.6 -f
+git push contracts-struct     contracts-struct:1.6 -f
 
 git branch -D contracts-operator
 git branch -D contracts-struct
