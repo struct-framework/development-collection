@@ -23,9 +23,9 @@ git subtree split -P packages/implementation/data-type   -b implementation-data-
 git subtree split -P packages/implementation/operator    -b implementation-operator
 git subtree split -P packages/implementation/struct      -b implementation-struct
 
-git push implementation-data-type    implementation-data-type:main -f
-git push implementation-operator     implementation-operator:main -f
-git push implementation-struct       implementation-struct:main -f
+git push implementation-data-type    implementation-data-type:1.6 -f
+git push implementation-operator     implementation-operator:1.6 -f
+git push implementation-struct       implementation-struct:1.6 -f
 
 git branch -D implementation-operator
 git branch -D implementation-struct
