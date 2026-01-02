@@ -19,6 +19,7 @@ use Struct\TestData\Fixtures\Struct\Reference;
 use Struct\TestData\Fixtures\Struct\Role;
 use Struct\TestData\Fixtures\Struct\Tag;
 use Struct\TestData\Fixtures\Struct\Technology;
+use Struct\TestData\Fixtures\Struct\TestDataType;
 
 class CompanyPreparer
 {
@@ -135,6 +136,9 @@ class CompanyPreparer
         ];
 
         $this->buildDataType($company->dataType);
+
+        $company->testDataType = new TestDataType('Test Data Type');
+
         return $company;
     }
 

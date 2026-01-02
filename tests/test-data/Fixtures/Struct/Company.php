@@ -79,4 +79,6 @@ class Company implements StructInterface
      */
     #[ArrayList('mixed')]
     public array $arrayListMixed = [];
+
+    public TestDataType $testDataType;
 }

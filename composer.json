@@ -14,7 +14,8 @@
     ],
     "require": {
         "php": "^8.2.0",
-        "exception/unexpected": "1.0.0"
+        "exception/unexpected": "1.0.0",
+        "data-type/contracts": "^1.0.0"
     },
     "replace": {
         "struct/contracts-data-type": "self.version",

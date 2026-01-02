@@ -104,5 +104,6 @@
         {
             "PHP": "is cool"
         }
-    ]
+    ],
+    "testDataType": "Test Data Type"
 }
