@@ -48,11 +48,10 @@ class FormatHelper
         try {
             $dateTime = new DateTimeImmutable($rawDataValue);
         } catch (DateMalformedStringException $e) {
-            throw new DeserializeException(1740334702, 'Invalid value <'.$rawDataValue.'> for date time');
+            throw new DeserializeException(1740334702, 'Invalid value <' . $rawDataValue . '> for date time');
         }
         return $dateTime;
     }
-
 
     public static function buildDataType(StructValueType $structValueType): DataTypeInterface
     {
@@ -63,7 +62,6 @@ class FormatHelper
         return DataTypeFactory::create($className, $rawDataValue);
     }
 
-
     public static function buildEnumInt(StructValueType $structValueType): \BackedEnum
     {
         /** @var class-string<BackedEnum> $className */
@@ -71,8 +69,8 @@ class FormatHelper
         /** @var int $rawDataValue */
         $rawDataValue = $structValueType->rawDataValue;
         $enum = $className::tryFrom($rawDataValue);
-        if($enum === null) {
-            throw new DeserializeException(1740334619, 'Invalid value <'.$rawDataValue.'> for enum <'.$className.'>');
+        if ($enum === null) {
+            throw new DeserializeException(1740334619, 'Invalid value <' . $rawDataValue . '> for enum <' . $className . '>');
         }
         return $enum;
     }
@@ -84,24 +82,23 @@ class FormatHelper
         /** @var string $rawDataValue */
         $rawDataValue = $structValueType->rawDataValue;
         $enum = $className::tryFrom($rawDataValue);
-        if($enum === null) {
-            throw new DeserializeException(1740334609, 'Invalid value <'.$rawDataValue.'> for enum <'.$className.'>');
+        if ($enum === null) {
+            throw new DeserializeException(1740334609, 'Invalid value <' . $rawDataValue . '> for enum <' . $className . '>');
         }
         return $enum;
     }
-
 
     public static function buildEnum(StructValueType $structValueType): UnitEnum
     {
         $className = $structValueType->className;
         $rawDataValue = $structValueType->rawDataValue;
-        if($className === null) {
+        if ($className === null) {
             throw new UnexpectedException(1740334919);
         }
-        if(is_a($className, UnitEnum::class, true) === false) {
+        if (is_a($className, UnitEnum::class, true) === false) {
             throw new UnexpectedException(1740334806);
         }
-        if(is_string($rawDataValue) === false) {
+        if (is_string($rawDataValue) === false) {
             throw new UnexpectedException(1740334850);
         }
         foreach ($className::cases() as $case) {
@@ -109,7 +106,7 @@ class FormatHelper
                 return $case;
             }
         }
-        throw new DeserializeException(1739092984, 'Invalid value < ' . $rawDataValue . '> for enum < '. $className . '>');
+        throw new DeserializeException(1739092984, 'Invalid value < ' . $rawDataValue . '> for enum < ' . $className . '>');
     }
 
     public static function buildStructDataType(StructValueType $structValueType): mixed

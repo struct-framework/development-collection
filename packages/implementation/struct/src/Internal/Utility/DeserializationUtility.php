@@ -198,7 +198,7 @@ class DeserializationUtility
 
     protected static function _findStructType(mixed $rawDataValue): ?StructValueType
     {
-        if(is_object($rawDataValue) === false) {
+        if (is_object($rawDataValue) === false) {
             return null;
         }
 

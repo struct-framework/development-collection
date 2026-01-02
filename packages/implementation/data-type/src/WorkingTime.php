@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Struct\DataType;
 
 use Struct\Contracts\Operator\SignChangeInterface;
-use Struct\Exception\DeserializeException;
 use Struct\Exception\InvalidStructException;
 use Struct\Exception\InvalidValueException;
-use Struct\Exception\Operator\DataTypeException;
 
 final readonly class WorkingTime extends AbstractDataTypeSum implements SignChangeInterface
 {

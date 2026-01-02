@@ -68,7 +68,7 @@ class StructFactory
     protected static function _assignValues(StructInterface &$struct, mixed $values): void
     {
         foreach ($values as $propertyName => $value) {
-            if($value === null) {
+            if ($value === null) {
                 continue;
             }
             self::_assignValue($struct, $propertyName, $value);
@@ -154,7 +154,7 @@ class StructFactory
             $processedValue->structUnderlyingDataType === StructUnderlyingDataType::Array ||
             $processedValue->structUnderlyingDataType === StructUnderlyingDataType::ArrayList
         ) {
-            if($structElementArray === null) {
+            if ($structElementArray === null) {
                 throw new UnexpectedException(1740338246);
             }
             $array = self::_processArray($processedValue, $structElementArray);
@@ -186,16 +186,16 @@ class StructFactory
             return null;
         }
         $processedArray = [];
-        if(is_array($structValueType->rawDataValue) === false) {
+        if (is_array($structValueType->rawDataValue) === false) {
             throw new UnexpectedException(1740337979);
         }
         foreach ($structValueType->rawDataValue as $key => $value) {
-            if($structElementArray->structDataTypeCollection === null) {
+            if ($structElementArray->structDataTypeCollection === null) {
                 throw new UnexpectedException(1740337981);
             }
             $processedValue =  DeserializationUtility::processValue($value, $structElementArray->structDataTypeCollection);
             $postProcessedValue = self::_postProcessValue($processedValue, null);
-            if($postProcessedValue === null) {
+            if ($postProcessedValue === null) {
                 throw new UnexpectedException(1740337983);
             }
             if ($structValueType->structUnderlyingDataType === StructUnderlyingDataType::ArrayList) {

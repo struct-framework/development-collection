@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Struct\Struct\Internal\Validator;
 
+use Struct\Exception\InvalidStructException;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\Visibility;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Property;
-use Struct\Exception\InvalidStructException;
 
 /**
  * @internal

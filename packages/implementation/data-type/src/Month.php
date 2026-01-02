@@ -6,7 +6,6 @@ namespace Struct\DataType;
 
 use function count;
 use function explode;
-use InvalidArgumentException;
 use function strlen;
 use Struct\Exception\DeserializeException;
 

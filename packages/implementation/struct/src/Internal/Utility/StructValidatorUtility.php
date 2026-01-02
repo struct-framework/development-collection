@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Struct\Struct\Internal\Utility;
 
 use Struct\Contracts\StructInterface;
+use Struct\Exception\InvalidStructException;
 use Struct\Reflection\Internal\Struct\ObjectSignature;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\Visibility;
 use Struct\Reflection\ReflectionUtility;
-use Struct\Exception\InvalidStructException;
 
 /**
  * @internal
@@ -25,11 +25,10 @@ class StructValidatorUtility
         self::checkProperties($objectSignature);
     }
 
-
     protected static function checkProperties(ObjectSignature $objectSignature): void
     {
         foreach ($objectSignature->properties as $property) {
-            if($property->visibility !== Visibility::public) {
+            if ($property->visibility !== Visibility::public) {
                 throw new InvalidStructException(1740333667, 'The struct properties must not be public');
             }
         }

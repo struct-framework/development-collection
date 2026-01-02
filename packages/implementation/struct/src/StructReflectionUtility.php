@@ -12,13 +12,13 @@ use Struct\Attribute\ArrayPassThrough;
 use Struct\Attribute\DefaultValue;
 use Struct\Contracts\DataTypeInterface;
 use Struct\Contracts\StructInterface;
+use Struct\Exception\InvalidStructException;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\IntersectionType;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Parts\NamedType;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Property;
 use Struct\Reflection\Internal\Struct\ObjectSignature\Value;
 use Struct\Reflection\MemoryCache;
 use Struct\Reflection\ReflectionUtility;
-use Struct\Exception\InvalidStructException;
 use Struct\Struct\Internal\Helper\FormatHelper;
 use Struct\Struct\Internal\Helper\StructDataTypeHelper;
 use Struct\Struct\Internal\Struct\StructSignature;
@@ -115,7 +115,7 @@ class StructReflectionUtility
             return null;
         }
         $structValueType = DeserializationUtility::processValue($defaultValue, $structDataTypeCollection);
-        if($structValueType === null) {
+        if ($structValueType === null) {
             throw new InvalidStructException(1739726195, 'The default value can not be process');
         }
         $value = FormatHelper::buildValue($structValueType);
@@ -185,7 +185,7 @@ class StructReflectionUtility
     {
         $dataTypes = [];
         foreach ($namedTypes as $type) {
-            if($type instanceof IntersectionType) {
+            if ($type instanceof IntersectionType) {
                 throw new InvalidStructException(1739726010, 'IntersectionType are not supported in structs');
             }
             $dataTypes[] = $type->dataType;
@@ -252,7 +252,7 @@ class StructReflectionUtility
             $className = $dataType;
         }
         if ($underlyingDataType === StructUnderlyingDataType::Struct) {
-            if($className === null) {
+            if ($className === null) {
                 throw new UnexpectedException();
             }
             $isAbstract = ReflectionUtility::isAbstract($className);

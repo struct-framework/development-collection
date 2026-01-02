@@ -26,7 +26,6 @@ final class O
         Calculate::decrement($object);
     }
 
-
     /**
      * @template T of SumInterface
      * @param array<T> $summandList
@@ -64,7 +63,8 @@ final class O
      * @param T $left
      * @return T
      */
-    public static function signChange(SignChangeInterface $left): SignChangeInterface {
+    public static function signChange(SignChangeInterface $left): SignChangeInterface
+    {
         return Calculate::signChange($left);
     }
 

@@ -94,7 +94,7 @@ final readonly class Date extends AbstractDataTypeInteger
     protected function _deserializeFromInt(int $serializedData): array
     {
         if ($serializedData < 0 || $serializedData > 3287181) {
-            throw new DeserializeException(1700914014,'The value of serialized data string must be between 0 and 3287181');
+            throw new DeserializeException(1700914014, 'The value of serialized data string must be between 0 and 3287181');
         }
         $days = $serializedData;
         $remainingDays = 0;

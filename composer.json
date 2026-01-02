@@ -48,8 +48,8 @@
             "Struct\\Attribute\\": "packages/contracts/struct/src-attribute",
             "Struct\\Contracts\\": "packages/contracts/struct/src-contracts",
             "Struct\\Exception\\": "packages/contracts/struct/src-exception",
+            "Struct\\DataType\\Contracts\\": "packages/contracts/data-type/src",
 
-            "Struct\\DataProcessing\\": "packages/implementation/data-processing/src",
             "Struct\\DataType\\": "packages/implementation/data-type/src",
             "Struct\\Operator\\": "packages/implementation/operator/src",
             "Struct\\Reflection\\": "packages/implementation/reflection/src",
@@ -63,8 +63,7 @@
             "Struct\\Operator\\Tests\\": "tests/operator",
             "Struct\\Struct\\Tests\\": "tests/struct",
             "Struct\\DataType\\Tests\\": "tests/data-type",
-            "Struct\\Reflection\\Tests\\": "tests/reflection",
-            "Struct\\DataProcessing\\Tests\\": "tests/data-processing"
+            "Struct\\Reflection\\Tests\\": "tests/reflection"
         }
     },
     "bin": [

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Struct\Struct\Internal\Utility;
 
-use Exception\Unexpected\UnexpectedException;
 use function array_is_list;
 use DateTimeInterface;
+use Exception\Unexpected\UnexpectedException;
 
 use Struct\Contracts\DataTypeInterface;
 use Struct\Contracts\StructInterface;
@@ -62,7 +62,6 @@ class SerializeUtility
             StructUnderlyingDataType::Struct => static::formatStruct($structDataTypeCollection, $value), // @phpstan-ignore argument.type
         };
         return $formattedValue;
-
     }
 
     /**
@@ -72,10 +71,10 @@ class SerializeUtility
     {
         $serializeStruct = self::serializeStruct($value);
         $formattedValue = self::formatUnclear($structDataTypeCollection, $serializeStruct, $value::class);
-        if(is_int($formattedValue) === true) {
+        if (is_int($formattedValue) === true) {
             throw new UnexpectedException(1739728561);
         }
-        if(is_string($formattedValue) === true) {
+        if (is_string($formattedValue) === true) {
             throw new UnexpectedException(1739728564);
         }
         return $formattedValue;
@@ -93,7 +92,7 @@ class SerializeUtility
         $output = [];
         $isList = array_is_list($value);
         foreach ($value as $key => $item) {
-            if($structElementArray->structDataTypeCollection === null) {
+            if ($structElementArray->structDataTypeCollection === null) {
                 throw new UnexpectedException(1739727396);
             }
             $formattedValue = self::formatValue($structElementArray->structDataTypeCollection, $item);
@@ -114,7 +113,7 @@ class SerializeUtility
         $formattedValue = FormatHelper::formatDataType($value);
         /** @var string|array{structType:class-string, value:mixed} $formattedValue */
         $formattedValue = self::formatUnclear($structDataTypeCollection, $formattedValue, $value::class);
-        if(is_int($formattedValue) === true) {
+        if (is_int($formattedValue) === true) {
             throw new UnexpectedException(1739727515);
         }
         return $formattedValue;
@@ -139,12 +138,11 @@ class SerializeUtility
         $formattedValue = FormatHelper::formatDateTime($value);
         /** @var string|array{structType:class-string, value:mixed} $formattedValue */
         $formattedValue = self::formatUnclear($structDataTypeCollection, $formattedValue, DateTimeInterface::class);
-        if(is_int($formattedValue) === true) {
+        if (is_int($formattedValue) === true) {
             throw new UnexpectedException(1739727578);
         }
         return $formattedValue;
     }
-
 
     /**
      * @param string|int|array<mixed> $value
@@ -163,7 +161,6 @@ class SerializeUtility
         $formattedValue = self::formatUnclearType($structDataTypeCollection, $value, $className, 'unclearArray');
         return $formattedValue;
     }
-
 
     /**
      * @param string|int|array<mixed> $value

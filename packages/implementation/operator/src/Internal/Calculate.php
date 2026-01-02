@@ -39,11 +39,11 @@ final class Calculate extends AbstractOperator
      * @param T $right
      * @return T
      */
-    public static function sub(SumInterface&SignChangeInterface $left, SumInterface&SignChangeInterface $right): SumInterface&SignChangeInterface {
+    public static function sub(SumInterface&SignChangeInterface $left, SumInterface&SignChangeInterface $right): SumInterface&SignChangeInterface
+    {
         $singChangeRight = self::signChange($right);
         return self::add($left, $singChangeRight);
     }
-
 
     /**
      * @template T of SumInterface
@@ -68,7 +68,7 @@ final class Calculate extends AbstractOperator
             throw new DataTypeException(1696344860, 'There must be at least one summand');
         }
         foreach ($summandList as $value) {
-            if($value instanceof SumInterface === false) {
+            if ($value instanceof SumInterface === false) {
                 throw new UnexpectedException(1740380661);
             }
         }
@@ -87,6 +87,4 @@ final class Calculate extends AbstractOperator
         $result = $left::signChange($left);
         return $result;
     }
-
-
 }

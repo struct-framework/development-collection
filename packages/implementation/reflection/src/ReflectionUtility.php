@@ -96,7 +96,6 @@ class ReflectionUtility
         return $signature;
     }
 
-
     /**
      * @param ReflectionClass<object> $reflection
      * @return list<Parameter>
@@ -299,7 +298,6 @@ class ReflectionUtility
         return $propertyTypes;
     }
 
-
     protected static function buildFromIntersectionType(ReflectionIntersectionType $type): IntersectionType
     {
         $intersectionTypes = [];
@@ -333,7 +331,6 @@ class ReflectionUtility
         }
         return $propertyTypes;
     }
-
 
     protected static function buildFromReflectionNamed(ReflectionNamedType $type): NamedType
     {
